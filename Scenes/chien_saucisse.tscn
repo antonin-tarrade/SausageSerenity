@@ -102,6 +102,7 @@ texture = ExtResource("1_be7xu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_nxf8d")
+debug_color = Color(0.364706, 0.576471, 0.65098, 0.384314)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(192, -96)
@@ -121,10 +122,3 @@ parameters/Idle/blend_position = 0
 parameters/Shrinking/blend_position = 0
 parameters/Wafwaf/blend_position = 0
 parameters/Walking/blend_position = 0
-
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
-offset_left = -16.0
-offset_top = -20.0
-offset_right = 16.0
-offset_bottom = 4.0

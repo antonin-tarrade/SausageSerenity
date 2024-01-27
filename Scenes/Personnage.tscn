@@ -1,13 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://cfa1c1qjimgtp"]
+[gd_scene load_steps=21 format=3 uid="uid://cfa1c1qjimgtp"]
 
 [ext_resource type="Shader" uid="uid://d2l4kvn6jf350" path="res://Shaders/couleur.tres" id="1_1ea4k"]
 [ext_resource type="Texture2D" uid="uid://b04ah1lbkvhin" path="res://icon.svg" id="2_s52m2"]
 [ext_resource type="Script" path="res://Scripts/Personnage.gd" id="3_veaqq"]
 [ext_resource type="Texture2D" uid="uid://jp148nn8fmov" path="res://Dessins/bulle.png" id="4_ypdur"]
+[ext_resource type="PackedScene" uid="uid://dri423lovjsxw" path="res://Scenes/Mission.tscn" id="5_u25ct"]
 [ext_resource type="Script" path="res://Scripts/Mission_puzzle.gd" id="7_1obqg"]
 [ext_resource type="Script" path="res://Scripts/Mission_baudruche.gd" id="7_nsw7q"]
-[ext_resource type="PackedScene" uid="uid://dri423lovjsxw" path="res://Scenes/Objets.tscn" id="7_rs7r6"]
 [ext_resource type="Script" path="res://Scenes/PersonnageBody.gd" id="8_wstvv"]
+[ext_resource type="Script" path="res://Scenes/Mission_vase.gd" id="8_xsxn6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nj0fj"]
 resource_local_to_scene = true
@@ -68,11 +69,14 @@ texture = ExtResource("4_ypdur")
 
 [node name="Missions" type="Node2D" parent="Requete"]
 
-[node name="MissionBaudruche" parent="Requete/Missions" instance=ExtResource("7_rs7r6")]
+[node name="MissionBaudruche" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
 script = ExtResource("7_nsw7q")
 
-[node name="MissionPuzzle2" parent="Requete/Missions" instance=ExtResource("7_rs7r6")]
+[node name="MissionPuzzle" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
 script = ExtResource("7_1obqg")
+
+[node name="MissionVase" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
+script = ExtResource("8_xsxn6")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../..")

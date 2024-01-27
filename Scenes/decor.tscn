@@ -290,6 +290,12 @@ position = Vector2(40.5, -9)
 shape = SubResource("RectangleShape2D_c4f37")
 one_way_collision = true
 
+[node name="Contour" type="StaticBody2D" parent="."]
+position = Vector2(0, 1100)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Contour"]
+polygon = PackedVector2Array(0, 0, -5, 0, -5, -1100, -5, -1106, 2500, -1105, 2505, -1105, 2505, 0, 2500, 0, 2500, -1100, 0, -1100)
+
 [node name="Maison4" type="StaticBody2D" parent="."]
 position = Vector2(2144, 848)
 

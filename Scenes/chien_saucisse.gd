@@ -11,7 +11,7 @@ extends CharacterBody2D
 @onready var a_tree: AnimationTree = $AnimationTree
 @onready var c_shape: CollisionShape2D = $CollisionShape2D
 @onready var zonePickUp : Area2D = $ZoneDePick
-@onready var objetBouche : Sprite2D = $ObjetBouche
+@onready var objetBouche : Sprite2D = $PivotObjet/ObjetBouche
 
 const normal_size: Vector2 = Vector2(32, 24)
 const normal_position: Vector2 = Vector2(0, -8)
@@ -24,6 +24,7 @@ var iteminfo : Item = null
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var turning_left: bool = false
+var old_turning_left: bool = false
 var extended: bool = false
 enum extending_direction {LEFT, RIGHT, UP, DOWN}
 var ed: int = -1
@@ -67,8 +68,10 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	sprite.flip_h = turning_left
-	
+	# Update the character's rotation to match the direction of movement.
+	if turning_left != old_turning_left:
+		rotate_dog()
+	old_turning_left = turning_left
 	move_and_slide()
 
 
@@ -180,8 +183,19 @@ func Drop() :
 	if iteminfo != null :
 		var item = objetGenerique.instantiate()
 		item.iteminfo = iteminfo
-		item.global_position = global_position
+		item.global_position = objetBouche.global_position
 		get_parent().add_child(item)
 		iteminfo = null
 		objetBouche.texture = null
 		print("drop")
+
+func rotate_dog():
+	# Rotate colliders
+	zoneFrappe.scale.x *= -1
+	zoneBarking.scale.x *= -1
+	zonePickUp.scale.x *= -1
+	objetBouche.get_parent().scale.x *= -1
+	# Rotate sprite
+	sprite.flip_h = turning_left
+
+	

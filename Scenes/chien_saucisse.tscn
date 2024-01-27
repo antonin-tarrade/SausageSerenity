@@ -137,7 +137,6 @@ wait_time = 3.0
 one_shot = true
 
 [node name="ZoneDeFrappe" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -163,8 +162,10 @@ collision_mask = 2
 position = Vector2(12, -7)
 shape = SubResource("CircleShape2D_twdvm")
 
-[node name="ObjetBouche" type="Sprite2D" parent="."]
-position = Vector2(14, -5)
+[node name="PivotObjet" type="Node2D" parent="."]
+
+[node name="ObjetBouche" type="Sprite2D" parent="PivotObjet"]
+position = Vector2(11, -7)
 scale = Vector2(0.09375, 0.09375)
 
 [connection signal="timeout" from="Chargement" to="." method="frapperFin"]

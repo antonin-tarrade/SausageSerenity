@@ -3,7 +3,10 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @export var EXTENSION_SPEED = 1 # px
 @export var SHRINKING_SPEED = 2 # px
-@export var timer : Timer 
+@onready var timer : Timer = $Chargement
+@onready var zoneFrappe : Area2D = $ZoneDeFrappe
+@onready var PosTete : Marker2D = $PositionFrappe
+@onready var zoneBarking : Area2D = $Barking
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var a_tree: AnimationTree = $AnimationTree
 @onready var c_shape: CollisionShape2D = $CollisionShape2D
@@ -37,6 +40,9 @@ func _physics_process(delta):
 		timer.stop()
 		frapper(f)
 
+	elif Input.is_action_pressed("charger") :
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
 	else :
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
@@ -48,8 +54,9 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	sprite.flip_h = turning_left
-
+	
 	move_and_slide()
+
 
 # get the direction in which the dog extends
 func get_extending_direction(horizontal: float, vertical: float) -> int:
@@ -63,7 +70,9 @@ func get_extending_direction(horizontal: float, vertical: float) -> int:
 		return extending_direction.DOWN
 	else:
 		return 0
-		
+
+
+
 # extends the dog in the right direction
 func extension(ed: int) -> void:
 	match ed:
@@ -82,12 +91,20 @@ func extension(ed: int) -> void:
 func _input(event):
 	if event.is_action_pressed("charger"):
 		timer.start()
-		
-		
-		
+	elif event.is_action_pressed("bark"):
+		for bodies : PhysicsBody2D in zoneBarking.get_overlapping_bodies():
+			if bodies is RigidBody2D :
+				print("wesh")
+				bodies.apply_central_impulse(Vector2(3.0, -30.0)*40)
+
+
 func frapper(f : float):
-	print(timer.wait_time - f)
-	
-	
+	var puissance: float = 1/ (1 + exp((1-3*(timer.wait_time - f))))
+	for objet : PhysicsBody2D in zoneFrappe.get_overlapping_bodies() :
+		if objet is RigidBody2D :
+			var vector : Vector2 = (objet.global_position - PosTete.global_position).normalized()
+			objet.apply_central_impulse((vector + Vector2(0.0, -puissance).normalized()).normalized() * puissance * 1000)
+
+
 func frapperFin():
-	print(5.0)
+	frapper(0.0)

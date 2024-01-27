@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cimdeld5rdie4"]
+[gd_scene load_steps=28 format=3 uid="uid://cimdeld5rdie4"]
 
 [ext_resource type="Texture2D" uid="uid://ba48p76o6oywq" path="res://Sprites/chien_saucisse.png" id="1_be7xu"]
 [ext_resource type="Script" path="res://Scenes/chien_saucisse.gd" id="1_f1xf0"]
@@ -90,9 +90,14 @@ states/Walking/position = Vector2(526.5, 99.875)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_635yr"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_ljneg"), "Walking", "Extending", SubResource("AnimationNodeStateMachineTransition_6pk8k"), "Idle", "Extending", SubResource("AnimationNodeStateMachineTransition_akoah"), "Extending", "Shrinking", SubResource("AnimationNodeStateMachineTransition_2nihh"), "Shrinking", "Idle", SubResource("AnimationNodeStateMachineTransition_tca82"), "Idle", "Charging", SubResource("AnimationNodeStateMachineTransition_x71nl"), "Walking", "Charging", SubResource("AnimationNodeStateMachineTransition_upnri"), "Charging", "Hitting", SubResource("AnimationNodeStateMachineTransition_q000d"), "Hitting", "Idle", SubResource("AnimationNodeStateMachineTransition_83b2m"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_ny60f"), "Idle", "Wafwaf", SubResource("AnimationNodeStateMachineTransition_nlxo3"), "Walking", "Wafwaf", SubResource("AnimationNodeStateMachineTransition_la0ap"), "Wafwaf", "Idle", SubResource("AnimationNodeStateMachineTransition_e1umo")]
 graph_offset = Vector2(60, -71)
 
-[node name="ChienSaucisse" type="CharacterBody2D" node_paths=PackedStringArray("timer")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlba5"]
+size = Vector2(17.75, 29)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n7i5e"]
+radius = 115.0
+
+[node name="ChienSaucisse" type="CharacterBody2D"]
 script = ExtResource("1_f1xf0")
-timer = NodePath("Chargement")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
@@ -131,7 +136,26 @@ offset_right = 16.0
 offset_bottom = 4.0
 
 [node name="Chargement" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 one_shot = true
+
+[node name="ZoneDeFrappe" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionFrappe" type="CollisionShape2D" parent="ZoneDeFrappe"]
+position = Vector2(11, -7.5)
+shape = SubResource("RectangleShape2D_vlba5")
+
+[node name="PositionFrappe" type="Marker2D" parent="."]
+position = Vector2(11, -7)
+
+[node name="Barking" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionBark" type="CollisionShape2D" parent="Barking"]
+position = Vector2(11, -7)
+shape = SubResource("CircleShape2D_n7i5e")
 
 [connection signal="timeout" from="Chargement" to="." method="frapperFin"]

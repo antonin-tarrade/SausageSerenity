@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgpohngjxctga"]
+
+[ext_resource type="PackedScene" uid="uid://c7xt448io2wg0" path="res://Scenes/chien_saucisse.tscn" id="1_hubqe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0xws"]
+size = Vector2(1152, 40)
+
+[node name="main_test_chien" type="Node2D"]
+
+[node name="ChienSaucisse" parent="." instance=ExtResource("1_hubqe")]
+position = Vector2(128, 592)
+scale = Vector2(2, 2)
+SPEED = 300.0
+EXTENSION_SPEED = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(576, 632)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = -576.0
+offset_top = -24.0
+offset_right = 576.0
+offset_bottom = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_k0xws")

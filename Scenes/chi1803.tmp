@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7xt448io2wg0"]
+
+[ext_resource type="Texture2D" uid="uid://ba48p76o6oywq" path="res://Sprites/chien_saucisse.png" id="1_be7xu"]
+[ext_resource type="Script" path="res://Scenes/chien_saucisse.gd" id="1_f1xf0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxf8d"]
+size = Vector2(32, 24)
+
+[node name="ChienSaucisse" type="CharacterBody2D"]
+script = ExtResource("1_f1xf0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(0, -8)
+texture = ExtResource("1_be7xu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_nxf8d")

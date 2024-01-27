@@ -1,95 +1,6 @@
-[gd_scene load_steps=42 format=3 uid="uid://cimdeld5rdie4"]
+[gd_scene load_steps=17 format=3 uid="uid://claqlefi4omgs"]
 
-[ext_resource type="Texture2D" uid="uid://ba48p76o6oywq" path="res://Sprites/chien_saucisse.png" id="1_be7xu"]
-[ext_resource type="Script" path="res://Scenes/chien_saucisse.gd" id="1_f1xf0"]
-[ext_resource type="Texture2D" uid="uid://6rmtm6d6xsw" path="res://Sprites/chien saucisse.png" id="3_lnj7f"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxf8d"]
-size = Vector2(32, 24)
-
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_x3x0n"]
-
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_pueok"]
-
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_uxhsu"]
-
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_xulx6"]
-
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_aoi11"]
-
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_2hua0"]
-
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_q8oyx"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_635yr"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ljneg"]
-advance_mode = 2
-advance_condition = &"walking"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6pk8k"]
-advance_mode = 2
-advance_condition = &"extending"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_akoah"]
-advance_mode = 2
-advance_condition = &"extending"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2nihh"]
-advance_mode = 2
-advance_condition = &"shrinking"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tca82"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x71nl"]
-advance_mode = 2
-advance_condition = &"charging"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_upnri"]
-advance_mode = 2
-advance_condition = &"charging"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q000d"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_83b2m"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ny60f"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nlxo3"]
-advance_mode = 2
-advance_condition = &"wafwaf"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_la0ap"]
-advance_mode = 2
-advance_condition = &"wafwaf"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e1umo"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_nb0e1"]
-states/Charging/node = SubResource("AnimationNodeBlendSpace1D_x3x0n")
-states/Charging/position = Vector2(525.359, -17)
-states/Extending/node = SubResource("AnimationNodeBlendSpace1D_pueok")
-states/Extending/position = Vector2(525.75, 231.5)
-states/Hitting/node = SubResource("AnimationNodeBlendSpace1D_uxhsu")
-states/Hitting/position = Vector2(342.5, -17.5)
-states/Idle/node = SubResource("AnimationNodeBlendSpace1D_xulx6")
-states/Idle/position = Vector2(342.75, 101)
-states/Shrinking/node = SubResource("AnimationNodeBlendSpace1D_aoi11")
-states/Shrinking/position = Vector2(346, 229.75)
-states/Wafwaf/node = SubResource("AnimationNodeBlendSpace1D_2hua0")
-states/Wafwaf/position = Vector2(696.5, -17.25)
-states/Walking/node = SubResource("AnimationNodeBlendSpace1D_q8oyx")
-states/Walking/position = Vector2(526.5, 99.875)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_635yr"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_ljneg"), "Walking", "Extending", SubResource("AnimationNodeStateMachineTransition_6pk8k"), "Idle", "Extending", SubResource("AnimationNodeStateMachineTransition_akoah"), "Extending", "Shrinking", SubResource("AnimationNodeStateMachineTransition_2nihh"), "Shrinking", "Idle", SubResource("AnimationNodeStateMachineTransition_tca82"), "Idle", "Charging", SubResource("AnimationNodeStateMachineTransition_x71nl"), "Walking", "Charging", SubResource("AnimationNodeStateMachineTransition_upnri"), "Charging", "Hitting", SubResource("AnimationNodeStateMachineTransition_q000d"), "Hitting", "Idle", SubResource("AnimationNodeStateMachineTransition_83b2m"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_ny60f"), "Idle", "Wafwaf", SubResource("AnimationNodeStateMachineTransition_nlxo3"), "Walking", "Wafwaf", SubResource("AnimationNodeStateMachineTransition_la0ap"), "Wafwaf", "Idle", SubResource("AnimationNodeStateMachineTransition_e1umo")]
-graph_offset = Vector2(60, -71)
+[ext_resource type="Texture2D" uid="uid://6rmtm6d6xsw" path="res://Sprites/chien saucisse.png" id="1_6s85x"]
 
 [sub_resource type="Animation" id="Animation_ir2np"]
 length = 0.05
@@ -104,7 +15,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_lnj7f")]
+"values": [ExtResource("1_6s85x")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -168,7 +79,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_lnj7f")]
+"values": [ExtResource("1_6s85x")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -232,7 +143,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_lnj7f")]
+"values": [ExtResource("1_6s85x")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -296,7 +207,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_lnj7f")]
+"values": [ExtResource("1_6s85x")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -360,7 +271,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_lnj7f")]
+"values": [ExtResource("1_6s85x")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -424,7 +335,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_lnj7f")]
+"values": [ExtResource("1_6s85x")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -488,7 +399,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_lnj7f")]
+"values": [ExtResource("1_6s85x")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -552,7 +463,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_lnj7f")]
+"values": [ExtResource("1_6s85x")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -616,7 +527,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_lnj7f")]
+"values": [ExtResource("1_6s85x")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -680,7 +591,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_lnj7f")]
+"values": [ExtResource("1_6s85x")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -744,7 +655,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_lnj7f")]
+"values": [ExtResource("1_6s85x")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -808,7 +719,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_lnj7f")]
+"values": [ExtResource("1_6s85x")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -872,7 +783,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_lnj7f")]
+"values": [ExtResource("1_6s85x")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -936,7 +847,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_lnj7f")]
+"values": [ExtResource("1_6s85x")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1005,52 +916,14 @@ _data = {
 "walk_front": SubResource("Animation_d30la")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlba5"]
-size = Vector2(17.75, 29)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_n7i5e"]
-radius = 115.0
-
-[node name="ChienSaucisse" type="CharacterBody2D"]
-script = ExtResource("1_f1xf0")
+[node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 3
-texture_repeat = 2
-position = Vector2(0, -8)
-texture = ExtResource("1_be7xu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_nxf8d")
-debug_color = Color(0.364706, 0.576471, 0.65098, 0.384314)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(192, -96)
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_nb0e1")
-advance_expression_base_node = NodePath("")
-parameters/conditions/charging = false
-parameters/conditions/extending = false
-parameters/conditions/idle = false
-parameters/conditions/shrinking = false
-parameters/conditions/wafwaf = false
-parameters/conditions/walking = false
-parameters/Charging/blend_position = 0
-parameters/Extending/blend_position = 0
-parameters/Hitting/blend_position = 0
-parameters/Idle/blend_position = 0
-parameters/Shrinking/blend_position = 0
-parameters/Wafwaf/blend_position = 0
-parameters/Walking/blend_position = 0
-
-[node name="Sprite2D" type="Sprite2D" parent="AnimationTree"]
 texture_filter = 1
-texture = ExtResource("3_lnj7f")
+texture = ExtResource("1_6s85x")
 hframes = 16
 vframes = 8
-frame = 48
+frame = 8
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -1064,32 +937,7 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://chien saucisse.aseprite"
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree/Sprite2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_c2a5j")
 }
-
-[node name="Chargement" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-
-[node name="ZoneDeFrappe" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionFrappe" type="CollisionShape2D" parent="ZoneDeFrappe"]
-position = Vector2(11, -7.5)
-shape = SubResource("RectangleShape2D_vlba5")
-
-[node name="PositionFrappe" type="Marker2D" parent="."]
-position = Vector2(11, -7)
-
-[node name="Barking" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 6
-
-[node name="CollisionBark" type="CollisionShape2D" parent="Barking"]
-position = Vector2(11, -7)
-shape = SubResource("CircleShape2D_n7i5e")
-
-[connection signal="timeout" from="Chargement" to="." method="frapperFin"]

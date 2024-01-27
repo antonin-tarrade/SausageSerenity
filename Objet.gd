@@ -16,22 +16,28 @@ var isTakable = false
 var isPushable = false
 var isDestroyable = false
 
+var id : String = ""
+
 # Variable du chien
 
-@onready var dog = $"../ChienSaucisse"
-var dog_mouth_pos = Vector2(0,0)	
+@onready var dog = $"../../ChienSaucisse"
+var dog_mouth_pos = Vector2(0,0)
 
 func _ready():
 	# On charge les informations de l'objet
 	load_resource()
 
 
+func get_id() -> String :
+	return id
 
 func PickUp() :
 	print("press")
 	if isTakable :
-		dog.itemTaken(iteminfo)
-		self.queue_free()
+		if dog != null:
+			print("dog null")
+			dog.itemTaken(iteminfo)
+			self.queue_free()
 	
 		
 func load_resource() :
@@ -40,3 +46,4 @@ func load_resource() :
 	self.isDestroyable = iteminfo.isDestroyable
 	#Set sprite
 	self.itemTexture.texture = iteminfo.icon
+	self.id = iteminfo.id

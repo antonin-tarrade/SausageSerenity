@@ -85,15 +85,15 @@ parameters/Heureux/blend_position = 0
 parameters/Parle/blend_position = 0
 parameters/Triste/blend_position = 0
 
-[node name="Objets" type="Node2D" parent="."]
-
 [node name="ZoneDeDetectionObjets" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneDeDetectionObjets"]
 shape = SubResource("CircleShape2D_n8ilb")
 
 [node name="ZoneDeDetectionPersos" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneDeDetectionPersos"]

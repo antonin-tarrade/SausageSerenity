@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c1efnkbamugk7"]
+
+[ext_resource type="Texture2D" uid="uid://dgvrxukvr04d8" path="res://TilesObjets/tile001.png" id="1_egheq"]
+[ext_resource type="Script" path="res://ObjectData.gd" id="1_j4ng6"]
+
+[resource]
+script = ExtResource("1_j4ng6")
+id = "balloneau"
+icon = ExtResource("1_egheq")
+isTakable = true
+isPushable = false
+isDestroyable = false

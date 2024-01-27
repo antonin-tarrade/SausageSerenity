@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlxltitx45rdy"]
+[gd_scene load_steps=9 format=3 uid="uid://dlxltitx45rdy"]
 
 [ext_resource type="PackedScene" uid="uid://cimdeld5rdie4" path="res://Scenes/chien_saucisse.tscn" id="1_lhaoc"]
 [ext_resource type="PackedScene" uid="uid://cfa1c1qjimgtp" path="res://Scenes/Personnage.tscn" id="2_m3qme"]
 [ext_resource type="Shader" uid="uid://d2l4kvn6jf350" path="res://Shaders/couleur.tres" id="3_t0lvh"]
+[ext_resource type="PackedScene" uid="uid://bc5hiney5ut08" path="res://Scenes/objet.tscn" id="4_40vl5"]
+[ext_resource type="Resource" uid="uid://tyqbbsk3r3tc" path="res://Objets/baudruche.tres" id="5_wlyle"]
+[ext_resource type="Resource" uid="uid://rl5sswgdllpj" path="res://Objets/puzzle.tres" id="6_vsdp4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pufvh"]
 size = Vector2(1152, 40)
@@ -19,6 +22,7 @@ position = Vector2(396, 748)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(569, 792)
+scale = Vector2(2.92, 1)
 collision_layer = 3
 collision_mask = 3
 metadata/_edit_group_ = true
@@ -36,3 +40,17 @@ offset_bottom = 16.0
 [node name="PersonnageBody" parent="." instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_xjdte")
 position = Vector2(744, 748)
+
+[node name="Objets" type="Node2D" parent="."]
+
+[node name="Baudruche" parent="Objets" instance=ExtResource("4_40vl5")]
+position = Vector2(81, 720)
+iteminfo = ExtResource("5_wlyle")
+
+[node name="Puzzle1" parent="Objets" instance=ExtResource("4_40vl5")]
+position = Vector2(1081, 748)
+iteminfo = ExtResource("6_vsdp4")
+
+[node name="Puzzle2" parent="Objets" instance=ExtResource("4_40vl5")]
+position = Vector2(896, 754)
+iteminfo = ExtResource("6_vsdp4")

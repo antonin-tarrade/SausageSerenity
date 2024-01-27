@@ -170,10 +170,9 @@ func PickUpOrOuaf() :
 				print("pick")
 				break
 	if (!aPickUp):
-		print("ouaf")
 		for perso : PhysicsBody2D in zoneBarking.get_overlapping_bodies() :
-			if perso is RigidBody2D :
-				perso.se_fait_aboyer()
+			print("ouaf")
+			perso.se_faire_aboyer()
 
 func itemTaken(infoitem) :
 	iteminfo = infoitem

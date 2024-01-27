@@ -44,7 +44,11 @@ func _on_rendu_heureux():
 	self.material.set_shader_parameter("isSad",false)
 
 func regarder_autour_objets():
-	return zonedetectionobj.get_overlapping_bodies()
+	var listeobj = []
+	for obj in zonedetectionobj.get_overlapping_bodies():
+		if obj is RigidBody2D :
+			listeobj.append(obj)
+	return listeobj
 	
 func regarder_autour_persos():
 	return zonedetectionperso.get_overlapping_bodies()

@@ -8,14 +8,12 @@ func init():
 
 func verifier(personnage : Personnage) -> bool :
 	print("puzzle")
-	await get_tree().create_timer(2.0).timeout
-	return false
-	#var objets_autour = personnage.regarder_autour_objets()
-	#for obj in objets_autour:
-		#if (obj.get_id() == "puzzle"):
-			#obj.queue_free()
-			#nbPiecesTrouvees += 1
-	#if nbPiecesTrouvees == nbPieces :
-		#return true
-	#else :
-		#return false
+	var objets_autour = personnage.regarder_autour_objets()
+	for obj in objets_autour:
+		if (obj.get_id() == "puzzle"):
+			obj.queue_free()
+			nbPiecesTrouvees += 1
+	if nbPiecesTrouvees == nbPieces :
+		return true
+	else :
+		return false

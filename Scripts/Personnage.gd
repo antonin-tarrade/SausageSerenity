@@ -2,9 +2,10 @@
 class_name Personnage extends Sprite2D
 
 @export var nom : String = ""
-var requete : Sprite2D
+@onready var requete : Sprite2D = $"../Requete"
 @onready var missions : Array[Node] = ($"../Requete/Missions").get_children()
 @onready var current_mission : int = 0
+@onready var static_body : StaticBody2D = $PersonnageBody
 var animtree : AnimationTree
 var zonedetectionobj : Area2D
 var zonedetectionperso : Area2D
@@ -21,13 +22,14 @@ var etat : ETATS
 func _ready():
 
 	etat = ETATS.triste
-	requete = $"../Requete"
 	zonedetectionobj = $ZoneDeDetectionObjets
 	zonedetectionperso = $ZoneDeDetectionPersos
 	animtree = $AnimationTree
 	requete.visible = false
 	for mission in missions:
 		mission.visible = false
+		if mission.has_method("init") :
+			mission.init(self)
 	
 
 
@@ -78,6 +80,13 @@ func parler():
 	if (etat == ETATS.parle) :
 		etat = ETATS.triste
 
+func activer_collision():
+	static_body.set_collision_layer_value(1,true)
+
+func desactiver_collision():
+	static_body.set_collision_layer_value(1,false)
+
 func set_etat(et):
 	etat = et
 	
+

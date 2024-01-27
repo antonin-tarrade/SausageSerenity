@@ -8,5 +8,5 @@ script = ExtResource("1_j4ng6")
 id = "balloneau"
 icon = ExtResource("1_egheq")
 isTakable = true
-isPushable = false
+isPushable = true
 isDestroyable = false

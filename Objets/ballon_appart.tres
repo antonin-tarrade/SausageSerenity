@@ -7,6 +7,6 @@
 script = ExtResource("1_ctvpp")
 id = "ballon_appart"
 icon = ExtResource("1_qvjao")
-isTakable = false
-isPushable = false
+isTakable = true
+isPushable = true
 isDestroyable = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cfa1c1qjimgtp"]
+[gd_scene load_steps=31 format=3 uid="uid://cfa1c1qjimgtp"]
 
 [ext_resource type="Shader" uid="uid://d2l4kvn6jf350" path="res://Shaders/couleur.tres" id="1_1ea4k"]
 [ext_resource type="Texture2D" uid="uid://bnjnkis0qwspn" path="res://Dessins/mec.png" id="2_5qmcp"]
@@ -16,6 +16,9 @@
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_casser_tout.gd" id="13_dcrqu"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_cle.gd" id="14_5jg5n"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_appart.gd" id="15_5vapg"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_douche.gd" id="16_glp5m"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_immeuble.gd" id="17_4gfa6"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_eau.gd" id="18_q2f1u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nj0fj"]
 resource_local_to_scene = true
@@ -67,6 +70,7 @@ script = ExtResource("3_veaqq")
 nom = "Godoto"
 
 [node name="Requete" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-62.7573, -149.458)
 scale = Vector2(0.394822, 0.300292)
 texture = ExtResource("4_ypdur")
@@ -95,6 +99,16 @@ script = ExtResource("14_5jg5n")
 [node name="MissionBallonAppart" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
 script = ExtResource("15_5vapg")
 
+[node name="MissionDouche" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
+script = ExtResource("16_glp5m")
+
+[node name="MissionBallonImmeuble" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
+scale = Vector2(100, 100)
+script = ExtResource("17_4gfa6")
+
+[node name="MissionBallonEau" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
+script = ExtResource("18_q2f1u")
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_i7jeo")
@@ -120,9 +134,9 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_n8ilb")
 
 [node name="PersonnageBody" type="StaticBody2D" parent="."]
-position = Vector2(1.0842e-19, 4)
+position = Vector2(0, 4)
 scale = Vector2(3.71059, 3.99725)
-collision_layer = 5
+collision_layer = 4
 script = ExtResource("10_2e1yv")
 metadata/_edit_group_ = true
 

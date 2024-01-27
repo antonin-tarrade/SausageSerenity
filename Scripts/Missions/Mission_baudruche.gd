@@ -2,9 +2,5 @@ extends Sprite2D
 
 func verifier(personnage : Personnage) -> bool :
 	print("baudruche")
-	var objets_autour = personnage.regarder_autour_objets()
+	return personnage.regarder_objet_present("baudruche")
 	
-	for obj in objets_autour :
-		if (obj.get_id() == "baudruche"):
-			return true
-	return false

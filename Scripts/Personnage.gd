@@ -29,7 +29,6 @@ func _ready():
 	for mission in missions:
 		mission.visible = false
 	
-	#_on_aboiement()
 
 
 func _on_aboiement():
@@ -78,7 +77,6 @@ func parler():
 	missions[current_mission].visible = false;
 	if (etat == ETATS.parle) :
 		etat = ETATS.triste
-	#_on_aboiement()
 
 func set_etat(et):
 	etat = et

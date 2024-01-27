@@ -15,6 +15,18 @@ run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[file_customization]
+
+folder_colors={
+"res://Dessins/": "purple",
+"res://Objets/": "teal",
+"res://Scenes/": "orange",
+"res://Scripts/": "red",
+"res://Shaders/": "green",
+"res://Sprites/": "pink",
+"res://TilesObjets/": "gray"
+}
+
 [input]
 
 extend={

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b5hnul0wtfdr1"]
+
+[ext_resource type="Script" path="res://ObjectData.gd" id="1_n7rhf"]
+[ext_resource type="Texture2D" uid="uid://jofrn3os448d" path="res://TilesObjets/tile000.png" id="1_naxvk"]
+
+[resource]
+script = ExtResource("1_n7rhf")
+id = "ballon_immeuble"
+icon = ExtResource("1_naxvk")
+isTakable = false
+isPushable = false
+isDestroyable = false

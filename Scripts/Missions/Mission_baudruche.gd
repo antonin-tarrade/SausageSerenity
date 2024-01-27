@@ -1,8 +1,5 @@
 extends Sprite2D
 
-func init():
-	frame = 2
-	
 func verifier(personnage : Personnage) -> bool :
 	print("baudruche")
 	var objets_autour = personnage.regarder_autour_objets()

@@ -27,7 +27,6 @@ func _ready():
 	animtree = $AnimationTree
 	requete.visible = false
 	for mission in missions:
-		mission.init()
 		mission.visible = false
 	
 	#_on_aboiement()
@@ -49,6 +48,13 @@ func regarder_autour_objets():
 		if obj is RigidBody2D :
 			listeobj.append(obj)
 	return listeobj
+
+func regarder_objet_present(nom:String) -> bool :
+	var objets_autour = regarder_autour_objets()
+	for obj in objets_autour :
+		if (obj.get_id() == nom):
+			return true
+	return false
 	
 func regarder_autour_persos():
 	return zonedetectionperso.get_overlapping_bodies()

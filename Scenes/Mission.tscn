@@ -1,10 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://dri423lovjsxw"]
 
-[ext_resource type="Texture2D" uid="uid://c02j6n32apdlq" path="res://Dessins/objets.png" id="1_tu25b"]
+[ext_resource type="Texture2D" uid="uid://b04ah1lbkvhin" path="res://icon.svg" id="1_uuh2g"]
 
 [node name="Mission" type="Sprite2D"]
 texture_filter = 3
 scale = Vector2(10, 10)
-texture = ExtResource("1_tu25b")
-hframes = 6
-vframes = 2
+texture = ExtResource("1_uuh2g")

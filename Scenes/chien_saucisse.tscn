@@ -115,6 +115,7 @@ debug_color = Color(0.364706, 0.576471, 0.65098, 0.384314)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(192, -96)
+zoom = Vector2(2, 2)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_nb0e1")

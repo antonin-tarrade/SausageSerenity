@@ -45,6 +45,12 @@ interact={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="chien et platformes"
+2d_render/layer_2="objets interactifs"
+2d_render/layer_3="personnages"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

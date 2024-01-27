@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bc5hiney5ut08"]
+
+[ext_resource type="Script" path="res://Objet.gd" id="1_3vh04"]
+[ext_resource type="Resource" uid="uid://bpikq63w51jpy" path="res://Lampe.tres" id="2_vye4x"]
+[ext_resource type="Texture2D" uid="uid://b04ah1lbkvhin" path="res://icon.svg" id="3_v3qkq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tvwpe"]
+
+[node name="Objet" type="RigidBody2D"]
+collision_layer = 2
+script = ExtResource("1_3vh04")
+iteminfo = ExtResource("2_vye4x")
+
+[node name="CollisionObjet" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tvwpe")
+
+[node name="ObjetTexture" type="TextureRect" parent="."]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 118.0
+offset_bottom = 114.0
+scale = Vector2(0.188319, 0.188319)
+texture = ExtResource("3_v3qkq")

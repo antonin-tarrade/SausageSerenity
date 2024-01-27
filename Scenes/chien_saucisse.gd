@@ -10,9 +10,16 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var a_tree: AnimationTree = $AnimationTree
 @onready var c_shape: CollisionShape2D = $CollisionShape2D
+@onready var zonePickUp : Area2D = $ZoneDePick
+@onready var objetBouche : Sprite2D = $ObjetBouche
 
 const normal_size: Vector2 = Vector2(32, 24)
 const normal_position: Vector2 = Vector2(0, -8)
+
+# Variable Item
+
+var objetGenerique : PackedScene = preload("res://Scenes/objet.tscn")
+var iteminfo : Item = null
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -126,12 +133,16 @@ func shrinkage(ed: int) -> int:
 func _input(event):
 	if event.is_action_pressed("charger"):
 		timer.start()
-	elif event.is_action_pressed("bark"):
-		for bodies : PhysicsBody2D in zoneBarking.get_overlapping_bodies():
-			if bodies is RigidBody2D :
-				bodies.apply_central_impulse(Vector2(3.0, -30.0)*40)
-			print("aboie")
-			bodies.se_faire_aboyer()
+#	elif event.is_action_pressed("bark"):
+#		for bodies : PhysicsBody2D in zoneBarking.get_overlapping_bodies():
+#			if bodies is RigidBody2D :
+#				print("wesh")
+#				bodies.apply_central_impulse(Vector2(3.0, -30.0)*40)
+	elif event.is_action_pressed("interact"):
+		if iteminfo == null :
+			PickUp()
+		else :
+			Drop()
 
 
 func frapper(f : float):
@@ -144,3 +155,27 @@ func frapper(f : float):
 
 func frapperFin():
 	frapper(0.0)
+
+func PickUp() :
+	print("pickup")
+	for objet : PhysicsBody2D in zonePickUp.get_overlapping_bodies() :
+		if objet is RigidBody2D :
+
+			if objet.isTakable :
+				objet.PickUp()
+				print("pick")
+				break
+
+func itemTaken(infoitem) :
+	iteminfo = infoitem
+	objetBouche.texture = iteminfo.icon
+	
+func Drop() :
+	if iteminfo != null :
+		var item = objetGenerique.instantiate()
+		item.iteminfo = iteminfo
+		item.global_position = global_position
+		get_parent().add_child(item)
+		iteminfo = null
+		objetBouche.texture = null
+		print("drop")

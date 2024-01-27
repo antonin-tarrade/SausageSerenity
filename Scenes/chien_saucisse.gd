@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @export var EXTENSION_SPEED = 1 # px
 @export var SHRINKING_SPEED = 2 # px
+@export var timer : Timer 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var a_tree: AnimationTree = $AnimationTree
 @onready var c_shape: CollisionShape2D = $CollisionShape2D
@@ -30,7 +31,13 @@ func _physics_process(delta):
 			ed = get_extending_direction(horizontal, vertical)
 		else:
 			extension(ed)
-	else:
+	elif Input.is_action_just_released("charger") and not timer.is_stopped():
+		var f : float = timer.time_left
+		
+		timer.stop()
+		frapper(f)
+
+	else :
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var direction = Input.get_axis("ui_left", "ui_right")
@@ -70,3 +77,17 @@ func extension(ed: int) -> void:
 			c_rect.size.x += EXTENSION_SPEED
 			c_shape.position.x -= EXTENSION_SPEED
 			c_rect.size.x -= EXTENSION_SPEED
+
+
+func _input(event):
+	if event.is_action_pressed("charger"):
+		timer.start()
+		
+		
+		
+func frapper(f : float):
+	print(timer.wait_time - f)
+	
+	
+func frapperFin():
+	print(5.0)

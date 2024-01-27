@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dlxltitx45rdy"]
 
-[ext_resource type="PackedScene" uid="uid://dgjj1h83bxs46" path="res://Scenes/chien_saucisse.tscn" id="1_lhaoc"]
+[ext_resource type="PackedScene" uid="uid://cimdeld5rdie4" path="res://Scenes/chien_saucisse.tscn" id="1_lhaoc"]
 [ext_resource type="PackedScene" uid="uid://cfa1c1qjimgtp" path="res://Scenes/Personnage.tscn" id="2_m3qme"]
 [ext_resource type="Shader" uid="uid://d2l4kvn6jf350" path="res://Shaders/couleur.tres" id="3_t0lvh"]
 

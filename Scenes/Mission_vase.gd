@@ -2,6 +2,9 @@ extends Sprite2D
 
 var vaseRempli : bool = false
 
+func init():
+	frame = 3
+
 func verifier(personnage : Personnage) -> bool :
 	return vaseRempli
 

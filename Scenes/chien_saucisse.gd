@@ -140,7 +140,7 @@ func _input(event):
 #				bodies.apply_central_impulse(Vector2(3.0, -30.0)*40)
 	elif event.is_action_pressed("interact"):
 		if iteminfo == null :
-			PickUp()
+			PickUpOrOuaf()
 		else :
 			Drop()
 
@@ -156,15 +156,21 @@ func frapper(f : float):
 func frapperFin():
 	frapper(0.0)
 
-func PickUp() :
-	print("pickup")
+func PickUpOrOuaf() :
+	print("pickuporouaf")
+	var aPickUp : bool = false
 	for objet : PhysicsBody2D in zonePickUp.get_overlapping_bodies() :
 		if objet is RigidBody2D :
-
 			if objet.isTakable :
 				objet.PickUp()
+				aPickUp = true
 				print("pick")
 				break
+	if (!aPickUp):
+		print("ouaf")
+		for perso : PhysicsBody2D in zoneBarking.get_overlapping_bodies() :
+			if perso is RigidBody2D :
+				perso.se_fait_aboyer()
 
 func itemTaken(infoitem) :
 	iteminfo = infoitem

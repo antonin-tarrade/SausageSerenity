@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://cfa1c1qjimgtp"]
 
 [ext_resource type="Shader" uid="uid://d2l4kvn6jf350" path="res://Shaders/couleur.tres" id="1_1ea4k"]
-[ext_resource type="Texture2D" uid="uid://b04ah1lbkvhin" path="res://icon.svg" id="2_s52m2"]
+[ext_resource type="Texture2D" uid="uid://bnjnkis0qwspn" path="res://Dessins/mec.png" id="2_5qmcp"]
 [ext_resource type="Script" path="res://Scripts/Personnage.gd" id="3_veaqq"]
 [ext_resource type="Texture2D" uid="uid://jp148nn8fmov" path="res://Dessins/bulle.png" id="4_ypdur"]
 [ext_resource type="PackedScene" uid="uid://dri423lovjsxw" path="res://Scenes/Mission.tscn" id="5_u25ct"]
@@ -47,20 +47,17 @@ states/Triste/position = Vector2(412, 74)
 transitions = ["Start", "Triste", SubResource("AnimationNodeStateMachineTransition_wxs4c"), "Triste", "Parle", SubResource("AnimationNodeStateMachineTransition_rwf7g"), "Parle", "Triste", SubResource("AnimationNodeStateMachineTransition_vyr07"), "Triste", "Heureux", SubResource("AnimationNodeStateMachineTransition_uwops")]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n8ilb"]
-radius = 140.021
+radius = 40.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_brrbc"]
-radius = 19.0
-height = 38.0
+radius = 2.99116
+height = 11.1209
 
 [node name="Personnage" type="Sprite2D"]
 material = SubResource("ShaderMaterial_nj0fj")
-position = Vector2(0.538992, -0.500353)
-scale = Vector2(0.265625, 0.226875)
-texture = ExtResource("2_s52m2")
+texture = ExtResource("2_5qmcp")
 script = ExtResource("3_veaqq")
 nom = "Godoto"
-metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="."]
 position = Vector2(-62.7573, -149.458)
@@ -97,17 +94,17 @@ collision_layer = 2
 shape = SubResource("CircleShape2D_n8ilb")
 
 [node name="ZoneDeDetectionPersos" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneDeDetectionPersos"]
 shape = SubResource("CircleShape2D_n8ilb")
 
 [node name="PersonnageBody" type="StaticBody2D" parent="."]
-position = Vector2(1.52588e-05, 3.05176e-05)
+position = Vector2(1.0842e-19, 4)
 scale = Vector2(3.71059, 3.99725)
 collision_layer = 5
 script = ExtResource("8_wstvv")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PersonnageBody"]
 scale = Vector2(0.991082, 0.989811)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://6rmtm6d6xsw" path="res://Sprites/chien saucisse.png" id="1_6s85x"]
 
-[sub_resource type="Animation" id="Animation_ir2np"]
+[sub_resource type="Animation" id="Animation_pxl6o"]
 length = 0.05
 loop_mode = 1
 tracks/0/type = "value"
@@ -66,7 +66,7 @@ tracks/4/keys = {
 "values": [48]
 }
 
-[sub_resource type="Animation" id="Animation_n4vbn"]
+[sub_resource type="Animation" id="Animation_leci3"]
 length = 0.05
 loop_mode = 1
 tracks/0/type = "value"
@@ -130,7 +130,7 @@ tracks/4/keys = {
 "values": [49]
 }
 
-[sub_resource type="Animation" id="Animation_5cndm"]
+[sub_resource type="Animation" id="Animation_axqvw"]
 length = 0.05
 loop_mode = 1
 tracks/0/type = "value"
@@ -194,7 +194,7 @@ tracks/4/keys = {
 "values": [74]
 }
 
-[sub_resource type="Animation" id="Animation_m043n"]
+[sub_resource type="Animation" id="Animation_dc7ib"]
 length = 0.28
 loop_mode = 1
 tracks/0/type = "value"
@@ -258,7 +258,7 @@ tracks/4/keys = {
 "values": [70, 71, 72, 73]
 }
 
-[sub_resource type="Animation" id="Animation_abesg"]
+[sub_resource type="Animation" id="Animation_61wj7"]
 length = 0.28
 loop_mode = 1
 tracks/0/type = "value"
@@ -322,7 +322,7 @@ tracks/4/keys = {
 "values": [66, 67, 68, 69]
 }
 
-[sub_resource type="Animation" id="Animation_f3fph"]
+[sub_resource type="Animation" id="Animation_qfydk"]
 length = 0.66
 loop_mode = 1
 tracks/0/type = "value"
@@ -386,7 +386,7 @@ tracks/4/keys = {
 "values": [50, 51, 52, 53, 54, 55, 56, 57]
 }
 
-[sub_resource type="Animation" id="Animation_ni2g2"]
+[sub_resource type="Animation" id="Animation_56py4"]
 length = 0.28
 loop_mode = 1
 tracks/0/type = "value"
@@ -450,7 +450,7 @@ tracks/4/keys = {
 "values": [62, 63, 64, 65]
 }
 
-[sub_resource type="Animation" id="Animation_4qkde"]
+[sub_resource type="Animation" id="Animation_43m6t"]
 length = 0.28
 loop_mode = 1
 tracks/0/type = "value"
@@ -514,7 +514,7 @@ tracks/4/keys = {
 "values": [58, 59, 60, 61]
 }
 
-[sub_resource type="Animation" id="Animation_m3vtv"]
+[sub_resource type="Animation" id="Animation_18hgm"]
 length = 0.66
 loop_mode = 1
 tracks/0/type = "value"
@@ -578,7 +578,7 @@ tracks/4/keys = {
 "values": [32, 33, 34, 35, 36, 37, 38, 39]
 }
 
-[sub_resource type="Animation" id="Animation_e235r"]
+[sub_resource type="Animation" id="Animation_mxipf"]
 length = 0.66
 loop_mode = 1
 tracks/0/type = "value"
@@ -642,7 +642,7 @@ tracks/4/keys = {
 "values": [16, 17, 18, 19, 20, 21, 22, 23]
 }
 
-[sub_resource type="Animation" id="Animation_xqmq8"]
+[sub_resource type="Animation" id="Animation_r4osm"]
 length = 0.66
 loop_mode = 1
 tracks/0/type = "value"
@@ -706,7 +706,7 @@ tracks/4/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_1xqln"]
+[sub_resource type="Animation" id="Animation_vkcds"]
 length = 0.66
 loop_mode = 1
 tracks/0/type = "value"
@@ -770,7 +770,7 @@ tracks/4/keys = {
 "values": [40, 41, 42, 43, 44, 45, 46, 47]
 }
 
-[sub_resource type="Animation" id="Animation_jhuqx"]
+[sub_resource type="Animation" id="Animation_vbxqk"]
 length = 0.66
 loop_mode = 1
 tracks/0/type = "value"
@@ -834,7 +834,7 @@ tracks/4/keys = {
 "values": [24, 25, 26, 27, 28, 29, 30, 31]
 }
 
-[sub_resource type="Animation" id="Animation_d30la"]
+[sub_resource type="Animation" id="Animation_4ln5s"]
 length = 0.66
 loop_mode = 1
 tracks/0/type = "value"
@@ -898,22 +898,22 @@ tracks/4/keys = {
 "values": [8, 9, 10, 11, 12, 13, 14, 15]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_c2a5j"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l0kf1"]
 _data = {
-"bout_de_chien_side": SubResource("Animation_ir2np"),
-"bout_de_chien_up": SubResource("Animation_n4vbn"),
-"chien_crame": SubResource("Animation_5cndm"),
-"extend_side_bouche_front": SubResource("Animation_m043n"),
-"extend_side_front": SubResource("Animation_abesg"),
-"extend_up_back": SubResource("Animation_f3fph"),
-"extend_up_bouche_front": SubResource("Animation_ni2g2"),
-"extend_up_front": SubResource("Animation_4qkde"),
-"idle_back": SubResource("Animation_m3vtv"),
-"idle_bouche_front": SubResource("Animation_e235r"),
-"idle_front": SubResource("Animation_xqmq8"),
-"walk_back": SubResource("Animation_1xqln"),
-"walk_bouche_front": SubResource("Animation_jhuqx"),
-"walk_front": SubResource("Animation_d30la")
+"bout_de_chien_side": SubResource("Animation_pxl6o"),
+"bout_de_chien_up": SubResource("Animation_leci3"),
+"chien_crame": SubResource("Animation_axqvw"),
+"extend_side_bouche_front": SubResource("Animation_dc7ib"),
+"extend_side_front": SubResource("Animation_61wj7"),
+"extend_up_back": SubResource("Animation_qfydk"),
+"extend_up_bouche_front": SubResource("Animation_56py4"),
+"extend_up_front": SubResource("Animation_43m6t"),
+"idle_back": SubResource("Animation_18hgm"),
+"idle_bouche_front": SubResource("Animation_mxipf"),
+"idle_front": SubResource("Animation_r4osm"),
+"walk_back": SubResource("Animation_vkcds"),
+"walk_bouche_front": SubResource("Animation_vbxqk"),
+"walk_front": SubResource("Animation_4ln5s")
 }
 
 [node name="Node2D" type="Node2D"]
@@ -939,5 +939,5 @@ metadata/_aseprite_wizard_config_ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_c2a5j")
+"": SubResource("AnimationLibrary_l0kf1")
 }

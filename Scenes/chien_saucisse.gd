@@ -7,26 +7,41 @@ extends CharacterBody2D
 @onready var zoneFrappe : Area2D = $ZoneDeFrappe
 @onready var PosTete : Marker2D = $PositionFrappe
 @onready var zoneBarking : Area2D = $Barking
-@onready var sprite: Sprite2D = $Sprite2D
-@onready var a_tree: AnimationTree = $AnimationTree
+@onready var head: Sprite2D = $Head
+@onready var back: Sprite2D = $Back
+@onready var body_side: Sprite2D = $BodySide
+@onready var body_up: Sprite2D = $BodyUp
+
+
+
+@onready var head_tree: AnimationTree = $AnimationTree
+@onready var back_tree: AnimationTree = $AnimationTree2
+
+@onready var all_tree: Array[AnimationTree] = [head_tree,back_tree]
+
 @onready var c_shape: CollisionShape2D = $CollisionShape2D
 
-const normal_size: Vector2 = Vector2(32, 24)
-const normal_position: Vector2 = Vector2(0, -8)
+@onready var normal_size: Vector2 = c_shape.shape.size
+@onready var normal_position: Vector2 = c_shape.position
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var turning_left: bool = false
+var turning_right: bool = true
 var extended: bool = false
 enum extending_direction {LEFT, RIGHT, UP, DOWN}
 var ed: int = -1
 
+
 func _ready():
-	a_tree.set("parameters/conditions/idle", is_on_floor() and (velocity.x == 0))
-	a_tree.set("parameters/conditions/extending", Input.is_action_pressed("extend"))
+	body_side.region_rect = Rect2(0,0,0,32)
+	body_side.region_rect = Rect2(0,0,32,0)
 
 func _physics_process(delta):
-	# Add the gravity.
+	
+	for tree in all_tree : 
+		tree.set("parameters/conditions/idle", is_on_floor() and (velocity.x == 0) and !Input.is_action_pressed("extend"))
+		tree.set("parameters/conditions/is_moving", velocity.x != 0)
+	
 	if not is_on_floor() and ed == -1:
 		velocity.y += gravity * delta
 		print("gravite")
@@ -42,6 +57,10 @@ func _physics_process(delta):
 			
 	elif ed != -1:
 		ed = shrinkage(ed)
+		for tree in all_tree :
+			tree.set("parameters/conditions/extending_side", false)
+			tree.set("parameters/conditions/extending_up", false)
+				
 		
 	elif Input.is_action_just_released("charger") and not timer.is_stopped():
 		var f : float = timer.time_left	
@@ -57,13 +76,19 @@ func _physics_process(delta):
 		var direction = Input.get_axis("ui_left", "ui_right")
 		if direction:
 			velocity.x = direction * SPEED
-			turning_left = (direction < 0)
+			turning_right = (direction > 0)
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	sprite.flip_h = turning_left
+	head.flip_h = turning_right
+	back.flip_h = turning_right
+	
 	
 	move_and_slide()
+	
+	
+	
+		
 
 
 # get the direction in which the dog extends
@@ -83,16 +108,35 @@ func get_extending_direction(horizontal: float, vertical: float) -> int:
 func extension(ed: int) -> void:
 	match ed:
 		extending_direction.RIGHT:
+			extend_animation_side()
+			if !turning_right : turning_right = true
 			c_shape.shape.size.x += EXTENSION_SPEED
 			c_shape.position.x += EXTENSION_SPEED / 2
 		extending_direction.LEFT:
+			extend_animation_side()
+			if turning_right : turning_right = false
 			c_shape.shape.size.x += EXTENSION_SPEED
 			c_shape.position.x -= EXTENSION_SPEED / 2
 		extending_direction.DOWN:
 			print("not yet implemented")
 		extending_direction.UP:
+			extend_animation_up()
 			c_shape.position.y -= EXTENSION_SPEED / 2
 			c_shape.shape.size.y += EXTENSION_SPEED
+			
+			
+			
+			
+func extend_animation_side():
+	for tree in all_tree :
+		tree.set("parameters/conditions/extending_side", true)
+			
+			
+			
+func extend_animation_up():
+	for tree in all_tree :
+		tree.set("parameters/conditions/extending_up", true)
+	
 			
 # shrink the dog in the right direction
 func shrinkage(ed: int) -> int:

@@ -1,23 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://ex2xqr8l518"]
+[gd_scene load_steps=7 format=3 uid="uid://bsrpsshu10xed"]
 
-[ext_resource type="PackedScene" uid="uid://cimdeld5rdie4" path="res://Scenes/chien_saucisse.tscn" id="1_hubqe"]
+[ext_resource type="PackedScene" uid="uid://dxxrtp7uesyjd" path="res://Scenes/chien_saucisse.tscn" id="1_hubqe"]
 [ext_resource type="Texture2D" uid="uid://b04ah1lbkvhin" path="res://icon.svg" id="2_hhppu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0xws"]
 size = Vector2(1152, 40)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_so7vu"]
-size = Vector2(40, 344)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_suwam"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2o4u"]
 size = Vector2(42, 38)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_so7vu"]
+size = Vector2(40, 344)
+
 [node name="main_test_chien" type="Node2D"]
 
 [node name="ChienSaucisse" parent="." instance=ExtResource("1_hubqe")]
-position = Vector2(128, 592)
+position = Vector2(130, 576)
 scale = Vector2(2, 2)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

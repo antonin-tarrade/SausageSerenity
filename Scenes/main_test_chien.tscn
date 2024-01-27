@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ex2xqr8l518"]
+[gd_scene load_steps=6 format=3 uid="uid://ex2xqr8l518"]
 
 [ext_resource type="PackedScene" uid="uid://cimdeld5rdie4" path="res://Scenes/chien_saucisse.tscn" id="1_hubqe"]
+[ext_resource type="Texture2D" uid="uid://b04ah1lbkvhin" path="res://icon.svg" id="2_hhppu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0xws"]
 size = Vector2(1152, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_so7vu"]
 size = Vector2(40, 344)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_suwam"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2o4u"]
+size = Vector2(42, 38)
 
 [node name="main_test_chien" type="Node2D"]
 
@@ -16,6 +22,12 @@ scale = Vector2(2, 2)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(576, 632)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_k0xws")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
 offset_left = -576.0
@@ -23,9 +35,18 @@ offset_top = -24.0
 offset_right = 576.0
 offset_bottom = 16.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_k0xws")
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(306, 573)
+collision_layer = 2
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_suwam")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.328125, 0.304687)
+texture = ExtResource("2_hhppu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_f2o4u")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(960, 448)

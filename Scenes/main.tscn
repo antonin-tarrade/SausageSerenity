@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://dlxltitx45rdy"]
 
-[ext_resource type="PackedScene" path="res://Scenes/chien_saucisse.tscn" id="1_lhaoc"]
+[ext_resource type="PackedScene" uid="uid://dgjj1h83bxs46" path="res://Scenes/chien_saucisse.tscn" id="1_lhaoc"]
 [ext_resource type="PackedScene" uid="uid://cfa1c1qjimgtp" path="res://Scenes/Personnage.tscn" id="2_m3qme"]
 [ext_resource type="Shader" uid="uid://d2l4kvn6jf350" path="res://Shaders/couleur.tres" id="3_t0lvh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pufvh"]
 size = Vector2(1152, 40)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hdbrd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xjdte"]
 resource_local_to_scene = true
 shader = ExtResource("3_t0lvh")
 shader_parameter/isSad = true
@@ -15,11 +15,13 @@ shader_parameter/isSad = true
 [node name="Main" type="Node2D"]
 
 [node name="ChienSaucisse" parent="." instance=ExtResource("1_lhaoc")]
+position = Vector2(396, 748)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(576, 632)
+position = Vector2(569, 792)
 collision_layer = 3
 collision_mask = 3
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -4)
@@ -31,5 +33,6 @@ offset_top = -24.0
 offset_right = 576.0
 offset_bottom = 16.0
 
-[node name="Personnage" parent="." instance=ExtResource("2_m3qme")]
-material = SubResource("ShaderMaterial_hdbrd")
+[node name="PersonnageBody" parent="." instance=ExtResource("2_m3qme")]
+material = SubResource("ShaderMaterial_xjdte")
+position = Vector2(744, 748)

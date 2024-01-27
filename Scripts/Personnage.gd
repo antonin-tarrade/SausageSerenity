@@ -6,7 +6,8 @@ var requete : Sprite2D
 @onready var missions : Array[Node] = $Requete/Missions.get_children()
 @onready var current_mission : int = 0
 var animtree : AnimationTree
-var zonedetection : Area2D
+var zonedetectionobj : Area2D
+var zonedetectionperso : Area2D
 
 
 enum ETATS {
@@ -21,14 +22,15 @@ func _ready():
 
 	etat = ETATS.triste
 	requete = $Requete
-	zonedetection = $ZoneDeDetection
+	zonedetectionobj = $ZoneDeDetectionObjets
+	zonedetectionperso = $ZoneDeDetectionPersos
 	animtree = $AnimationTree
 	requete.visible = false
 	for mission in missions:
 		mission.init()
 		mission.visible = false
 	
-	_on_aboiement()
+	#_on_aboiement()
 
 
 func _on_aboiement():
@@ -41,8 +43,11 @@ func _on_rendu_heureux():
 	etat = ETATS.heureux
 	self.material.set_shader_parameter("isSad",false)
 
-func regarder_autour():
-	return zonedetection.get_overlapping_bodies()
+func regarder_autour_objets():
+	return zonedetectionobj.get_overlapping_bodies()
+	
+func regarder_autour_persos():
+	return zonedetectionperso.get_overlapping_bodies()
 
 func verifier_requete():
 	var b = await missions[current_mission].verifier(self)
@@ -63,7 +68,7 @@ func parler():
 	missions[current_mission].visible = false;
 	if (etat == ETATS.parle) :
 		etat = ETATS.triste
-	_on_aboiement()
+	#_on_aboiement()
 
 func set_etat(et):
 	etat = et

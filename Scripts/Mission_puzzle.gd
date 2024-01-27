@@ -5,5 +5,5 @@ func init():
 
 func verifier(personnage : Personnage) -> bool :
 	print("puzzle")
-	await get_tree().create_timer(2.0).timeout
-	return true
+	#await get_tree().create_timer(2.0).timeout
+	return false

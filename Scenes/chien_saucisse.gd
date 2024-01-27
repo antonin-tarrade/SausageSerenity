@@ -29,7 +29,6 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor() and ed == -1:
 		velocity.y += gravity * delta
-		print("gravite")
 		
 	if Input.is_action_pressed("extend"):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -130,8 +129,9 @@ func _input(event):
 	elif event.is_action_pressed("bark"):
 		for bodies : PhysicsBody2D in zoneBarking.get_overlapping_bodies():
 			if bodies is RigidBody2D :
-				print("wesh")
 				bodies.apply_central_impulse(Vector2(3.0, -30.0)*40)
+			print("aboie")
+			bodies.se_faire_aboyer()
 
 
 func frapper(f : float):

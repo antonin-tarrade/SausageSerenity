@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgpohngjxctga"]
+[gd_scene load_steps=3 format=3 uid="uid://ex2xqr8l518"]
 
-[ext_resource type="PackedScene" uid="uid://c7xt448io2wg0" path="res://Scenes/chien_saucisse.tscn" id="1_hubqe"]
+[ext_resource type="PackedScene" uid="uid://cimdeld5rdie4" path="res://Scenes/chien_saucisse.tscn" id="1_hubqe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0xws"]
 size = Vector2(1152, 40)

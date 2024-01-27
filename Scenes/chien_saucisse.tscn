@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7xt448io2wg0"]
+[gd_scene load_steps=26 format=3 uid="uid://cimdeld5rdie4"]
 
 [ext_resource type="Texture2D" uid="uid://ba48p76o6oywq" path="res://Sprites/chien_saucisse.png" id="1_be7xu"]
 [ext_resource type="Script" path="res://Scenes/chien_saucisse.gd" id="1_f1xf0"]
@@ -90,8 +90,9 @@ states/Walking/position = Vector2(526.5, 99.875)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_635yr"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_ljneg"), "Walking", "Extending", SubResource("AnimationNodeStateMachineTransition_6pk8k"), "Idle", "Extending", SubResource("AnimationNodeStateMachineTransition_akoah"), "Extending", "Shrinking", SubResource("AnimationNodeStateMachineTransition_2nihh"), "Shrinking", "Idle", SubResource("AnimationNodeStateMachineTransition_tca82"), "Idle", "Charging", SubResource("AnimationNodeStateMachineTransition_x71nl"), "Walking", "Charging", SubResource("AnimationNodeStateMachineTransition_upnri"), "Charging", "Hitting", SubResource("AnimationNodeStateMachineTransition_q000d"), "Hitting", "Idle", SubResource("AnimationNodeStateMachineTransition_83b2m"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_ny60f"), "Idle", "Wafwaf", SubResource("AnimationNodeStateMachineTransition_nlxo3"), "Walking", "Wafwaf", SubResource("AnimationNodeStateMachineTransition_la0ap"), "Wafwaf", "Idle", SubResource("AnimationNodeStateMachineTransition_e1umo")]
 graph_offset = Vector2(60, -71)
 
-[node name="ChienSaucisse" type="CharacterBody2D"]
+[node name="ChienSaucisse" type="CharacterBody2D" node_paths=PackedStringArray("timer")]
 script = ExtResource("1_f1xf0")
+timer = NodePath("Chargement")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
@@ -122,3 +123,9 @@ parameters/Idle/blend_position = 0
 parameters/Shrinking/blend_position = 0
 parameters/Wafwaf/blend_position = 0
 parameters/Walking/blend_position = 0
+
+[node name="Chargement" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Chargement" to="." method="frapperFin"]

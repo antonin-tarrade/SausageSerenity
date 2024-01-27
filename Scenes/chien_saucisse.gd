@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @export var EXTENSION_SPEED = 2 # px
 @export var SHRINKING_SPEED = 4 # px
+@export var timer : Timer 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var a_tree: AnimationTree = $AnimationTree
 @onready var c_shape: CollisionShape2D = $CollisionShape2D
@@ -34,7 +35,13 @@ func _physics_process(delta):
 			print(ed)
 		else:
 			extension(ed)
-	else:
+	elif Input.is_action_just_released("charger") and not timer.is_stopped():
+		var f : float = timer.time_left
+		
+		timer.stop()
+		frapper(f)
+
+	else :
 		
 		if extended:
 			pass

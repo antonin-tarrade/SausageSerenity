@@ -1,15 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfa1c1qjimgtp"]
+[gd_scene load_steps=15 format=3 uid="uid://cfa1c1qjimgtp"]
 
 [ext_resource type="Shader" uid="uid://d2l4kvn6jf350" path="res://Shaders/couleur.tres" id="1_1ea4k"]
 [ext_resource type="Texture2D" uid="uid://b04ah1lbkvhin" path="res://icon.svg" id="2_s52m2"]
+[ext_resource type="Script" path="res://Scenes/Personnage.gd" id="3_veaqq"]
+[ext_resource type="Script" path="res://Scenes/Requete.gd" id="4_ifvgm"]
+[ext_resource type="Texture2D" uid="uid://jp148nn8fmov" path="res://Dessins/bulle.png" id="4_ypdur"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nj0fj"]
 shader = ExtResource("1_1ea4k")
-shader_parameter/isColored = false
+shader_parameter/isColored = true
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_gewb4"]
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ltasl"]
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_3ujs0"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wxs4c"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rwf7g"]
+advance_mode = 2
+advance_condition = &"aboiement"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vyr07"]
+advance_mode = 2
+advance_condition = &"troploin"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uwops"]
+advance_mode = 2
+advance_condition = &"complete"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_i7jeo"]
+states/Heureux/node = SubResource("AnimationNodeBlendSpace1D_gewb4")
+states/Heureux/position = Vector2(624, 74)
+states/Parle/node = SubResource("AnimationNodeBlendSpace1D_ltasl")
+states/Parle/position = Vector2(510, 160)
+states/Start/position = Vector2(188, 74)
+states/Triste/node = SubResource("AnimationNodeBlendSpace1D_3ujs0")
+states/Triste/position = Vector2(412, 74)
+transitions = ["Start", "Triste", SubResource("AnimationNodeStateMachineTransition_wxs4c"), "Triste", "Parle", SubResource("AnimationNodeStateMachineTransition_rwf7g"), "Parle", "Triste", SubResource("AnimationNodeStateMachineTransition_vyr07"), "Triste", "Heureux", SubResource("AnimationNodeStateMachineTransition_uwops")]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Personnage" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_nj0fj")
-position = Vector2(220, 13)
+position = Vector2(192.75, 140.25)
+scale = Vector2(1.20703, 1.33984)
 texture = ExtResource("2_s52m2")
+script = ExtResource("3_veaqq")
+
+[node name="Requete" type="Sprite2D" parent="Personnage"]
+position = Vector2(333.256, 166.997)
+scale = Vector2(0.828479, 0.746356)
+texture = ExtResource("4_ypdur")
+script = ExtResource("4_ifvgm")
+metadata/_edit_group_ = true
+
+[node name="Mission" type="Sprite2D" parent="Personnage/Requete"]
+z_index = 1
+texture = ExtResource("2_s52m2")
+
+[node name="AnimationTree" type="AnimationTree" parent="Personnage"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_i7jeo")
+parameters/conditions/aboiement = false
+parameters/conditions/complete = false
+parameters/conditions/troploin = false
+parameters/Heureux/blend_position = 0
+parameters/Parle/blend_position = 0
+parameters/Triste/blend_position = 0

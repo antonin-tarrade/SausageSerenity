@@ -1,3 +1,4 @@
+class_name Objet
 extends RigidBody2D
 
 
@@ -17,7 +18,7 @@ var isDestroyable = false
 
 # Variable du chien
 
-@onready var dog = get_node("../chiensaucisse")
+@onready var dog = $"../ChienSaucisse"
 var dog_mouth_pos = Vector2(0,0)	
 
 func _ready():
@@ -26,7 +27,7 @@ func _ready():
 
 
 
-func on_taken_action_pressed() :
+func PickUp() :
 	print("press")
 	if isTakable :
 		dog.itemTaken(iteminfo)
@@ -39,8 +40,3 @@ func load_resource() :
 	self.isDestroyable = iteminfo.isDestroyable
 	#Set sprite
 	self.itemTexture.texture = iteminfo.icon
-
-
-
-func _on_chiensaucisse_action_pressed():
-	pass # Replace with function body.

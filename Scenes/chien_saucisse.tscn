@@ -158,7 +158,6 @@ position = Vector2(11, -7)
 shape = SubResource("CircleShape2D_n7i5e")
 
 [node name="ZoneDePick" type="Area2D" parent="."]
-collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneDePick"]
@@ -166,5 +165,7 @@ position = Vector2(12, -7)
 shape = SubResource("CircleShape2D_twdvm")
 
 [node name="ObjetBouche" type="Sprite2D" parent="."]
+position = Vector2(14, -5)
+scale = Vector2(0.09375, 0.09375)
 
 [connection signal="timeout" from="Chargement" to="." method="frapperFin"]

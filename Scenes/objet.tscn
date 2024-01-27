@@ -7,7 +7,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_tvwpe"]
 
 [node name="Objet" type="RigidBody2D"]
-position = Vector2(85, 432)
 collision_layer = 2
 script = ExtResource("1_3vh04")
 iteminfo = ExtResource("2_vye4x")

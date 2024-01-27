@@ -12,7 +12,7 @@ size = Vector2(40, 344)
 [node name="main_test_chien" type="Node2D"]
 
 [node name="Objet2" parent="." instance=ExtResource("1_a4iwi")]
-position = Vector2(252, 580)
+position = Vector2(289, 588)
 
 [node name="ChienSaucisse" parent="." instance=ExtResource("1_hubqe")]
 position = Vector2(128, 592)

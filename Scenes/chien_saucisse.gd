@@ -173,7 +173,7 @@ func itemTaken(infoitem) :
 	
 func Drop() :
 	if iteminfo != null :
-		var item = objetGenerique.instance()
+		var item = objetGenerique.instantiate()
 		item.iteminfo = iteminfo
 		item.global_position = global_position
 		get_parent().add_child(item)

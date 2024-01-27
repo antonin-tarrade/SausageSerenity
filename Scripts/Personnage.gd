@@ -39,9 +39,7 @@ func _on_aboiement():
 		
 func _on_rendu_heureux():
 	etat = ETATS.heureux
-	print("avant " + str(self.material.get_shader_parameter("isSad")))
 	self.material.set_shader_parameter("isSad",false)
-	print("apres " + str(self.material.get_shader_parameter("isSad")))
 
 func regarder_autour():
 	return zonedetection.get_overlapping_bodies()

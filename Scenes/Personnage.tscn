@@ -51,9 +51,7 @@ height = 192.56
 [sub_resource type="CircleShape2D" id="CircleShape2D_n8ilb"]
 radius = 140.021
 
-[node name="Node2D" type="Node2D"]
-
-[node name="Personnage" type="Sprite2D" parent="."]
+[node name="Personnage" type="Sprite2D"]
 material = SubResource("ShaderMaterial_nj0fj")
 position = Vector2(551, 367)
 scale = Vector2(1.20703, 1.33984)
@@ -62,21 +60,21 @@ script = ExtResource("3_veaqq")
 nom = "Godoto"
 metadata/_edit_group_ = true
 
-[node name="Requete" type="Sprite2D" parent="Personnage"]
+[node name="Requete" type="Sprite2D" parent="."]
 position = Vector2(-62.7573, -149.458)
 scale = Vector2(0.394822, 0.300292)
 texture = ExtResource("4_ypdur")
 metadata/_edit_group_ = true
 
-[node name="Missions" type="Node2D" parent="Personnage/Requete"]
+[node name="Missions" type="Node2D" parent="Requete"]
 
-[node name="MissionBaudruche" parent="Personnage/Requete/Missions" instance=ExtResource("7_rs7r6")]
+[node name="MissionBaudruche" parent="Requete/Missions" instance=ExtResource("7_rs7r6")]
 script = ExtResource("7_nsw7q")
 
-[node name="MissionPuzzle2" parent="Personnage/Requete/Missions" instance=ExtResource("7_rs7r6")]
+[node name="MissionPuzzle2" parent="Requete/Missions" instance=ExtResource("7_rs7r6")]
 script = ExtResource("7_1obqg")
 
-[node name="AnimationTree" type="AnimationTree" parent="Personnage"]
+[node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_i7jeo")
 parameters/conditions/aboiement = false
@@ -86,15 +84,14 @@ parameters/Heureux/blend_position = 0
 parameters/Parle/blend_position = 0
 parameters/Triste/blend_position = 0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Personnage"]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Personnage/StaticBody2D"]
-scale = Vector2(1, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CapsuleShape2D_brrbc")
 
-[node name="Objets" type="Node2D" parent="Personnage"]
+[node name="Objets" type="Node2D" parent="."]
 
-[node name="ZoneDeDetection" type="Area2D" parent="Personnage"]
+[node name="ZoneDeDetection" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Personnage/ZoneDeDetection"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneDeDetection"]
 shape = SubResource("CircleShape2D_n8ilb")

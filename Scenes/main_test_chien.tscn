@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ex2xqr8l518"]
+[gd_scene load_steps=8 format=3 uid="uid://ex2xqr8l518"]
 
 [ext_resource type="PackedScene" uid="uid://cimdeld5rdie4" path="res://Scenes/chien_saucisse.tscn" id="1_hubqe"]
 [ext_resource type="Texture2D" uid="uid://b04ah1lbkvhin" path="res://icon.svg" id="2_hhppu"]
@@ -6,13 +6,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0xws"]
 size = Vector2(1152, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_so7vu"]
-size = Vector2(40, 344)
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_suwam"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2o4u"]
 size = Vector2(42, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_so7vu"]
+size = Vector2(40, 344)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ra4o6"]
+size = Vector2(480, 40)
 
 [node name="main_test_chien" type="Node2D"]
 
@@ -60,3 +63,17 @@ offset_bottom = 152.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(4, -20)
 shape = SubResource("RectangleShape2D_so7vu")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(512, 368)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
+offset_left = -240.0
+offset_top = -16.0
+offset_right = 240.0
+offset_bottom = 24.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_ra4o6")
+one_way_collision = true

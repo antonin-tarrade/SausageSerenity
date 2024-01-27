@@ -1,14 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlxltitx45rdy"]
+[gd_scene load_steps=13 format=3 uid="uid://dlxltitx45rdy"]
 
 [ext_resource type="PackedScene" uid="uid://cimdeld5rdie4" path="res://Scenes/chien_saucisse.tscn" id="1_lhaoc"]
 [ext_resource type="PackedScene" uid="uid://cfa1c1qjimgtp" path="res://Scenes/Personnage.tscn" id="2_m3qme"]
 [ext_resource type="Shader" uid="uid://d2l4kvn6jf350" path="res://Shaders/couleur.tres" id="3_t0lvh"]
 [ext_resource type="PackedScene" uid="uid://bc5hiney5ut08" path="res://Scenes/objet.tscn" id="4_40vl5"]
+[ext_resource type="PackedScene" uid="uid://brsj6mnt6yui7" path="res://Scenes/decor.tscn" id="4_5016y"]
 [ext_resource type="Resource" uid="uid://tyqbbsk3r3tc" path="res://Objets/baudruche.tres" id="5_wlyle"]
+[ext_resource type="Texture2D" uid="uid://jp148nn8fmov" path="res://Dessins/bulle.png" id="6_e24b0"]
 [ext_resource type="Resource" uid="uid://rl5sswgdllpj" path="res://Objets/puzzle.tres" id="6_vsdp4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pufvh"]
-size = Vector2(1152, 40)
+[ext_resource type="PackedScene" uid="uid://dri423lovjsxw" path="res://Scenes/Mission.tscn" id="7_exk0v"]
+[ext_resource type="Texture2D" uid="uid://ccybloapjpnqa" path="res://TilesObjets/tile002.png" id="8_p0yte"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_baudruche.gd" id="9_ots5p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xjdte"]
 resource_local_to_scene = true
@@ -17,34 +19,15 @@ shader_parameter/isSad = true
 
 [node name="Main" type="Node2D"]
 
+[node name="Decor" parent="." instance=ExtResource("4_5016y")]
+
 [node name="ChienSaucisse" parent="." instance=ExtResource("1_lhaoc")]
-position = Vector2(396, 748)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(569, 792)
-scale = Vector2(2.92, 1)
-collision_layer = 3
-collision_mask = 3
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_pufvh")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = -576.0
-offset_top = -24.0
-offset_right = 576.0
-offset_bottom = 16.0
-
-[node name="PersonnageBody" parent="." instance=ExtResource("2_m3qme")]
-material = SubResource("ShaderMaterial_xjdte")
-position = Vector2(744, 748)
+position = Vector2(29, 899)
 
 [node name="Objets" type="Node2D" parent="." groups=["objets"]]
 
 [node name="Baudruche" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(81, 720)
+position = Vector2(111, 794)
 iteminfo = ExtResource("5_wlyle")
 
 [node name="Puzzle1" parent="Objets" instance=ExtResource("4_40vl5")]
@@ -54,3 +37,23 @@ iteminfo = ExtResource("6_vsdp4")
 [node name="Puzzle2" parent="Objets" instance=ExtResource("4_40vl5")]
 position = Vector2(896, 754)
 iteminfo = ExtResource("6_vsdp4")
+
+[node name="Personnages" type="Node2D" parent="."]
+
+[node name="Bill" type="Node2D" parent="Personnages"]
+position = Vector2(260, 887)
+
+[node name="Requete" type="Sprite2D" parent="Personnages/Bill"]
+visible = false
+position = Vector2(-7, -38)
+scale = Vector2(0.1, 0.076)
+texture = ExtResource("6_e24b0")
+
+[node name="Missions" type="Node2D" parent="Personnages/Bill/Requete"]
+
+[node name="MissionBaudruche" parent="Personnages/Bill/Requete/Missions" instance=ExtResource("7_exk0v")]
+texture = ExtResource("8_p0yte")
+script = ExtResource("9_ots5p")
+
+[node name="Personnage" parent="Personnages/Bill" instance=ExtResource("2_m3qme")]
+material = SubResource("ShaderMaterial_xjdte")

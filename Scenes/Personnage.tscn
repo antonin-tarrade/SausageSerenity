@@ -1,24 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://cfa1c1qjimgtp"]
+[gd_scene load_steps=16 format=3 uid="uid://cfa1c1qjimgtp"]
 
 [ext_resource type="Shader" uid="uid://d2l4kvn6jf350" path="res://Shaders/couleur.tres" id="1_1ea4k"]
 [ext_resource type="Texture2D" uid="uid://bnjnkis0qwspn" path="res://Dessins/mec.png" id="2_5qmcp"]
 [ext_resource type="Script" path="res://Scripts/Personnage.gd" id="3_veaqq"]
-[ext_resource type="Texture2D" uid="uid://jp148nn8fmov" path="res://Dessins/bulle.png" id="4_ypdur"]
-[ext_resource type="PackedScene" uid="uid://dri423lovjsxw" path="res://Scenes/Mission.tscn" id="5_u25ct"]
-[ext_resource type="Script" path="res://Scripts/Missions/Mission_baudruche.gd" id="6_lf0i1"]
-[ext_resource type="Texture2D" uid="uid://ccybloapjpnqa" path="res://TilesObjets/tile002.png" id="6_rg7vo"]
-[ext_resource type="Script" path="res://Scripts/Missions/Mission_puzzle.gd" id="7_0nhh7"]
-[ext_resource type="Texture2D" uid="uid://dawupw145hfme" path="res://TilesObjets/tile008.png" id="8_ocy36"]
-[ext_resource type="Texture2D" uid="uid://bf3w7yren34t5" path="res://TilesObjets/tile005.png" id="9_0usdv"]
 [ext_resource type="Script" path="res://Scripts/PersonnageBody.gd" id="10_2e1yv"]
-[ext_resource type="Texture2D" uid="uid://ciefim0tqgui4" path="res://TilesObjets/tile010.png" id="10_jhqfc"]
-[ext_resource type="Script" path="res://Scripts/Missions/Mission_rose.gd" id="11_y7wa8"]
-[ext_resource type="Script" path="res://Scripts/Missions/Mission_casser_tout.gd" id="13_dcrqu"]
-[ext_resource type="Script" path="res://Scripts/Missions/Mission_cle.gd" id="14_5jg5n"]
-[ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_appart.gd" id="15_5vapg"]
-[ext_resource type="Script" path="res://Scripts/Missions/Mission_douche.gd" id="16_glp5m"]
-[ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_immeuble.gd" id="17_4gfa6"]
-[ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_eau.gd" id="18_q2f1u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nj0fj"]
 resource_local_to_scene = true
@@ -68,46 +53,6 @@ material = SubResource("ShaderMaterial_nj0fj")
 texture = ExtResource("2_5qmcp")
 script = ExtResource("3_veaqq")
 nom = "Godoto"
-
-[node name="Requete" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-62.7573, -149.458)
-scale = Vector2(0.394822, 0.300292)
-texture = ExtResource("4_ypdur")
-
-[node name="Missions" type="Node2D" parent="Requete"]
-
-[node name="MissionBaudruche" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
-texture = ExtResource("6_rg7vo")
-script = ExtResource("6_lf0i1")
-
-[node name="MissionPuzzle" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
-texture = ExtResource("8_ocy36")
-script = ExtResource("7_0nhh7")
-
-[node name="MissionRose" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
-texture = ExtResource("10_jhqfc")
-script = ExtResource("11_y7wa8")
-
-[node name="MissionCasserTout" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
-texture = ExtResource("9_0usdv")
-script = ExtResource("13_dcrqu")
-
-[node name="MissionElleEstOuMaCle" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
-script = ExtResource("14_5jg5n")
-
-[node name="MissionBallonAppart" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
-script = ExtResource("15_5vapg")
-
-[node name="MissionDouche" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
-script = ExtResource("16_glp5m")
-
-[node name="MissionBallonImmeuble" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
-scale = Vector2(100, 100)
-script = ExtResource("17_4gfa6")
-
-[node name="MissionBallonEau" parent="Requete/Missions" instance=ExtResource("5_u25ct")]
-script = ExtResource("18_q2f1u")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../..")

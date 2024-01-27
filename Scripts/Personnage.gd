@@ -3,7 +3,7 @@ class_name Personnage extends Sprite2D
 
 @export var nom : String = ""
 var requete : Sprite2D
-@onready var missions : Array[Node] = $Requete/Missions.get_children()
+@onready var missions : Array[Node] = ($"../Requete/Missions").get_children()
 @onready var current_mission : int = 0
 var animtree : AnimationTree
 var zonedetectionobj : Area2D
@@ -21,7 +21,7 @@ var etat : ETATS
 func _ready():
 
 	etat = ETATS.triste
-	requete = $Requete
+	requete = $"../Requete"
 	zonedetectionobj = $ZoneDeDetectionObjets
 	zonedetectionperso = $ZoneDeDetectionPersos
 	animtree = $AnimationTree

@@ -1,0 +1,44 @@
+[gd_scene load_steps=13 format=3 uid="uid://cc6hsi2sena51"]
+
+[ext_resource type="PackedScene" uid="uid://dri423lovjsxw" path="res://Scenes/Mission.tscn" id="1_p5na8"]
+[ext_resource type="Texture2D" uid="uid://dawupw145hfme" path="res://TilesObjets/tile008.png" id="2_mr3v8"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_puzzle.gd" id="3_sb05l"]
+[ext_resource type="Texture2D" uid="uid://ciefim0tqgui4" path="res://TilesObjets/tile010.png" id="4_xqghf"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_rose.gd" id="5_yme2m"]
+[ext_resource type="Texture2D" uid="uid://bf3w7yren34t5" path="res://TilesObjets/tile005.png" id="6_v5m5d"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_casser_tout.gd" id="7_06dd3"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_cle.gd" id="8_r607v"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_appart.gd" id="9_6vh5h"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_douche.gd" id="10_o7dxo"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_immeuble.gd" id="11_q65jm"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_eau.gd" id="12_3hkl5"]
+
+[node name="StockMissions" type="Node2D"]
+
+[node name="MissionPuzzle" parent="." instance=ExtResource("1_p5na8")]
+texture = ExtResource("2_mr3v8")
+script = ExtResource("3_sb05l")
+
+[node name="MissionRose" parent="." instance=ExtResource("1_p5na8")]
+texture = ExtResource("4_xqghf")
+script = ExtResource("5_yme2m")
+
+[node name="MissionCasserTout" parent="." instance=ExtResource("1_p5na8")]
+texture = ExtResource("6_v5m5d")
+script = ExtResource("7_06dd3")
+
+[node name="MissionElleEstOuMaCle" parent="." instance=ExtResource("1_p5na8")]
+script = ExtResource("8_r607v")
+
+[node name="MissionBallonAppart" parent="." instance=ExtResource("1_p5na8")]
+script = ExtResource("9_6vh5h")
+
+[node name="MissionDouche" parent="." instance=ExtResource("1_p5na8")]
+script = ExtResource("10_o7dxo")
+
+[node name="MissionBallonImmeuble" parent="." instance=ExtResource("1_p5na8")]
+scale = Vector2(100, 100)
+script = ExtResource("11_q65jm")
+
+[node name="MissionBallonEau" parent="." instance=ExtResource("1_p5na8")]
+script = ExtResource("12_3hkl5")

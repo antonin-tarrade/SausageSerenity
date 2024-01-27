@@ -26,6 +26,7 @@ var dog_mouth_pos = Vector2(0,0)
 func _ready():
 	# On charge les informations de l'objet
 	load_resource()
+	dog.objetsnode = get_parent()
 
 
 func get_id() -> String :

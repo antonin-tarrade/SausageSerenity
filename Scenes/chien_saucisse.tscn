@@ -166,6 +166,5 @@ shape = SubResource("CircleShape2D_twdvm")
 
 [node name="ObjetBouche" type="Sprite2D" parent="PivotObjet"]
 position = Vector2(11, -7)
-scale = Vector2(0.09375, 0.09375)
 
 [connection signal="timeout" from="Chargement" to="." method="frapperFin"]

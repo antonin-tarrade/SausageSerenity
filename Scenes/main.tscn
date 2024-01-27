@@ -41,7 +41,7 @@ offset_bottom = 16.0
 material = SubResource("ShaderMaterial_xjdte")
 position = Vector2(744, 748)
 
-[node name="Objets" type="Node2D" parent="."]
+[node name="Objets" type="Node2D" parent="." groups=["objets"]]
 
 [node name="Baudruche" parent="Objets" instance=ExtResource("4_40vl5")]
 position = Vector2(81, 720)

@@ -20,7 +20,7 @@ const normal_position: Vector2 = Vector2(0, -8)
 
 var objetGenerique : PackedScene = preload("res://Scenes/objet.tscn")
 var iteminfo : Item = null
-
+var objetsnode = null
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var turning_left: bool = false
@@ -183,7 +183,8 @@ func Drop() :
 		var item = objetGenerique.instantiate()
 		item.iteminfo = iteminfo
 		item.global_position = objetBouche.global_position
-		get_parent().add_child(item)
+		#get_parent().get_child(3).add_child(item)
+		objetsnode.add_child(item)
 		iteminfo = null
 		objetBouche.texture = null
 		print("drop")

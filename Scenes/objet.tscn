@@ -14,10 +14,5 @@ iteminfo = ExtResource("2_vye4x")
 [node name="CollisionObjet" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tvwpe")
 
-[node name="ObjetTexture" type="TextureRect" parent="."]
-offset_left = -10.0
-offset_top = -14.0
-offset_right = 118.0
-offset_bottom = 114.0
-scale = Vector2(0.188319, 0.188319)
+[node name="ObjetTexture" type="Sprite2D" parent="."]
 texture = ExtResource("3_v3qkq")

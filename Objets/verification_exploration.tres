@@ -1,12 +1,13 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cwupaq6jhwmbg"]
 
+[ext_resource type="Texture2D" uid="uid://pqq7twfnjv0a" path="res://Dessins/transat.png" id="1_042yv"]
 [ext_resource type="Script" path="res://ObjectData.gd" id="1_e34i0"]
-[ext_resource type="Texture2D" uid="uid://bihxd7i5vb0fp" path="res://Sprites/Invisible.png" id="1_u7kti"]
 
 [resource]
 script = ExtResource("1_e34i0")
 id = "exploration"
-icon = ExtResource("1_u7kti")
+icon = ExtResource("1_042yv")
 isTakable = false
 isPushable = false
 isDestroyable = false
+positionShape = Vector2(0, 0)

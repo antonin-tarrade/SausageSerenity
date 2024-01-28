@@ -173,14 +173,14 @@ position = Vector2(143, 890)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BillBaudruche"]
-visible = false
-position = Vector2(-7, -38)
-scale = Vector2(0.1, 0.076)
+position = Vector2(28, -16)
 texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/BillBaudruche/Requete"]
 
 [node name="MissionBaudruche" parent="Personnages/BillBaudruche/Requete/Missions" instance=ExtResource("7_exk0v")]
+position = Vector2(0, -4)
+scale = Vector2(1, 1)
 texture = ExtResource("8_p0yte")
 script = ExtResource("9_ots5p")
 
@@ -191,21 +191,22 @@ material = SubResource("ShaderMaterial_xjdte")
 position = Vector2(858, 888)
 metadata/_edit_group_ = true
 
-[node name="Requete" type="Sprite2D" parent="Personnages/BillBoue"]
-visible = false
-position = Vector2(-7, -38)
-scale = Vector2(0.1, 0.076)
-texture = ExtResource("6_e24b0")
-
-[node name="Missions" type="Node2D" parent="Personnages/BillBoue/Requete"]
-
-[node name="MissionDouche" parent="Personnages/BillBoue/Requete/Missions" instance=ExtResource("7_exk0v")]
-texture = ExtResource("12_ydduq")
-script = ExtResource("18_oge4c")
-
 [node name="Personnage" parent="Personnages/BillBoue" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_pwm2k")
 isTakable = true
+
+[node name="Requete" type="Sprite2D" parent="Personnages/BillBoue"]
+position = Vector2(28, -16)
+texture = ExtResource("6_e24b0")
+
+[node name="Missions" type="Node2D" parent="Personnages/BillBoue/Requete"]
+position = Vector2(-35, -22)
+
+[node name="MissionDouche" parent="Personnages/BillBoue/Requete/Missions" instance=ExtResource("7_exk0v")]
+position = Vector2(0, -4)
+scale = Vector2(1, 1)
+texture = ExtResource("12_ydduq")
+script = ExtResource("18_oge4c")
 
 [node name="PorteHumaine" type="Node2D" parent="Personnages"]
 position = Vector2(1508, 694)
@@ -213,13 +214,14 @@ metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/PorteHumaine"]
 visible = false
-position = Vector2(-7, -38)
-scale = Vector2(0.1, 0.076)
+position = Vector2(28, -16)
 texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/PorteHumaine/Requete"]
 
 [node name="MissionElleEstOuMaCle" parent="Personnages/PorteHumaine/Requete/Missions" instance=ExtResource("7_exk0v")]
+position = Vector2(0, -4)
+scale = Vector2(1, 1)
 texture = ExtResource("14_oqcgg")
 script = ExtResource("16_amrmr")
 
@@ -232,13 +234,14 @@ metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/MiniBillAppart"]
 visible = false
-position = Vector2(-7, -38)
-scale = Vector2(0.1, 0.076)
+position = Vector2(28, -16)
 texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/MiniBillAppart/Requete"]
 
 [node name="MissionBallonAppart" parent="Personnages/MiniBillAppart/Requete/Missions" instance=ExtResource("7_exk0v")]
+position = Vector2(0, -4)
+scale = Vector2(1, 1)
 texture = ExtResource("16_eljw5")
 script = ExtResource("17_lvmad")
 
@@ -251,14 +254,14 @@ metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/MiniBillImmeuble"]
 visible = false
-position = Vector2(-7, -38)
-scale = Vector2(0.1, 0.076)
+position = Vector2(28, -16)
 texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/MiniBillImmeuble/Requete"]
 
 [node name="MissionBallonImmeuble" parent="Personnages/MiniBillImmeuble/Requete/Missions" instance=ExtResource("7_exk0v")]
-scale = Vector2(100, 100)
+position = Vector2(0, -4)
+scale = Vector2(1, 1)
 texture = ExtResource("20_c0jld")
 script = ExtResource("19_e3hvw")
 
@@ -271,13 +274,14 @@ metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/MereMichelle"]
 visible = false
-position = Vector2(-7, -38)
-scale = Vector2(0.1, 0.076)
+position = Vector2(28, -16)
 texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/MereMichelle/Requete"]
 
 [node name="MissionChat" parent="Personnages/MereMichelle/Requete/Missions" instance=ExtResource("7_exk0v")]
+position = Vector2(0, -4)
+scale = Vector2(1, 1)
 texture = ExtResource("22_7t2v0")
 script = ExtResource("23_65kqy")
 
@@ -290,8 +294,7 @@ metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BambinoBill"]
 visible = false
-position = Vector2(-7, -38)
-scale = Vector2(0.1, 0.076)
+position = Vector2(28, -16)
 texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/BambinoBill/Requete"]
@@ -305,13 +308,14 @@ metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/SmartBill"]
 visible = false
-position = Vector2(-7, -38)
-scale = Vector2(0.1, 0.076)
+position = Vector2(28, -16)
 texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/SmartBill/Requete"]
 
 [node name="MissionPuzzle" parent="Personnages/SmartBill/Requete/Missions" instance=ExtResource("7_exk0v")]
+position = Vector2(0, -4)
+scale = Vector2(1, 1)
 texture = ExtResource("10_tjs0k")
 script = ExtResource("11_6eq5y")
 
@@ -324,13 +328,14 @@ metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BillRose"]
 visible = false
-position = Vector2(-7, -38)
-scale = Vector2(0.1, 0.076)
+position = Vector2(28, -16)
 texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/BillRose/Requete"]
 
 [node name="MissionRose" parent="Personnages/BillRose/Requete/Missions" instance=ExtResource("7_exk0v")]
+position = Vector2(0, -4)
+scale = Vector2(1, 1)
 texture = ExtResource("12_8i2i0")
 script = ExtResource("13_3roqm")
 
@@ -343,13 +348,14 @@ metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/RomantiqueBill"]
 visible = false
-position = Vector2(-7, -38)
-scale = Vector2(0.1, 0.076)
+position = Vector2(28, -16)
 texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/RomantiqueBill/Requete"]
 
 [node name="MissionRomantique" parent="Personnages/RomantiqueBill/Requete/Missions" instance=ExtResource("7_exk0v")]
+position = Vector2(0, -4)
+scale = Vector2(1, 1)
 texture = ExtResource("12_ydduq")
 script = ExtResource("32_5vqgd")
 
@@ -362,13 +368,14 @@ metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/MechantBill"]
 visible = false
-position = Vector2(-7, -38)
-scale = Vector2(0.1, 0.076)
+position = Vector2(28, -16)
 texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/MechantBill/Requete"]
 
 [node name="MissionBallonEau" parent="Personnages/MechantBill/Requete/Missions" node_paths=PackedStringArray("ballon") instance=ExtResource("7_exk0v")]
+position = Vector2(0, -4)
+scale = Vector2(1, 1)
 texture = ExtResource("12_ydduq")
 script = ExtResource("20_q6trk")
 ballon = NodePath("../../../../../Objets/BallonEau")
@@ -382,13 +389,14 @@ metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BillLExplorateur"]
 visible = false
-position = Vector2(-7, -38)
-scale = Vector2(0.1, 0.076)
+position = Vector2(28, -16)
 texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/BillLExplorateur/Requete"]
 
 [node name="MissionExplorer" parent="Personnages/BillLExplorateur/Requete/Missions" instance=ExtResource("7_exk0v")]
+position = Vector2(0, -4)
+scale = Vector2(1, 1)
 texture = ExtResource("12_ydduq")
 script = ExtResource("36_uhh5p")
 
@@ -401,13 +409,14 @@ metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/AttendRomantiqueBill"]
 visible = false
-position = Vector2(-7, -38)
-scale = Vector2(0.1, 0.076)
+position = Vector2(28, -16)
 texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/AttendRomantiqueBill/Requete"]
 
 [node name="MissionAttendreRomantique" parent="Personnages/AttendRomantiqueBill/Requete/Missions" instance=ExtResource("7_exk0v")]
+position = Vector2(0, -4)
+scale = Vector2(1, 1)
 texture = ExtResource("42_6aqss")
 script = ExtResource("42_87tod")
 

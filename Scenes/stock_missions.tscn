@@ -27,54 +27,66 @@
 [node name="StockMissions" type="Node2D"]
 
 [node name="MissionPuzzle" parent="." instance=ExtResource("1_p5na8")]
+scale = Vector2(1, 1)
 texture = ExtResource("2_mr3v8")
 script = ExtResource("3_sb05l")
 
 [node name="MissionRose" parent="." instance=ExtResource("1_p5na8")]
+scale = Vector2(1, 1)
 texture = ExtResource("4_xqghf")
 script = ExtResource("5_yme2m")
 
 [node name="MissionCasserTout" parent="." instance=ExtResource("1_p5na8")]
+scale = Vector2(1, 1)
 texture = ExtResource("6_v5m5d")
 script = ExtResource("7_06dd3")
 
 [node name="MissionElleEstOuMaCle" parent="." instance=ExtResource("1_p5na8")]
+scale = Vector2(1, 1)
 texture = ExtResource("8_puwhc")
 script = ExtResource("8_r607v")
 
 [node name="MissionBallonAppart" parent="." instance=ExtResource("1_p5na8")]
+scale = Vector2(1, 1)
 texture = ExtResource("10_nx4pq")
 script = ExtResource("9_6vh5h")
 
 [node name="MissionDouche" parent="." instance=ExtResource("1_p5na8")]
+scale = Vector2(1, 1)
 texture = ExtResource("12_dcx1d")
 script = ExtResource("10_o7dxo")
 
 [node name="MissionBallonImmeuble" parent="." instance=ExtResource("1_p5na8")]
-scale = Vector2(100, 100)
+scale = Vector2(1, 1)
 texture = ExtResource("14_i4vqt")
 script = ExtResource("11_q65jm")
 
 [node name="MissionBallonEau" parent="." instance=ExtResource("1_p5na8")]
+scale = Vector2(1, 1)
 texture = ExtResource("12_dcx1d")
 script = ExtResource("12_3hkl5")
 
 [node name="MissionBaudruche" parent="." instance=ExtResource("1_p5na8")]
+scale = Vector2(1, 1)
 texture = ExtResource("13_fb06a")
 script = ExtResource("14_4bcrs")
 
 [node name="MissionChat" parent="." instance=ExtResource("1_p5na8")]
+scale = Vector2(1, 1)
 texture = ExtResource("19_4v01w")
 script = ExtResource("20_fein3")
 
 [node name="MissionRomantique" parent="." instance=ExtResource("1_p5na8")]
+scale = Vector2(1, 1)
 texture = ExtResource("12_dcx1d")
 script = ExtResource("21_435na")
 
 [node name="MissionExplorer" parent="." instance=ExtResource("1_p5na8")]
+scale = Vector2(1, 1)
 texture = ExtResource("12_dcx1d")
 script = ExtResource("22_s4gk5")
 
 [node name="MissionAttendreRomantique" parent="." instance=ExtResource("1_p5na8")]
+scale = Vector2(1, 1)
 texture = ExtResource("12_dcx1d")
 script = ExtResource("23_kkyp2")

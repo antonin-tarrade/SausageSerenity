@@ -323,7 +323,7 @@ position = Vector2(1488, 410)
 iteminfo = ExtResource("15_dp5sx")
 
 [node name="Douche" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(900, 423)
+position = Vector2(1035, 500)
 iteminfo = ExtResource("16_vkrxl")
 
 [node name="Assiette1" parent="Objets" instance=ExtResource("4_40vl5")]

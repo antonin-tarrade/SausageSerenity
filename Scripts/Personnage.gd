@@ -55,7 +55,8 @@ func _on_rendu_heureux():
 	self.material.set_shader_parameter("isSad",false)
 	gm._on_mission_fini()
 	print(gm.get_pourcentage_fini())
-	#var taux_joie = decors.material.get_shader_parameter("taux_joie")
+	var taux_joie = decors.material.get_shader_parameter("taux_joie")
+	print(taux_joie)
 	decors.material.set_shader_parameter("taux_joie",gm.get_pourcentage_fini())
 
 func regarder_autour_objets():

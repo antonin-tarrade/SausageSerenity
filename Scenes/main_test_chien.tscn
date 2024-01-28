@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsrpsshu10xed"]
+[gd_scene load_steps=8 format=3 uid="uid://bsrpsshu10xed"]
 
 [ext_resource type="PackedScene" uid="uid://dxxrtp7uesyjd" path="res://Scenes/chien_saucisse.tscn" id="1_hubqe"]
 [ext_resource type="Texture2D" uid="uid://b04ah1lbkvhin" path="res://icon.svg" id="2_hhppu"]

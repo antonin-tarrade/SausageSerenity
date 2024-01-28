@@ -24,8 +24,6 @@ extends CharacterBody2D
 
 @onready var all_tree: Array[AnimationTree] = [head_tree,back_tree]
 
-@onready var normal_size: Vector2 = c_shape.shape.size
-@onready var normal_position: Vector2 = c_shape.position
 @onready var c_polygon: CollisionPolygon2D = $CollisionPolygon2D
 # 0 bottom-left
 # 1 bottom-right

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cfa1c1qjimgtp"]
+[gd_scene load_steps=26 format=3 uid="uid://cfa1c1qjimgtp"]
 
 [ext_resource type="Shader" uid="uid://d2l4kvn6jf350" path="res://Shaders/couleur.tres" id="1_1ea4k"]
 [ext_resource type="Texture2D" uid="uid://bla54r6uyfwo7" path="res://Sprites/pnj.png" id="2_2futx"]
@@ -977,6 +977,36 @@ tracks/4/keys = {
 "values": [121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150]
 }
 
+[sub_resource type="Animation" id="Animation_a68xo"]
+resource_name = "porte_ferme"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [326]
+}
+
+[sub_resource type="Animation" id="Animation_6lwv0"]
+resource_name = "porte_ouverte"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [327]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nxu0o"]
 _data = {
 "crado_happy": SubResource("Animation_40qe4"),
@@ -993,7 +1023,9 @@ _data = {
 "mec_happy": SubResource("Animation_sr24t"),
 "mec_sad": SubResource("Animation_1l3p5"),
 "meuf_happy": SubResource("Animation_1rg1k"),
-"meuf_sad": SubResource("Animation_ffes1")
+"meuf_sad": SubResource("Animation_ffes1"),
+"porte_ferme": SubResource("Animation_a68xo"),
+"porte_ouverte": SubResource("Animation_6lwv0")
 }
 
 [node name="Personnage" type="Sprite2D"]
@@ -1002,7 +1034,7 @@ material = SubResource("ShaderMaterial_nj0fj")
 texture = ExtResource("2_2futx")
 hframes = 32
 vframes = 16
-frame = 151
+frame = 327
 script = ExtResource("3_veaqq")
 anim_triste = "mec_sad"
 anim_heureux = "mec_happy"

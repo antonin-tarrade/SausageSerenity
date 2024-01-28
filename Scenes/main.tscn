@@ -5,12 +5,12 @@
 [ext_resource type="Shader" uid="uid://d2l4kvn6jf350" path="res://Shaders/couleur.tres" id="3_t0lvh"]
 [ext_resource type="PackedScene" uid="uid://bc5hiney5ut08" path="res://Scenes/objet.tscn" id="4_40vl5"]
 [ext_resource type="PackedScene" uid="uid://brsj6mnt6yui7" path="res://Scenes/decor.tscn" id="4_5016y"]
-[ext_resource type="Resource" uid="uid://m0e86n37fsc7" path="res://Objets/puzzle2.tres" id="5_j4q2r"]
+[ext_resource type="Resource" path="res://Objets/puzzle2.tres" id="5_j4q2r"]
 [ext_resource type="Resource" uid="uid://tyqbbsk3r3tc" path="res://Objets/baudruche.tres" id="5_wlyle"]
 [ext_resource type="Texture2D" uid="uid://jp148nn8fmov" path="res://Dessins/bulle.png" id="6_e24b0"]
 [ext_resource type="Resource" uid="uid://drlmury0jdbwc" path="res://Objets/ballon_appart.tres" id="6_h6724"]
 [ext_resource type="Resource" uid="uid://bhkm24cmtvpwr" path="res://Objets/cle.tres" id="6_ik1yi"]
-[ext_resource type="Resource" uid="uid://rl5sswgdllpj" path="res://Objets/puzzle1.tres" id="6_vsdp4"]
+[ext_resource type="Resource" path="res://Objets/puzzle1.tres" id="6_vsdp4"]
 [ext_resource type="PackedScene" uid="uid://dri423lovjsxw" path="res://Scenes/Mission.tscn" id="7_exk0v"]
 [ext_resource type="Resource" uid="uid://b5hnul0wtfdr1" path="res://Objets/ballon_immeuble.tres" id="7_hsa44"]
 [ext_resource type="Texture2D" uid="uid://ccybloapjpnqa" path="res://TilesObjets/tile002.png" id="8_p0yte"]
@@ -231,6 +231,8 @@ script = ExtResource("16_amrmr")
 
 [node name="Personnage" parent="Personnages/PorteHumaine" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_0p04m")
+anim_triste = "porte_ferme"
+anim_heureux = "porte_ouverte"
 
 [node name="MiniBillAppart" type="Node2D" parent="Personnages"]
 position = Vector2(1325, 880)

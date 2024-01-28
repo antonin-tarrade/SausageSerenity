@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://yibc2241fgvu"]
+
+[ext_resource type="AudioStream" uid="uid://bbcrv8p65do7p" path="res://Musiques/chien_saucisse_lvl3.mp3" id="1_ug7wx"]
+[ext_resource type="Script" path="res://Scenes/MusicPlayer.gd" id="2_apnsf"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_ug7wx")
+autoplay = true
+script = ExtResource("2_apnsf")

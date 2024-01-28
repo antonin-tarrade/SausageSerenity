@@ -3,7 +3,7 @@ extends CharacterBody2D
 var icon_pied = preload("res://Dessins/mec.png")
 
 @onready var zonePickUp : Area2D = $ZoneDePick
-@onready var objetBouche : Sprite2D = $PivotObjet/ObjetBouche
+@onready var objetBouche : Sprite2D = $Head/PivotObjet/ObjetBouche
 @export var SPEED = 200.0
 @export var EXTENSION_SPEED = 4 # px
 @export var SHRINKING_SPEED = 6 # px
@@ -30,10 +30,15 @@ var icon_pied = preload("res://Dessins/mec.png")
 # 3 top-left
 @onready var normal_polygon: PackedVector2Array = c_polygon.polygon
 @onready var normal_position: Vector2 = c_polygon.position
+@onready var object_up_pos = Vector2(2,-12)
+@onready var object_side_pos = Vector2(-12,-3)
+
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var turning_right: bool = true
+var turning_right: bool = false
+var old_turning_right = false
 var extended: bool = false
 var max_ex: bool = false
 enum extending_direction {LEFT, RIGHT, UP, DOWN}
@@ -51,18 +56,24 @@ var objetsnode = null
 @onready var walldetect = $WallDetect/ColWall
 var HaveWallTouched = false
 
+@onready var head_position = head.position
+@onready var back_position = back.position
+@onready var body_up_position = body_side.position
+@onready var body_side_position = body_up.position
+
+@onready var is_extended = false
 
 
 func _ready():
 	body_side.region_rect = Rect2(0,0,0,32)
-	body_side.region_rect = Rect2(0,0,32,0)
-
+	body_up.region_rect = Rect2(0,0,32,0)
+	
 func _physics_process(delta):
 	
 	for tree in all_tree : 
-		tree.set("parameters/conditions/idle", is_on_floor() and (velocity.x == 0) and !Input.is_action_pressed("extend"))
+		tree.set("parameters/conditions/idle", is_on_floor() and (velocity.x == 0) and !is_extended)
 		tree.set("parameters/conditions/is_moving", velocity.x != 0)
-	
+	if is_on_floor() and !is_extended : objetBouche.position = object_side_pos
 	if not is_on_floor() and ed == -1:
 		velocity.y += gravity * delta
 		
@@ -109,7 +120,9 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			
-	rotate_dog()
+	if turning_right != old_turning_right:
+		rotate_dog()
+	old_turning_right = turning_right
 	move_and_slide()
 	
 	
@@ -132,18 +145,27 @@ func get_extending_direction(horizontal: float, vertical: float) -> int:
 		
 # extends the dog in the right direction
 func extension() -> bool:
+	is_extended = true
 	var e: float = math_extension(step*x)
 	var mov = e - old_e
 	match ed:
 		extending_direction.RIGHT:
-			extend_animation_side()
+			for tree in all_tree :
+				tree.set("parameters/conditions/extending_side", true)
+			head.position.x += mov
+			body_side.region_rect.size[0] = abs(head.position.x - back.position.x) + 10
+			body_side.position.x = (head.position.x + back.position.x)/2
 			if !turning_right : turning_right = true
 			c_polygon.polygon[1].x += mov
 			c_polygon.polygon[2].x += mov
 			move_detector(c_polygon.polygon[1], c_polygon.polygon[2])
 			camera.position.x += mov
 		extending_direction.LEFT:
-			extend_animation_side()
+			for tree in all_tree :
+				tree.set("parameters/conditions/extending_side", true)
+			head.position.x -= mov
+			body_side.region_rect.size[0] = abs(head.position.x - back.position.x) + 10
+			body_side.position.x = (head.position.x + back.position.x)/2
 			if turning_right : turning_right = false
 			c_polygon.polygon[0].x -= mov
 			c_polygon.polygon[3].x -= mov
@@ -152,7 +174,16 @@ func extension() -> bool:
 		extending_direction.DOWN:
 			print("not yet implemented")
 		extending_direction.UP:
-			extend_animation_up()
+			objetBouche.position = object_up_pos;
+			for tree in all_tree :
+				tree.set("parameters/conditions/extending_up", true)
+			head.position.y -= mov
+			body_up.region_rect.size[1] = abs(head.position.y - back.position.y) + 10 
+			if turning_right : 
+				body_up.position.x = -1
+			else :
+				body_up.position.x = 0
+			body_up.position.y = (head.position.y + back.position.y)/2
 			c_polygon.polygon[2].y -= mov
 			c_polygon.polygon[3].y -= mov
 			move_detector(c_polygon.polygon[2], c_polygon.polygon[3])
@@ -169,17 +200,7 @@ func extension() -> bool:
 			
 			
 			
-func extend_animation_side():
-	for tree in all_tree :
-		tree.set("parameters/conditions/extending_side", true)
-			
-			
-			
-func extend_animation_up():
-	for tree in all_tree :
-		tree.set("parameters/conditions/extending_up", true)
-	
-			
+
 # shrink the dog in the right direction
 func shrinkage() -> int:
 	var v: bool = false
@@ -187,12 +208,18 @@ func shrinkage() -> int:
 	var mov = EXTENSION_SPEED
 	match ed:
 		extending_direction.RIGHT:
+			head.position.x -= mov
+			body_side.region_rect.size[0] = abs(head.position.x - back.position.x) + 10
+			body_side.position.x = (head.position.x + back.position.x)/2
 			c_polygon.polygon[0].x += mov
 			c_polygon.polygon[3].x += mov
 			c_polygon.position.x -= mov
 			camera.position.x -= mov
 			position.x += mov
 		extending_direction.LEFT:
+			head.position.x += mov
+			body_side.region_rect.size[0] = abs(head.position.x - back.position.x) + 10
+			body_side.position.x = (head.position.x + back.position.x)/2
 			c_polygon.polygon[1].x -= mov
 			c_polygon.polygon[2].x -= mov
 			c_polygon.position.x += mov
@@ -201,6 +228,14 @@ func shrinkage() -> int:
 		extending_direction.DOWN:
 			print("not yet implemented")
 		extending_direction.UP:
+			head.position.y += mov
+			body_up.region_rect.size[1] = abs(head.position.y - back.position.y) + 10 
+			body_up.position.y = (head.position.y + back.position.y)/2
+			if turning_right : 
+				body_up.position.x = -1
+			else :
+				body_up.position.x = 0
+			
 			c_polygon.polygon[0].y -= mov
 			c_polygon.polygon[1].y -= mov
 			c_polygon.position.y += mov
@@ -211,11 +246,21 @@ func shrinkage() -> int:
 	if v and height(c_polygon.polygon) <= height(normal_polygon):
 		c_polygon.polygon = normal_polygon
 		c_polygon.position = normal_position
+		head.position = head_position
+		back.position = back_position
+		body_side.region_rect = Rect2(0,0,0,32)
+		body_up.region_rect = Rect2(0,0,32,0)
+		is_extended = false
 		max_ex = false
 		return -1
 	elif !v and length(c_polygon.polygon) <= length(normal_polygon):
 		c_polygon.polygon = normal_polygon
 		c_polygon.position = normal_position
+		head.position = head_position
+		back.position = back_position
+		body_side.region_rect = Rect2(0,0,0,32)
+		body_up.region_rect = Rect2(0,0,32,0)
+		is_extended = false
 		max_ex = false
 		return -1
 	else:
@@ -233,8 +278,10 @@ func _input(event):
 		if iteminfo == null :
 			PickUpOrOuaf()
 		else :
-			Drop()
 			all_tree[1].set("parameters/conditions/mouth_open", false)
+			all_tree[1].set("parameters/conditions/mouth_closed", true)
+			Drop()
+			
 
 
 func frapper(f : float):
@@ -270,11 +317,14 @@ func PickUpOrOuaf() :
 				objet.PickUp()
 				aPickUp = true
 				all_tree[1].set("parameters/conditions/mouth_open", true)
+				all_tree[1].set("parameters/conditions/mouth_closed", false)
+				
 				break
-	#if (!aPickUp):
-		#for perso : PhysicsBody2D in zoneBarking.get_overlapping_bodies() :
-			#print(perso)
-			#perso.se_faire_aboyer()
+	if (!aPickUp):
+		for perso : PhysicsBody2D in zoneBarking.get_overlapping_bodies() :
+			print(perso)
+			if perso.has_method("se_faire_aboyer"):
+				perso.se_faire_aboyer()
 
 func itemTaken(infoitem) :
 	print("item taken")

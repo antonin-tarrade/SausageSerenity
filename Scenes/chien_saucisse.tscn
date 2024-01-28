@@ -1950,7 +1950,8 @@ script = ExtResource("1_f1xf0")
 polygon = PackedVector2Array(-16, 4, 16, 4, 16, -20, -16, -20)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(192, -93)
+position = Vector2(0, -40)
+zoom = Vector2(3, 3)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../Back")
@@ -1997,7 +1998,6 @@ collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionBark" type="CollisionShape2D" parent="Barking"]
-position = Vector2(11, -4)
 shape = SubResource("CircleShape2D_n7i5e")
 
 [node name="Back" type="Sprite2D" parent="."]

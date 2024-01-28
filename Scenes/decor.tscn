@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://bs53ps2mjmdnk"]
 
 [ext_resource type="Texture2D" uid="uid://2s8klcwv4j5t" path="res://Sprites/firstVersionBg.png" id="1_abnxk"]
-[ext_resource type="PackedScene" uid="uid://cimdeld5rdie4" path="res://Scenes/chien_saucisse.tscn" id="2_vyhcs"]
+[ext_resource type="PackedScene" uid="uid://dxxrtp7uesyjd" path="res://Scenes/chien_saucisse.tscn" id="2_vyhcs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hg1g"]
 size = Vector2(43, 8)

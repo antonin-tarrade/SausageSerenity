@@ -1,11 +1,11 @@
 class_name Objet
 extends RigidBody2D
 
-
-
 # Variable d'état
 
+@export var Packed_destroyed_part: PackedScene
 @export var iteminfo:Item
+@export var max_v: float = 500.0
 @onready var itemTexture = get_node("ObjetTexture")
 @onready var collider = get_node("CollisionObjet")
 var isTaken = false
@@ -15,6 +15,8 @@ var isDestroyed = false
 var isTakable = false
 var isPushable = false
 var isDestroyable = false
+
+var destroyed_parts = []
 
 signal destroyed
 
@@ -45,12 +47,14 @@ func PickUp() :
 			dog.itemTaken(iteminfo)
 			self.queue_free()
 
-func detruire():
-	if isDestroyable:
-		isDestroyed = true;
-		print("detruit")
-		self.visible = false
-		
+func destroy():
+	destroyed.emit()
+	for i in range(0, 3):
+		var destroyed_part: RigidBody2D = Packed_destroyed_part.instantiate()
+		destroyed_part.get_node("Sprite").texture = destroyed_parts[i]
+		get_parent().add_child(destroyed_part)
+		destroyed_part.position = position + Vector2(5*i, 5*i) 
+	self.queue_free()
 
 func load_resource() :
 	self.isTakable = iteminfo.isTakable
@@ -59,11 +63,14 @@ func load_resource() :
 	#Set sprite
 	self.itemTexture.texture = iteminfo.icon
 	self.id = iteminfo.id
+	
+	if isDestroyable:
+		destroyed_parts.append(iteminfo.icon_destroyed_1)
+		destroyed_parts.append(iteminfo.icon_destroyed_2)
+		destroyed_parts.append(iteminfo.icon_destroyed_3)
+	
+func _physics_process(_delta):
+	
+	if isDestroyable and sqrt(linear_velocity.dot(linear_velocity)) >= max_v:
+		destroy()
 
-
-func _on_body_entered(body):
-	print("what")
-	if isDestroyed:
-		print("detruit et touché sol")
-		destroyed.emit()
-		queue_free()

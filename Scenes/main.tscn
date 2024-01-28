@@ -121,6 +121,7 @@ position = Vector2(896, 754)
 iteminfo = ExtResource("6_vsdp4")
 
 [node name="Cle" parent="Objets" instance=ExtResource("4_40vl5")]
+visible = false
 position = Vector2(478, 894)
 iteminfo = ExtResource("6_ik1yi")
 
@@ -137,7 +138,7 @@ position = Vector2(1056, 367)
 iteminfo = ExtResource("8_o14q7")
 
 [node name="Verre" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(208, 874)
+position = Vector2(439, 890)
 iteminfo = ExtResource("9_dbj6m")
 
 [node name="Vase" parent="Objets" instance=ExtResource("4_40vl5")]

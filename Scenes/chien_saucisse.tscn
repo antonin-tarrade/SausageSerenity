@@ -1,10 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://cimdeld5rdie4"]
+[gd_scene load_steps=27 format=3 uid="uid://cimdeld5rdie4"]
 
 [ext_resource type="Texture2D" uid="uid://ba48p76o6oywq" path="res://Sprites/chien_saucisse.png" id="1_be7xu"]
 [ext_resource type="Script" path="res://Scenes/chien_saucisse.gd" id="1_f1xf0"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxf8d"]
-size = Vector2(32, 24)
 
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_x3x0n"]
 
@@ -105,14 +102,12 @@ texture_repeat = 2
 position = Vector2(0, -8)
 texture = ExtResource("1_be7xu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_nxf8d")
-debug_color = Color(0.364706, 0.576471, 0.65098, 0.384314)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-16, 4, 16, 4, 16, -20, -16, -20)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(192, -96)
-zoom = Vector2(2, 2)
+position = Vector2(0, -43)
+zoom = Vector2(4, 4)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_nb0e1")
@@ -150,7 +145,6 @@ collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionBark" type="CollisionShape2D" parent="Barking"]
-position = Vector2(11, -7)
 shape = SubResource("CircleShape2D_n7i5e")
 
 [connection signal="timeout" from="Chargement" to="." method="frapperFin"]

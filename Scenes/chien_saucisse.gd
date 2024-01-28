@@ -1,19 +1,26 @@
 extends CharacterBody2D
 
-@export var SPEED = 300.0
+@export var SPEED = 200.0
 @export var EXTENSION_SPEED = 4 # px
-@export var SHRINKING_SPEED = 8 # px
-@export var MAX_EXTENSION = 2000 # px
+@export var SHRINKING_SPEED = 6 # px
+@export var MAX_EXTENSION = 150 # px
+@export var alpha = 0.2
+@export var step = 0.2
+@export var beta = 0.7
+@onready var camera : Camera2D = $Camera2D
 @onready var timer : Timer = $Chargement
 @onready var zoneFrappe : Area2D = $ZoneDeFrappe
 @onready var PosTete : Marker2D = $PositionFrappe
 @onready var zoneBarking : Area2D = $Barking
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var a_tree: AnimationTree = $AnimationTree
-@onready var c_shape: CollisionShape2D = $CollisionShape2D
-
-const normal_size: Vector2 = Vector2(32, 24)
-const normal_position: Vector2 = Vector2(0, -8)
+@onready var c_polygon: CollisionPolygon2D = $CollisionPolygon2D
+# 0 bottom-left
+# 1 bottom-right
+# 2 top-right
+# 3 top-left
+@onready var normal_polygon: PackedVector2Array = c_polygon.polygon
+@onready var normal_position: Vector2 = c_polygon.position
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -22,6 +29,10 @@ var extended: bool = false
 var max_ex: bool = false
 enum extending_direction {LEFT, RIGHT, UP, DOWN}
 var ed: int = -1
+var old_e: float = 0.0
+var x: int = 0
+var old_s: float = 0.0
+var y: int = 0
 
 func _ready():
 	a_tree.set("parameters/conditions/idle", is_on_floor() and (velocity.x == 0))
@@ -40,10 +51,15 @@ func _physics_process(delta):
 			var vertical: float = Input.get_axis("ui_down", "ui_up")
 			ed = get_extending_direction(horizontal, vertical)
 		else:
-			max_ex = extension(ed)
+			max_ex = extension()
+			x += 1
 			
 	elif ed != -1:
-		ed = shrinkage(ed)
+		if x != 0:
+			x = 0
+			old_e = 0.0
+		ed = shrinkage()
+		y += 1
 		
 	elif Input.is_action_just_released("charger") and not timer.is_stopped():
 		var f : float = timer.time_left	
@@ -54,6 +70,10 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	else :
+		
+		if y != 0:
+			y = 0
+			old_s = 0
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var direction = Input.get_axis("ui_left", "ui_right")
@@ -82,51 +102,67 @@ func get_extending_direction(horizontal: float, vertical: float) -> int:
 		return -1
 		
 # extends the dog in the right direction
-func extension(ed: int) -> bool:
+func extension() -> bool:
+	var e: float = math_extension(step*x)
+	var mov = e - old_e
 	match ed:
 		extending_direction.RIGHT:
-			c_shape.shape.size.x += EXTENSION_SPEED
-			c_shape.position.x += EXTENSION_SPEED / 2
+			c_polygon.polygon[1].x += mov
+			c_polygon.polygon[2].x += mov
+			camera.position.x += mov
 		extending_direction.LEFT:
-			c_shape.shape.size.x += EXTENSION_SPEED
-			c_shape.position.x -= EXTENSION_SPEED / 2
+			c_polygon.polygon[0].x -= mov
+			c_polygon.polygon[3].x -= mov
+			camera.position.x -= mov
 		extending_direction.DOWN:
 			print("not yet implemented")
 		extending_direction.UP:
-			c_shape.position.y -= EXTENSION_SPEED / 2
-			c_shape.shape.size.y += EXTENSION_SPEED
-	if c_shape.shape.size.x >= MAX_EXTENSION or c_shape.shape.size.y >= MAX_EXTENSION:
+			c_polygon.polygon[2].y -= mov
+			c_polygon.polygon[3].y -= mov
+			camera.position.y -= mov
+	if length(c_polygon.polygon) >= MAX_EXTENSION or height(c_polygon.polygon) >= MAX_EXTENSION:
 		return true
+		
 	else:
+		old_e = e
 		return false
 			
 # shrink the dog in the right direction
-func shrinkage(ed: int) -> int:
+func shrinkage() -> int:
 	var v: bool = false
+	var s: float = math_shrinkage(step*y)
+	var mov = EXTENSION_SPEED
 	match ed:
 		extending_direction.RIGHT:
-			c_shape.shape.size.x -= SHRINKING_SPEED
-			c_shape.position.x -= SHRINKING_SPEED / 2
-			position.x += SHRINKING_SPEED
+			c_polygon.polygon[0].x += mov
+			c_polygon.polygon[3].x += mov
+			c_polygon.position.x -= mov
+			camera.position.x -= mov
+			position.x += mov
 		extending_direction.LEFT:
-			c_shape.shape.size.x -= SHRINKING_SPEED
-			c_shape.position.x += SHRINKING_SPEED / 2
-			position.x -= SHRINKING_SPEED
+			c_polygon.polygon[1].x -= mov
+			c_polygon.polygon[2].x -= mov
+			c_polygon.position.x += mov
+			camera.position.x += mov
+			position.x -= mov
 		extending_direction.DOWN:
 			print("not yet implemented")
 		extending_direction.UP:
-			c_shape.position.y += SHRINKING_SPEED / 2
-			c_shape.shape.size.y -= SHRINKING_SPEED 
-			position.y -= SHRINKING_SPEED
+			c_polygon.polygon[0].y -= mov
+			c_polygon.polygon[1].y -= mov
+			c_polygon.position.y += mov
+			camera.position.y += mov
+			position.y -= mov
 			v = true
-	if v and c_shape.shape.size.y <= normal_size.y:
-		c_shape.position = normal_position
-		c_shape.shape.size = normal_size
+	old_s = s
+	if v and height(c_polygon.polygon) <= height(normal_polygon):
+		c_polygon.polygon = normal_polygon
+		c_polygon.position = normal_position
 		max_ex = false
 		return -1
-	elif !v and c_shape.shape.size.x <= normal_size.x:
-		c_shape.position = normal_position
-		c_shape.shape.size = normal_size
+	elif !v and length(c_polygon.polygon) <= length(normal_polygon):
+		c_polygon.polygon = normal_polygon
+		c_polygon.position = normal_position
 		max_ex = false
 		return -1
 	else:
@@ -152,3 +188,15 @@ func frapper(f : float):
 
 func frapperFin():
 	frapper(0.0)
+	
+func length(v_array: PackedVector2Array) -> float:
+	return v_array[1].x - v_array[0].x
+
+func height(v_array: PackedVector2Array) -> float:
+	return v_array[1].y - v_array[2].y
+	
+func math_extension(z: float) -> float:
+	return MAX_EXTENSION*(1 - exp(-alpha*z))
+	
+func math_shrinkage(z: float) -> float:
+	return exp(beta*z)

@@ -45,8 +45,8 @@ transitions = ["Start", "Triste", SubResource("AnimationNodeStateMachineTransiti
 radius = 40.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_brrbc"]
-radius = 2.99116
-height = 11.1209
+radius = 3.0
+height = 11.0
 
 [node name="Personnage" type="Sprite2D"]
 material = SubResource("ShaderMaterial_nj0fj")

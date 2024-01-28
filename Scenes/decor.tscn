@@ -1,7 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://bs53ps2mjmdnk"]
+[gd_scene load_steps=18 format=3 uid="uid://bs53ps2mjmdnk"]
 
 [ext_resource type="Texture2D" uid="uid://2s8klcwv4j5t" path="res://Sprites/firstVersionBg.png" id="1_abnxk"]
-[ext_resource type="PackedScene" uid="uid://dxxrtp7uesyjd" path="res://Scenes/chien_saucisse.tscn" id="2_vyhcs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hg1g"]
 size = Vector2(43, 8)
@@ -78,10 +77,6 @@ position = Vector2(480, 848)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maison1"]
 polygon = PackedVector2Array(0, 0, 7, 0, 7, -29, 80, -29, 80, -35, 6, -35, 6, -123, 186, -123, 186, -35, 112, -35, 112, -29, 186, -29, 186, 0, 192, 0, 192, -132, 178, -160, 173, -160, 187, -129, 4, -129, 44, -209, 150, -209, 157, -192, 162, -192, 162, -195, 153, -214, 41, -214, 0, -129)
-
-[node name="ChienSaucisse" parent="." instance=ExtResource("2_vyhcs")]
-position = Vector2(24, 909)
-scale = Vector2(0.6, 0.6)
 
 [node name="Poteau1" type="StaticBody2D" parent="."]
 position = Vector2(703, 698)

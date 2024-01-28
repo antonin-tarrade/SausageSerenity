@@ -37,8 +37,6 @@ func _ready():
 			mission.init(self)
 	if isTakable :
 		devenir_objet()
-	
-
 
 func _on_aboiement():
 	if (etat != ETATS.heureux):
@@ -99,7 +97,6 @@ func devenir_objet():
 	static_body.set_collision_layer_value(2,true)
 	#static_body["input_pickable"] = true;
 	
-
 
 func set_etat(et):
 	etat = et

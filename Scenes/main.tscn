@@ -1,10 +1,10 @@
 [gd_scene load_steps=53 format=3 uid="uid://dlxltitx45rdy"]
 
-[ext_resource type="PackedScene" uid="uid://cimdeld5rdie4" path="res://Scenes/chien_saucisse.tscn" id="1_lhaoc"]
+[ext_resource type="PackedScene" uid="uid://dxxrtp7uesyjd" path="res://Scenes/chien_saucisse.tscn" id="1_lhaoc"]
 [ext_resource type="PackedScene" uid="uid://cfa1c1qjimgtp" path="res://Scenes/Personnage.tscn" id="2_m3qme"]
 [ext_resource type="Shader" uid="uid://d2l4kvn6jf350" path="res://Shaders/couleur.tres" id="3_t0lvh"]
 [ext_resource type="PackedScene" uid="uid://bc5hiney5ut08" path="res://Scenes/objet.tscn" id="4_40vl5"]
-[ext_resource type="PackedScene" uid="uid://brsj6mnt6yui7" path="res://Scenes/decor.tscn" id="4_5016y"]
+[ext_resource type="PackedScene" uid="uid://bs53ps2mjmdnk" path="res://Scenes/decor.tscn" id="4_5016y"]
 [ext_resource type="Resource" uid="uid://tyqbbsk3r3tc" path="res://Objets/baudruche.tres" id="5_wlyle"]
 [ext_resource type="Texture2D" uid="uid://jp148nn8fmov" path="res://Dessins/bulle.png" id="6_e24b0"]
 [ext_resource type="Resource" uid="uid://drlmury0jdbwc" path="res://Objets/ballon_appart.tres" id="6_h6724"]

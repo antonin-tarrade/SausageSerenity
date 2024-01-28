@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dxxrtp7uesyjd"]
+[gd_scene load_steps=77 format=3 uid="uid://dxxrtp7uesyjd"]
 
 [ext_resource type="Script" path="res://Scripts/chien_saucisse.gd" id="1_f1xf0"]
 [ext_resource type="Texture2D" uid="uid://dkdbv43yoe7fk" path="res://Sprites/chien_milieu_side.png" id="3_4iqnj"]
@@ -1876,14 +1876,26 @@ _data = {
 "walk_front": SubResource("Animation_4ln5s")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bu0wl"]
+animation = &"extend_side_bouche_front"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_en31y"]
 animation = &"extend_side_front"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cmt78"]
+animation = &"extend_up_bouche_front"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_njxtw"]
 animation = &"extend_up_front"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rwxjc"]
+animation = &"idle_bouche_front"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v7mm7"]
 animation = &"idle_front"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r4y3s"]
+animation = &"walk_bouche_front"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nb06k"]
 animation = &"walk_front"
@@ -1924,24 +1936,80 @@ advance_condition = &"extending_up"
 advance_mode = 2
 advance_condition = &"idle"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h0wfx"]
+advance_mode = 2
+advance_condition = &"mouth_open"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6n4al"]
+advance_mode = 2
+advance_condition = &"!mouth_open"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f4ayu"]
+advance_mode = 2
+advance_condition = &"!mouth_open"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1jr0t"]
+advance_mode = 2
+advance_condition = &"mouth_open"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ndat"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c4kku"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v82wi"]
+advance_mode = 2
+advance_condition = &"extending_up"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jredf"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_am4oa"]
+advance_mode = 2
+advance_condition = &"extending_up"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3fwr7"]
+advance_mode = 2
+advance_condition = &"extending_side"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r7bfv"]
+advance_mode = 2
+advance_condition = &"idle"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7wsy2"]
-states/Start/position = Vector2(-88, 123.25)
+states/End/position = Vector2(1009, 61.5)
+states/Start/position = Vector2(-253.5, 224.25)
+states/extend_side_bouche_front/node = SubResource("AnimationNodeAnimation_bu0wl")
+states/extend_side_bouche_front/position = Vector2(748.213, 117.809)
 states/extend_side_front/node = SubResource("AnimationNodeAnimation_en31y")
-states/extend_side_front/position = Vector2(474.665, 73.8634)
+states/extend_side_front/position = Vector2(766.005, 26.8634)
+states/extend_up_bouche_front/node = SubResource("AnimationNodeAnimation_cmt78")
+states/extend_up_bouche_front/position = Vector2(749.924, 381.885)
 states/extend_up_front/node = SubResource("AnimationNodeAnimation_njxtw")
-states/extend_up_front/position = Vector2(498.77, 276.6)
+states/extend_up_front/position = Vector2(729.27, 507.2)
+states/idle_bouche_front/node = SubResource("AnimationNodeAnimation_rwxjc")
+states/idle_bouche_front/position = Vector2(340.26, 117.682)
 states/idle_front/node = SubResource("AnimationNodeAnimation_v7mm7")
-states/idle_front/position = Vector2(96, 81)
+states/idle_front/position = Vector2(-152.75, 34.1817)
+states/walk_bouche_front/node = SubResource("AnimationNodeAnimation_r4y3s")
+states/walk_bouche_front/position = Vector2(339.301, 400.885)
 states/walk_front/node = SubResource("AnimationNodeAnimation_nb06k")
-states/walk_front/position = Vector2(40, 290)
-transitions = ["Start", "idle_front", SubResource("AnimationNodeStateMachineTransition_x51y6"), "idle_front", "walk_front", SubResource("AnimationNodeStateMachineTransition_tobg6"), "walk_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_xlfh6"), "idle_front", "extend_side_front", SubResource("AnimationNodeStateMachineTransition_1h6qh"), "walk_front", "extend_side_front", SubResource("AnimationNodeStateMachineTransition_a3wjo"), "extend_side_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_amrvu"), "walk_front", "extend_up_front", SubResource("AnimationNodeStateMachineTransition_wbj0j"), "idle_front", "extend_up_front", SubResource("AnimationNodeStateMachineTransition_2574i"), "extend_up_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_3m6b2")]
-graph_offset = Vector2(-391.155, 28.8751)
+states/walk_front/position = Vector2(-186, 505.5)
+transitions = ["Start", "idle_front", SubResource("AnimationNodeStateMachineTransition_x51y6"), "idle_front", "walk_front", SubResource("AnimationNodeStateMachineTransition_tobg6"), "walk_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_xlfh6"), "idle_front", "extend_side_front", SubResource("AnimationNodeStateMachineTransition_1h6qh"), "walk_front", "extend_side_front", SubResource("AnimationNodeStateMachineTransition_a3wjo"), "extend_side_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_amrvu"), "walk_front", "extend_up_front", SubResource("AnimationNodeStateMachineTransition_wbj0j"), "idle_front", "extend_up_front", SubResource("AnimationNodeStateMachineTransition_2574i"), "extend_up_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_3m6b2"), "idle_front", "idle_bouche_front", SubResource("AnimationNodeStateMachineTransition_h0wfx"), "idle_bouche_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_6n4al"), "walk_bouche_front", "walk_front", SubResource("AnimationNodeStateMachineTransition_f4ayu"), "walk_front", "walk_bouche_front", SubResource("AnimationNodeStateMachineTransition_1jr0t"), "idle_bouche_front", "walk_bouche_front", SubResource("AnimationNodeStateMachineTransition_4ndat"), "walk_bouche_front", "idle_bouche_front", SubResource("AnimationNodeStateMachineTransition_c4kku"), "walk_bouche_front", "extend_up_bouche_front", SubResource("AnimationNodeStateMachineTransition_v82wi"), "extend_up_bouche_front", "idle_bouche_front", SubResource("AnimationNodeStateMachineTransition_jredf"), "idle_bouche_front", "extend_up_bouche_front", SubResource("AnimationNodeStateMachineTransition_am4oa"), "idle_bouche_front", "extend_side_bouche_front", SubResource("AnimationNodeStateMachineTransition_3fwr7"), "extend_side_bouche_front", "idle_bouche_front", SubResource("AnimationNodeStateMachineTransition_r7bfv")]
+graph_offset = Vector2(-319.154, -56.0248)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlba5"]
 size = Vector2(17.75, 29)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n7i5e"]
 radius = 115.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jexj4"]
+radius = 18.25
 
 [node name="ChienSaucisse" type="CharacterBody2D"]
 script = ExtResource("1_f1xf0")
@@ -1973,10 +2041,12 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_7wsy2")
 advance_expression_base_node = NodePath("")
 anim_player = NodePath("../Head/AnimationPlayer")
+parameters/conditions/!mouth_open = false
 parameters/conditions/extending_side = false
 parameters/conditions/extending_up = false
 parameters/conditions/idle = false
 parameters/conditions/is_moving = false
+parameters/conditions/mouth_open = false
 
 [node name="Chargement" type="Timer" parent="."]
 wait_time = 3.0
@@ -2031,7 +2101,7 @@ position = Vector2(0, -12)
 texture = ExtResource("3_lnj7f")
 hframes = 16
 vframes = 8
-frame = 6
+frame = 48
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -2087,5 +2157,15 @@ metadata/_aseprite_wizard_config_ = {
 "player": "Sprite2D/AnimationPlayer",
 "source": "res://chien saucisse.aseprite"
 }
+
+[node name="ZoneDePick" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneDePick"]
+shape = SubResource("CircleShape2D_jexj4")
+
+[node name="PivotObjet" type="Node2D" parent="."]
+
+[node name="ObjetBouche" type="Sprite2D" parent="PivotObjet"]
+position = Vector2(11, -7)
 
 [connection signal="timeout" from="Chargement" to="." method="frapperFin"]

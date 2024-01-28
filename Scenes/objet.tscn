@@ -16,7 +16,6 @@ iteminfo = ExtResource("2_nqudc")
 shape = SubResource("RectangleShape2D_c0aw3")
 
 [node name="ObjetTexture" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("3_v3qkq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

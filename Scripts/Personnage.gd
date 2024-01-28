@@ -104,8 +104,6 @@ func desactiver_collision():
 func devenir_objet():
 	static_body.set_collision_layer_value(2,true)
 	#static_body["input_pickable"] = true;
-	
-
 
 func set_etat(et):
 	etat = et

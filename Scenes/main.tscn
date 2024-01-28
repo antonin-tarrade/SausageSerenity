@@ -156,7 +156,7 @@ position = Vector2(1072, 417)
 iteminfo = ExtResource("7_hsa44")
 
 [node name="Verre1" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1441, 584)
+position = Vector2(1441, 581)
 iteminfo = ExtResource("9_dbj6m")
 
 [node name="Rose" parent="Objets" instance=ExtResource("4_40vl5")]
@@ -190,7 +190,7 @@ position = Vector2(1440, 548)
 position = Vector2(1647, 549)
 
 [node name="Verre2" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1648, 584)
+position = Vector2(1648, 582)
 iteminfo = ExtResource("9_dbj6m")
 
 [node name="Vase1" parent="Objets" instance=ExtResource("4_40vl5")]

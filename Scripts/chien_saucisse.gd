@@ -154,7 +154,7 @@ func _input(event):
 #				print("wesh")
 #				bodies.apply_central_impulse(Vector2(3.0, -30.0)*40)
 	elif event.is_action_pressed("interact"):
-		if iteminfo == null :
+		if iteminfo == null and humaninfo == null:
 			PickUpOrOuaf()
 		else :
 			Drop()
@@ -201,8 +201,14 @@ func Drop() :
 		#get_parent().get_child(3).add_child(item)
 		objetsnode.add_child(item)
 		iteminfo = null
-		objetBouche.texture = null
 		print("drop")
+	if humaninfo != null :
+		humaninfo.global_position = global_position + Vector2(0, -27)
+		humaninfo.visible = true
+		humaninfo = null
+
+	objetBouche.texture = null
+		
 
 func rotate_dog():
 	# Rotate colliders

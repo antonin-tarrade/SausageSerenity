@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
+var icon_pied = preload("res://Dessins/mec.png")
+
 @export var SPEED = 300.0
 @export var EXTENSION_SPEED = 4 # px
-@export var SHRINKING_SPEED = 12 # px
+@export var SHRINKING_SPEED = 8 # px
+@export var MAX_EXTENSION = 2000 # px
 @onready var timer : Timer = $Chargement
 @onready var zoneFrappe : Area2D = $ZoneDeFrappe
 @onready var PosTete : Marker2D = $PositionFrappe
@@ -20,12 +23,14 @@ const normal_position: Vector2 = Vector2(0, -8)
 
 var objetGenerique : PackedScene = preload("res://Scenes/objet.tscn")
 var iteminfo : Item = null
+var humaninfo = null
 var objetsnode = null
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var turning_left: bool = false
 var old_turning_left: bool = false
 var extended: bool = false
+var max_ex: bool = false
 enum extending_direction {LEFT, RIGHT, UP, DOWN}
 var ed: int = -1
 
@@ -34,18 +39,19 @@ func _ready():
 	a_tree.set("parameters/conditions/extending", Input.is_action_pressed("extend"))
 
 func _physics_process(delta):
+	
 	# Add the gravity.
 	if not is_on_floor() and ed == -1:
 		velocity.y += gravity * delta
 		
-	if Input.is_action_pressed("extend"):
+	if Input.is_action_pressed("extend") and not is_on_ceiling() and not is_on_wall() and !max_ex and is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if ed == -1:
 			var horizontal: float = Input.get_axis("ui_left", "ui_right")
 			var vertical: float = Input.get_axis("ui_down", "ui_up")
 			ed = get_extending_direction(horizontal, vertical)
 		else:
-			extension(ed)
+			max_ex = extension(ed)
 			
 	elif ed != -1:
 		ed = shrinkage(ed)
@@ -89,7 +95,7 @@ func get_extending_direction(horizontal: float, vertical: float) -> int:
 		return -1
 		
 # extends the dog in the right direction
-func extension(ed: int) -> void:
+func extension(ed: int) -> bool:
 	match ed:
 		extending_direction.RIGHT:
 			c_shape.shape.size.x += EXTENSION_SPEED
@@ -102,6 +108,10 @@ func extension(ed: int) -> void:
 		extending_direction.UP:
 			c_shape.position.y -= EXTENSION_SPEED / 2
 			c_shape.shape.size.y += EXTENSION_SPEED
+	if c_shape.shape.size.x >= MAX_EXTENSION or c_shape.shape.size.y >= MAX_EXTENSION:
+		return true
+	else:
+		return false
 			
 # shrink the dog in the right direction
 func shrinkage(ed: int) -> int:
@@ -110,25 +120,27 @@ func shrinkage(ed: int) -> int:
 		extending_direction.RIGHT:
 			c_shape.shape.size.x -= SHRINKING_SPEED
 			c_shape.position.x -= SHRINKING_SPEED / 2
-			position.x += SHRINKING_SPEED * 2
+			position.x += SHRINKING_SPEED
 		extending_direction.LEFT:
 			c_shape.shape.size.x -= SHRINKING_SPEED
 			c_shape.position.x += SHRINKING_SPEED / 2
-			position.x -= SHRINKING_SPEED * 2
+			position.x -= SHRINKING_SPEED
 		extending_direction.DOWN:
 			print("not yet implemented")
 		extending_direction.UP:
 			c_shape.position.y += SHRINKING_SPEED / 2
 			c_shape.shape.size.y -= SHRINKING_SPEED 
-			position.y -= SHRINKING_SPEED * 2
+			position.y -= SHRINKING_SPEED
 			v = true
 	if v and c_shape.shape.size.y <= normal_size.y:
 		c_shape.position = normal_position
 		c_shape.shape.size = normal_size
+		max_ex = false
 		return -1
 	elif !v and c_shape.shape.size.x <= normal_size.x:
 		c_shape.position = normal_position
 		c_shape.shape.size = normal_size
+		max_ex = false
 		return -1
 	else:
 		return ed
@@ -154,29 +166,33 @@ func frapper(f : float):
 		if objet is RigidBody2D :
 			var vector : Vector2 = (objet.global_position - PosTete.global_position).normalized()
 			objet.apply_central_impulse((vector + Vector2(0.0, -puissance).normalized()).normalized() * puissance * 1000)
-
+			objet.detruire()
 
 func frapperFin():
 	frapper(0.0)
 
 func PickUpOrOuaf() :
-	print("pickuporouaf")
 	var aPickUp : bool = false
 	for objet : PhysicsBody2D in zonePickUp.get_overlapping_bodies() :
-		if objet is RigidBody2D :
-			if objet.isTakable :
+		if objet.has_method("get_isTakable") :
+			print("objet a pickup potentiellement")
+			if objet.get_isTakable() :
 				objet.PickUp()
 				aPickUp = true
-				print("pick")
 				break
 	if (!aPickUp):
 		for perso : PhysicsBody2D in zoneBarking.get_overlapping_bodies() :
-			print("ouaf")
 			perso.se_faire_aboyer()
 
 func itemTaken(infoitem) :
+	print("item taken")
 	iteminfo = infoitem
 	objetBouche.texture = iteminfo.icon
+
+func humanTaken(human) :
+	print("human taken")
+	humaninfo = human
+	objetBouche.texture = icon_pied
 	
 func Drop() :
 	if iteminfo != null :

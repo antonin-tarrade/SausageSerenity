@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bc5hiney5ut08"]
 
-[ext_resource type="Script" path="res://Objet.gd" id="1_3vh04"]
-[ext_resource type="Resource" uid="uid://bpikq63w51jpy" path="res://Lampe.tres" id="2_vye4x"]
+[ext_resource type="Script" path="res://Scripts/Objet.gd" id="1_j54xp"]
+[ext_resource type="Resource" uid="uid://bpikq63w51jpy" path="res://Objets/Lampe.tres" id="2_nqudc"]
 [ext_resource type="Texture2D" uid="uid://b04ah1lbkvhin" path="res://icon.svg" id="3_v3qkq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0aw3"]
@@ -9,8 +9,8 @@ size = Vector2(30, 20)
 
 [node name="Objet" type="RigidBody2D"]
 collision_layer = 2
-script = ExtResource("1_3vh04")
-iteminfo = ExtResource("2_vye4x")
+script = ExtResource("1_j54xp")
+iteminfo = ExtResource("2_nqudc")
 
 [node name="CollisionObjet" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_c0aw3")
@@ -18,3 +18,5 @@ shape = SubResource("RectangleShape2D_c0aw3")
 [node name="ObjetTexture" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("3_v3qkq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

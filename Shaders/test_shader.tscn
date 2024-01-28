@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct286xkqk2a1s"]
+
+[ext_resource type="Shader" path="res://Shaders/shader_script.gdshader" id="1_dy03h"]
+[ext_resource type="Texture2D" uid="uid://ba48p76o6oywq" path="res://Sprites/chien_saucisse.png" id="4_4x6ck"]
+[ext_resource type="Texture2D" uid="uid://2s8klcwv4j5t" path="res://Sprites/firstVersionBg.png" id="4_8jky6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w8tnh"]
+shader = ExtResource("1_dy03h")
+shader_parameter/taux_joie = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1lygm"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_w8tnh")
+offset_right = 2500.0
+offset_bottom = 1100.0
+texture = ExtResource("4_8jky6")
+
+[node name="Iench" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_1lygm")
+position = Vector2(919, 838)
+scale = Vector2(5, 5)
+texture = ExtResource("4_4x6ck")

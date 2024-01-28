@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://cimdeld5rdie4"]
 
 [ext_resource type="Texture2D" uid="uid://ba48p76o6oywq" path="res://Sprites/chien_saucisse.png" id="1_be7xu"]
-[ext_resource type="Script" path="res://Scenes/chien_saucisse.gd" id="1_f1xf0"]
+[ext_resource type="Script" path="res://Scripts/chien_saucisse.gd" id="1_mbirm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxf8d"]
 size = Vector2(32, 24)
@@ -100,7 +100,7 @@ radius = 115.0
 radius = 18.2483
 
 [node name="ChienSaucisse" type="CharacterBody2D"]
-script = ExtResource("1_f1xf0")
+script = ExtResource("1_mbirm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
@@ -115,6 +115,7 @@ debug_color = Color(0.364706, 0.576471, 0.65098, 0.384314)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(192, -96)
+zoom = Vector2(2, 2)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_nb0e1")

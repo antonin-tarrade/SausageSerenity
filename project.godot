@@ -15,6 +15,18 @@ run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[file_customization]
+
+folder_colors={
+"res://Dessins/": "purple",
+"res://Objets/": "teal",
+"res://Scenes/": "orange",
+"res://Scripts/": "red",
+"res://Shaders/": "green",
+"res://Sprites/": "pink",
+"res://TilesObjets/": "gray"
+}
+
 [input]
 
 extend={
@@ -32,6 +44,12 @@ interact={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_render/layer_1="chien et platformes"
+2d_render/layer_2="objets interactifs"
+2d_render/layer_3="personnages"
 
 [rendering]
 

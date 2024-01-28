@@ -3,9 +3,6 @@ extends Sprite2D
 var nbPiecesTrouvees : int = 0
 var nbPieces : int = 2
 
-func init():
-	frame = 8
-
 func verifier(personnage : Personnage) -> bool :
 	print("puzzle")
 	var objets_autour = personnage.regarder_autour_objets()

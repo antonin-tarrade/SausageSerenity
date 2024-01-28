@@ -2,12 +2,19 @@
 class_name Personnage extends Sprite2D
 
 @export var nom : String = ""
-var requete : Sprite2D
-@onready var missions : Array[Node] = $Requete/Missions.get_children()
+@export var isTakable : bool = false
+@onready var requete : Sprite2D = $"../Requete"
+@onready var missions : Array[Node] = ($"../Requete/Missions").get_children()
 @onready var current_mission : int = 0
+@onready var static_body : StaticBody2D = $PersonnageBody
 var animtree : AnimationTree
 var zonedetectionobj : Area2D
 var zonedetectionperso : Area2D
+@onready var dog = $"../../../ChienSaucisse"
+
+# Gestion joie
+var augmentation_joie : float = 0.1
+@onready var decors : Node = %Decor/Background
 
 
 enum ETATS {
@@ -21,16 +28,17 @@ var etat : ETATS
 func _ready():
 
 	etat = ETATS.triste
-	requete = $Requete
 	zonedetectionobj = $ZoneDeDetectionObjets
 	zonedetectionperso = $ZoneDeDetectionPersos
 	animtree = $AnimationTree
 	requete.visible = false
 	for mission in missions:
-		mission.init()
 		mission.visible = false
+		if mission.has_method("init") :
+			mission.init(self)
+	if isTakable :
+		devenir_objet()
 	
-	#_on_aboiement()
 
 
 func _on_aboiement():
@@ -42,6 +50,8 @@ func _on_aboiement():
 func _on_rendu_heureux():
 	etat = ETATS.heureux
 	self.material.set_shader_parameter("isSad",false)
+	var taux_joie = decors.material.get_shader_parameter("taux_joie")
+	decors.material.set_shader_parameter("taux_joie",taux_joie + augmentation_joie)
 
 func regarder_autour_objets():
 	var listeobj = []
@@ -49,6 +59,13 @@ func regarder_autour_objets():
 		if obj is RigidBody2D :
 			listeobj.append(obj)
 	return listeobj
+
+func regarder_objet_present(nom:String) -> bool :
+	var objets_autour = regarder_autour_objets()
+	for obj in objets_autour :
+		if (obj.get_id() == nom):
+			return true
+	return false
 	
 func regarder_autour_persos():
 	return zonedetectionperso.get_overlapping_bodies()
@@ -72,8 +89,27 @@ func parler():
 	missions[current_mission].visible = false;
 	if (etat == ETATS.parle) :
 		etat = ETATS.triste
-	#_on_aboiement()
+
+func activer_collision():
+	static_body.set_collision_layer_value(1,true)
+
+func desactiver_collision():
+	static_body.set_collision_layer_value(1,false)
+	
+func devenir_objet():
+	static_body.set_collision_layer_value(2,true)
+	static_body["input_pickable"] = true;
+	
+
+func get_isTakable() -> bool :
+	return isTakable
+
+func PickUp() :
+	if isTakable :
+		dog.humantaken(self)
+		self.visible = false
 
 func set_etat(et):
 	etat = et
 	
+

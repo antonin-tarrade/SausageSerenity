@@ -9,7 +9,7 @@
 script = ExtResource("1_xnyki")
 id = "chat"
 icon = ExtResource("1_vc0eu")
-isTakable = false
+isTakable = true
 isPushable = false
 isDestroyable = false
 collisionShape = SubResource("RectangleShape2D_7wv0r")

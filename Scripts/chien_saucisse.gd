@@ -7,7 +7,7 @@ var icon_pied = preload("res://Dessins/mec.png")
 @export var SPEED = 200.0
 @export var EXTENSION_SPEED = 4 # px
 @export var SHRINKING_SPEED = 6 # px
-@export var MAX_EXTENSION = 150 # px
+@export var MAX_EXTENSION = 170 # px
 @export var alpha = 0.2
 @export var step = 0.2
 @export var beta = 0.7
@@ -374,5 +374,7 @@ func move_detector(point1,point2):
 
 func _on_wall_detect_body_entered(body):
 	if body != self :
-		HaveWallTouched=true
+		if body.get_children()[0]["one_way_collision"] == false :
+			
+			HaveWallTouched=true
 

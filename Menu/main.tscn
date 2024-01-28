@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://biyyejk3jgomd"]
 
 [ext_resource type="Script" path="res://Menu/menu_controller.gd" id="1_7x6vp"]
-[ext_resource type="Texture2D" uid="uid://c7ycnhy7dx87w" path="res://Menu/00000.png" id="1_lg33l"]
+[ext_resource type="Texture2D" uid="uid://6pj4wwsdde3m" path="res://Menu/Menu.png" id="2_4xv23"]
 [ext_resource type="LabelSettings" uid="uid://1oyxx8ys1m6d" path="res://Menu/font.res" id="2_yfgsl"]
 [ext_resource type="Script" path="res://Menu/Scroll_Label.gd" id="3_v2ba3"]
 
@@ -18,8 +18,9 @@ size_flags_horizontal = 4
 script = ExtResource("1_7x6vp")
 
 [node name="Bg" type="Sprite2D" parent="MainMenu"]
-position = Vector2(960, 544)
-texture = ExtResource("1_lg33l")
+position = Vector2(615, 319)
+scale = Vector2(0.614545, 0.614545)
+texture = ExtResource("2_4xv23")
 
 [node name="MainContainer" type="VBoxContainer" parent="MainMenu"]
 unique_name_in_owner = true

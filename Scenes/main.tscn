@@ -761,4 +761,12 @@ script = ExtResource("50_abamy")
 [node name="ChienSaucisse" parent="." instance=ExtResource("1_lhaoc")]
 position = Vector2(252, 911)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Bravo vous avez gagné"
+
 [connection signal="lettrerecu" from="Personnages/AttendRomantiqueBill/Requete/Missions/MissionAttendreRomantique" to="Personnages/RomantiqueBill/Requete/Missions/MissionRomantique" method="_on_mission_attendre_romantique_lettrerecu"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://crciv1bx367bn"]
+
+[ext_resource type="Texture2D" uid="uid://bf3w7yren34t5" path="res://TilesObjets/tile005.png" id="1_a81r7"]
+[ext_resource type="Script" path="res://ObjectData.gd" id="1_vnj14"]
+
+[resource]
+script = ExtResource("1_vnj14")
+id = "tout_casser"
+icon = ExtResource("1_a81r7")
+isTakable = false
+isPushable = true
+isDestroyable = true
+positionShape = Vector2(0, 0)

@@ -1,7 +1,10 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://rl5sswgdllpj"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://rl5sswgdllpj"]
 
 [ext_resource type="Script" path="res://ObjectData.gd" id="1_5ourh"]
 [ext_resource type="Texture2D" uid="uid://dawupw145hfme" path="res://TilesObjets/tile008.png" id="1_l8mg0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_113ww"]
+size = Vector2(14, 12)
 
 [resource]
 script = ExtResource("1_5ourh")
@@ -10,3 +13,5 @@ icon = ExtResource("1_l8mg0")
 isTakable = true
 isPushable = false
 isDestroyable = false
+collisionShape = SubResource("RectangleShape2D_113ww")
+positionShape = Vector2(2, 4)

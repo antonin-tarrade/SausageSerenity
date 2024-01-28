@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dlxltitx45rdy"]
+[gd_scene load_steps=56 format=3 uid="uid://dlxltitx45rdy"]
 
 [ext_resource type="PackedScene" uid="uid://cimdeld5rdie4" path="res://Scenes/chien_saucisse.tscn" id="1_lhaoc"]
 [ext_resource type="PackedScene" uid="uid://cfa1c1qjimgtp" path="res://Scenes/Personnage.tscn" id="2_m3qme"]
@@ -103,6 +103,11 @@ shader = ExtResource("3_t0lvh")
 shader_parameter/isSad = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3xv6u"]
+resource_local_to_scene = true
+shader = ExtResource("3_t0lvh")
+shader_parameter/isSad = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kfdie"]
 resource_local_to_scene = true
 shader = ExtResource("3_t0lvh")
 shader_parameter/isSad = true
@@ -442,6 +447,28 @@ script = ExtResource("42_87tod")
 material = SubResource("ShaderMaterial_3xv6u")
 anim_triste = "lesb_sad"
 anim_heureux = "lesb_happy"
+
+[node name="MamieBill" type="Node2D" parent="Personnages"]
+position = Vector2(2273, 880)
+metadata/_edit_group_ = true
+
+[node name="Requete" type="Sprite2D" parent="Personnages/MamieBill"]
+visible = false
+position = Vector2(28, -16)
+texture = ExtResource("6_e24b0")
+
+[node name="Missions" type="Node2D" parent="Personnages/MamieBill/Requete"]
+
+[node name="MissionAttendreRomantique" parent="Personnages/MamieBill/Requete/Missions" instance=ExtResource("7_exk0v")]
+position = Vector2(0, -4)
+scale = Vector2(1, 1)
+texture = ExtResource("42_6aqss")
+script = ExtResource("42_87tod")
+
+[node name="Personnage" parent="Personnages/MamieBill" instance=ExtResource("2_m3qme")]
+material = SubResource("ShaderMaterial_kfdie")
+anim_triste = "mamie_sad"
+anim_heureux = "mamie_pet"
 
 [node name="ChienSaucisse" parent="." instance=ExtResource("1_lhaoc")]
 position = Vector2(160, 896)

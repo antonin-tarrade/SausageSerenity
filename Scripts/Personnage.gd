@@ -14,7 +14,8 @@ var zonedetectionobj : Area2D
 var zonedetectionperso : Area2D
 
 # Gestion joie
-var augmentation_joie : float = 0.1
+@export var nbMissions : int = 11
+var augmentation_joie : float = 1/nbMissions
 @onready var decors : Node = %Decor/Background
 
 

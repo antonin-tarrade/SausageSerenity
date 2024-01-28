@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Item" load_steps=7 format=3 uid="uid://cg0bf4y3cw058"]
+
+[ext_resource type="Texture2D" uid="uid://cg7joo7ul60b1" path="res://TilesObjets/tile003.png" id="1_3v0fs"]
+[ext_resource type="Script" path="res://ObjectData.gd" id="1_y5tm8"]
+[ext_resource type="Texture2D" uid="uid://ffetsmt55vgg" path="res://TilesObjets/destroyed/tile002.png" id="2_tkv7w"]
+[ext_resource type="Texture2D" uid="uid://cxpd6sd5k2i0s" path="res://TilesObjets/destroyed/tile005.png" id="3_dt5wk"]
+[ext_resource type="Texture2D" uid="uid://8nw67b5gsnqp" path="res://TilesObjets/destroyed/tile008.png" id="4_jd4b7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xx220"]
+radius = 4.0
+height = 12.0
+
+[resource]
+script = ExtResource("1_y5tm8")
+id = "vase"
+icon = ExtResource("1_3v0fs")
+isTakable = false
+isPushable = false
+isDestroyable = true
+collisionShape = SubResource("CapsuleShape2D_xx220")
+positionShape = Vector2(0, 2)
+icon_destroyed_1 = ExtResource("2_tkv7w")
+icon_destroyed_2 = ExtResource("3_dt5wk")
+icon_destroyed_3 = ExtResource("4_jd4b7")

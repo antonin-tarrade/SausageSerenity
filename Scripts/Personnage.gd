@@ -10,7 +10,6 @@ class_name Personnage extends Sprite2D
 var animtree : AnimationTree
 var zonedetectionobj : Area2D
 var zonedetectionperso : Area2D
-@onready var dog = $"../../../ChienSaucisse"
 
 # Gestion joie
 var augmentation_joie : float = 0.1
@@ -98,16 +97,9 @@ func desactiver_collision():
 	
 func devenir_objet():
 	static_body.set_collision_layer_value(2,true)
-	static_body["input_pickable"] = true;
+	#static_body["input_pickable"] = true;
 	
 
-func get_isTakable() -> bool :
-	return isTakable
-
-func PickUp() :
-	if isTakable :
-		dog.humantaken(self)
-		self.visible = false
 
 func set_etat(et):
 	etat = et

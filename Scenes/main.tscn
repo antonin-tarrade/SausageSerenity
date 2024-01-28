@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dlxltitx45rdy"]
+[gd_scene load_steps=53 format=3 uid="uid://dlxltitx45rdy"]
 
 [ext_resource type="PackedScene" uid="uid://cimdeld5rdie4" path="res://Scenes/chien_saucisse.tscn" id="1_lhaoc"]
 [ext_resource type="PackedScene" uid="uid://cfa1c1qjimgtp" path="res://Scenes/Personnage.tscn" id="2_m3qme"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://ba48p76o6oywq" path="res://Sprites/chien_saucisse.png" id="12_ydduq"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_rose.gd" id="13_3roqm"]
 [ext_resource type="Texture2D" uid="uid://bf3w7yren34t5" path="res://TilesObjets/tile005.png" id="14_ampnh"]
+[ext_resource type="Resource" uid="uid://cwupaq6jhwmbg" path="res://Objets/verification_exploration.tres" id="14_ao8j5"]
 [ext_resource type="Texture2D" uid="uid://cm7mxn4te6g02" path="res://TilesObjets/tile009.png" id="14_oqcgg"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_casser_tout.gd" id="15_6ail6"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_cle.gd" id="16_amrmr"]
@@ -154,6 +155,10 @@ iteminfo = ExtResource("10_llfd6")
 [node name="MotDoux" parent="Objets" instance=ExtResource("4_40vl5")]
 position = Vector2(1944, 653)
 iteminfo = ExtResource("11_vhbat")
+
+[node name="Exploration" parent="Objets" instance=ExtResource("4_40vl5")]
+position = Vector2(1581, 309)
+iteminfo = ExtResource("14_ao8j5")
 
 [node name="Personnages" type="Node2D" parent="."]
 

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var icon_pied = preload("res://Dessins/mec.png")
+
 @export var SPEED = 300.0
 @export var EXTENSION_SPEED = 4 # px
 @export var SHRINKING_SPEED = 8 # px
@@ -21,6 +23,7 @@ const normal_position: Vector2 = Vector2(0, -8)
 
 var objetGenerique : PackedScene = preload("res://Scenes/objet.tscn")
 var iteminfo : Item = null
+var humaninfo = null
 var objetsnode = null
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -163,29 +166,33 @@ func frapper(f : float):
 		if objet is RigidBody2D :
 			var vector : Vector2 = (objet.global_position - PosTete.global_position).normalized()
 			objet.apply_central_impulse((vector + Vector2(0.0, -puissance).normalized()).normalized() * puissance * 1000)
-
+			objet.detruire()
 
 func frapperFin():
 	frapper(0.0)
 
 func PickUpOrOuaf() :
-	print("pickuporouaf")
 	var aPickUp : bool = false
 	for objet : PhysicsBody2D in zonePickUp.get_overlapping_bodies() :
-		if objet is RigidBody2D :
-			if objet.isTakable :
+		if objet.has_method("get_isTakable") :
+			print("objet a pickup potentiellement")
+			if objet.get_isTakable() :
 				objet.PickUp()
 				aPickUp = true
-				print("pick")
 				break
 	if (!aPickUp):
 		for perso : PhysicsBody2D in zoneBarking.get_overlapping_bodies() :
-			print("ouaf")
 			perso.se_faire_aboyer()
 
 func itemTaken(infoitem) :
+	print("item taken")
 	iteminfo = infoitem
 	objetBouche.texture = iteminfo.icon
+
+func humanTaken(human) :
+	print("human taken")
+	humaninfo = human
+	objetBouche.texture = icon_pied
 	
 func Drop() :
 	if iteminfo != null :

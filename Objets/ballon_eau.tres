@@ -9,4 +9,4 @@ id = "balloneau"
 icon = ExtResource("1_egheq")
 isTakable = true
 isPushable = true
-isDestroyable = false
+isDestroyable = true

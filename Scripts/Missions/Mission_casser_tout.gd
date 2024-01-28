@@ -1,12 +1,13 @@
 extends Sprite2D
 
 var nbObjetCasse : int = 0
-var nbObjet : int = 3 
+@export var objets : Array[Objet] = []
 
 func verifier(personnage : Personnage) -> bool :
 	print("faut tout casser")
-	#verifier si objet casse (id = "toutcasser")
-	return (nbObjetCasse==3)
+	nbObjetCasse = 0
+	for obj in objets:
+		if obj.isDestroyed:
+			nbObjetCasse += 1
+	return (nbObjetCasse==objets.size())
 
-func _on_objet_casse():
-	nbObjetCasse += 1

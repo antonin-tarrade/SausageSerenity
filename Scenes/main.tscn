@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dlxltitx45rdy"]
+[gd_scene load_steps=52 format=3 uid="uid://dlxltitx45rdy"]
 
 [ext_resource type="PackedScene" uid="uid://cimdeld5rdie4" path="res://Scenes/chien_saucisse.tscn" id="1_lhaoc"]
 [ext_resource type="PackedScene" uid="uid://cfa1c1qjimgtp" path="res://Scenes/Personnage.tscn" id="2_m3qme"]
@@ -80,9 +80,30 @@ resource_local_to_scene = true
 shader = ExtResource("3_t0lvh")
 shader_parameter/isSad = true
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nbbg5"]
+resource_local_to_scene = true
+shader = ExtResource("3_t0lvh")
+shader_parameter/isSad = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k3qq7"]
+resource_local_to_scene = true
+shader = ExtResource("3_t0lvh")
+shader_parameter/isSad = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abs7k"]
+resource_local_to_scene = true
+shader = ExtResource("3_t0lvh")
+shader_parameter/isSad = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j6env"]
+resource_local_to_scene = true
+shader = ExtResource("3_t0lvh")
+shader_parameter/isSad = true
+
 [node name="Main" type="Node2D"]
 
 [node name="Decor" parent="." instance=ExtResource("4_5016y")]
+unique_name_in_owner = true
 
 [node name="Objets" type="Node2D" parent="." groups=["objets"]]
 
@@ -115,7 +136,7 @@ position = Vector2(1056, 367)
 iteminfo = ExtResource("8_o14q7")
 
 [node name="Verre" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(575, 568)
+position = Vector2(208, 874)
 iteminfo = ExtResource("9_dbj6m")
 
 [node name="Vase" parent="Objets" instance=ExtResource("4_40vl5")]
@@ -127,7 +148,7 @@ position = Vector2(2435, 861)
 iteminfo = ExtResource("9_1dqtn")
 
 [node name="BallonEau" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(2247, 582)
+position = Vector2(20, 884)
 iteminfo = ExtResource("10_llfd6")
 
 [node name="MotDoux" parent="Objets" instance=ExtResource("4_40vl5")]
@@ -156,7 +177,7 @@ script = ExtResource("9_ots5p")
 material = SubResource("ShaderMaterial_xjdte")
 
 [node name="BillBoue" type="Node2D" parent="Personnages"]
-position = Vector2(629, 787)
+position = Vector2(84, 894)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BillBoue"]
@@ -173,6 +194,7 @@ script = ExtResource("18_oge4c")
 
 [node name="Personnage" parent="Personnages/BillBoue" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_pwm2k")
+isTakable = true
 
 [node name="PorteHumaine" type="Node2D" parent="Personnages"]
 position = Vector2(696, 888)
@@ -252,7 +274,7 @@ script = ExtResource("23_65kqy")
 material = SubResource("ShaderMaterial_gmgo7")
 
 [node name="BambinoBill" type="Node2D" parent="Personnages"]
-position = Vector2(2252, 761)
+position = Vector2(294, 956)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BambinoBill"]
@@ -263,9 +285,10 @@ texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/BambinoBill/Requete"]
 
-[node name="MissionCasserTout" parent="Personnages/BambinoBill/Requete/Missions" instance=ExtResource("7_exk0v")]
+[node name="MissionCasserTout" parent="Personnages/BambinoBill/Requete/Missions" node_paths=PackedStringArray("objets") instance=ExtResource("7_exk0v")]
 texture = ExtResource("14_ampnh")
 script = ExtResource("15_6ail6")
+objets = [NodePath("../../../../../Objets/Verre"), NodePath("../../../../../Objets/Assiette")]
 
 [node name="Personnage" parent="Personnages/BambinoBill" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_klo1e")
@@ -306,7 +329,7 @@ texture = ExtResource("12_8i2i0")
 script = ExtResource("13_3roqm")
 
 [node name="Personnage" parent="Personnages/BillRose" instance=ExtResource("2_m3qme")]
-material = SubResource("ShaderMaterial_5ib2d")
+material = SubResource("ShaderMaterial_nbbg5")
 
 [node name="RomantiqueBill" type="Node2D" parent="Personnages"]
 position = Vector2(1276, 862)
@@ -325,7 +348,7 @@ texture = ExtResource("12_ydduq")
 script = ExtResource("32_5vqgd")
 
 [node name="Personnage" parent="Personnages/RomantiqueBill" instance=ExtResource("2_m3qme")]
-material = SubResource("ShaderMaterial_5ib2d")
+material = SubResource("ShaderMaterial_k3qq7")
 
 [node name="MechantBill" type="Node2D" parent="Personnages"]
 position = Vector2(1276, 862)
@@ -339,12 +362,13 @@ texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/MechantBill/Requete"]
 
-[node name="MissionBallonEau" parent="Personnages/MechantBill/Requete/Missions" instance=ExtResource("7_exk0v")]
+[node name="MissionBallonEau" parent="Personnages/MechantBill/Requete/Missions" node_paths=PackedStringArray("ballon") instance=ExtResource("7_exk0v")]
 texture = ExtResource("12_ydduq")
 script = ExtResource("20_q6trk")
+ballon = NodePath("../../../../../Objets/BallonEau")
 
 [node name="Personnage" parent="Personnages/MechantBill" instance=ExtResource("2_m3qme")]
-material = SubResource("ShaderMaterial_5ib2d")
+material = SubResource("ShaderMaterial_abs7k")
 
 [node name="BillLExplorateur" type="Node2D" parent="Personnages"]
 position = Vector2(1276, 862)
@@ -363,7 +387,7 @@ texture = ExtResource("12_ydduq")
 script = ExtResource("36_uhh5p")
 
 [node name="Personnage" parent="Personnages/BillLExplorateur" instance=ExtResource("2_m3qme")]
-material = SubResource("ShaderMaterial_5ib2d")
+material = SubResource("ShaderMaterial_j6env")
 
 [node name="ChienSaucisse" parent="." instance=ExtResource("1_lhaoc")]
-position = Vector2(29, 899)
+position = Vector2(160, 896)

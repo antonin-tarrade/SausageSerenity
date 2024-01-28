@@ -143,7 +143,7 @@ position = Vector2(1486, 584)
 iteminfo = ExtResource("9_dbj6m")
 
 [node name="Rose" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(2574, 840)
+position = Vector2(1979, 838)
 iteminfo = ExtResource("9_1dqtn")
 
 [node name="BallonEau" parent="Objets" instance=ExtResource("4_40vl5")]
@@ -169,7 +169,7 @@ iteminfo = ExtResource("16_vkrxl")
 [node name="Personnages" type="Node2D" parent="."]
 
 [node name="BillBaudruche" type="Node2D" parent="Personnages"]
-position = Vector2(143, 890)
+position = Vector2(143, 879)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BillBaudruche"]
@@ -186,9 +186,11 @@ script = ExtResource("9_ots5p")
 
 [node name="Personnage" parent="Personnages/BillBaudruche" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_xjdte")
+anim_triste = "kid_1_sad"
+anim_heureux = "kid_1_happy"
 
 [node name="BillBoue" type="Node2D" parent="Personnages"]
-position = Vector2(858, 888)
+position = Vector2(858, 880)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BillBoue"]
@@ -205,10 +207,12 @@ script = ExtResource("18_oge4c")
 
 [node name="Personnage" parent="Personnages/BillBoue" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_pwm2k")
+anim_triste = "crado_sad"
+anim_heureux = "crado_happy"
 isTakable = true
 
 [node name="PorteHumaine" type="Node2D" parent="Personnages"]
-position = Vector2(1508, 694)
+position = Vector2(1508, 684)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/PorteHumaine"]
@@ -227,7 +231,7 @@ script = ExtResource("16_amrmr")
 material = SubResource("ShaderMaterial_0p04m")
 
 [node name="MiniBillAppart" type="Node2D" parent="Personnages"]
-position = Vector2(1325, 891)
+position = Vector2(1325, 880)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/MiniBillAppart"]
@@ -244,9 +248,11 @@ script = ExtResource("17_lvmad")
 
 [node name="Personnage" parent="Personnages/MiniBillAppart" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_wac5g")
+anim_triste = "kid_1_sad"
+anim_heureux = "kid_1_happy"
 
 [node name="MiniBillImmeuble" type="Node2D" parent="Personnages"]
-position = Vector2(937, 887)
+position = Vector2(937, 879)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/MiniBillImmeuble"]
@@ -264,9 +270,11 @@ script = ExtResource("19_e3hvw")
 
 [node name="Personnage" parent="Personnages/MiniBillImmeuble" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_2et1t")
+anim_triste = "kid_1_sad"
+anim_heureux = "kid_1_happy"
 
 [node name="MereMichelle" type="Node2D" parent="Personnages"]
-position = Vector2(1177, 790)
+position = Vector2(1177, 782)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/MereMichelle"]
@@ -283,9 +291,11 @@ script = ExtResource("23_65kqy")
 
 [node name="Personnage" parent="Personnages/MereMichelle" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_gmgo7")
+anim_triste = "mamie_sad"
+anim_heureux = "mamie_happy"
 
 [node name="BambinoBill" type="Node2D" parent="Personnages"]
-position = Vector2(1619, 599)
+position = Vector2(1619, 589)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BambinoBill"]
@@ -298,9 +308,11 @@ texture = ExtResource("6_e24b0")
 
 [node name="Personnage" parent="Personnages/BambinoBill" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_klo1e")
+anim_triste = "kid_1_sad"
+anim_heureux = "kid_1_happy"
 
 [node name="SmartBill" type="Node2D" parent="Personnages"]
-position = Vector2(1065, 695)
+position = Vector2(1065, 686)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/SmartBill"]
@@ -319,7 +331,7 @@ script = ExtResource("11_6eq5y")
 material = SubResource("ShaderMaterial_5ib2d")
 
 [node name="BillRose" type="Node2D" parent="Personnages"]
-position = Vector2(1224, 597)
+position = Vector2(1224, 588)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BillRose"]
@@ -336,9 +348,11 @@ script = ExtResource("13_3roqm")
 
 [node name="Personnage" parent="Personnages/BillRose" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_nbbg5")
+anim_triste = "meuf_sad"
+anim_heureux = "meuf_happy"
 
 [node name="RomantiqueBill" type="Node2D" parent="Personnages"]
-position = Vector2(1037, 503)
+position = Vector2(1037, 494)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/RomantiqueBill"]
@@ -355,9 +369,11 @@ script = ExtResource("32_5vqgd")
 
 [node name="Personnage" parent="Personnages/RomantiqueBill" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_k3qq7")
+anim_triste = "meuf_sad"
+anim_heureux = "meuf_happy"
 
 [node name="MechantBill" type="Node2D" parent="Personnages"]
-position = Vector2(1629, 762)
+position = Vector2(1629, 752)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/MechantBill"]
@@ -375,9 +391,11 @@ ballon = NodePath("../../../../../Objets/BallonEau")
 
 [node name="Personnage" parent="Personnages/MechantBill" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_abs7k")
+anim_triste = "kid_2_sad"
+anim_heureux = "kid_2_happy"
 
 [node name="BillLExplorateur" type="Node2D" parent="Personnages"]
-position = Vector2(1045, 597)
+position = Vector2(1045, 590)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BillLExplorateur"]
@@ -396,7 +414,7 @@ script = ExtResource("36_uhh5p")
 material = SubResource("ShaderMaterial_j6env")
 
 [node name="AttendRomantiqueBill" type="Node2D" parent="Personnages"]
-position = Vector2(1037, 503)
+position = Vector2(1642, 494)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/AttendRomantiqueBill"]
@@ -413,6 +431,8 @@ script = ExtResource("42_87tod")
 
 [node name="Personnage" parent="Personnages/AttendRomantiqueBill" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_3xv6u")
+anim_triste = "lesb_sad"
+anim_heureux = "lesb_happy"
 
 [node name="ChienSaucisse" parent="." instance=ExtResource("1_lhaoc")]
 position = Vector2(160, 896)

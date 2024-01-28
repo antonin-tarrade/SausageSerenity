@@ -252,6 +252,7 @@ func shrinkage() -> int:
 		body_up.region_rect = Rect2(0,0,32,0)
 		is_extended = false
 		max_ex = false
+		camera.position = Vector2(0,-40)
 		return -1
 	elif !v and length(c_polygon.polygon) <= length(normal_polygon):
 		c_polygon.polygon = normal_polygon
@@ -262,6 +263,7 @@ func shrinkage() -> int:
 		body_up.region_rect = Rect2(0,0,32,0)
 		is_extended = false
 		max_ex = false
+		camera.position = Vector2(0,-40)
 		return -1
 	else:
 		return ed

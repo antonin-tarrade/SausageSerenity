@@ -335,6 +335,7 @@ animations = [{
 [node name="GameManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_kq4bb")
+nbMissions = 8.0
 
 [node name="Decor" parent="." instance=ExtResource("4_5016y")]
 unique_name_in_owner = true
@@ -439,6 +440,7 @@ anim_triste = "kid_1_sad"
 anim_heureux = "kid_1_happy"
 
 [node name="BillBoue" type="Node2D" parent="Personnages"]
+visible = false
 position = Vector2(858, 880)
 metadata/_edit_group_ = true
 
@@ -549,6 +551,7 @@ anim_triste = "mamie_sad"
 anim_heureux = "mamie_happy"
 
 [node name="BambinoBill" type="Node2D" parent="Personnages"]
+visible = false
 position = Vector2(1619, 589)
 metadata/_edit_group_ = true
 
@@ -590,6 +593,7 @@ script = ExtResource("11_6eq5y")
 material = SubResource("ShaderMaterial_5ib2d")
 
 [node name="BillRose" type="Node2D" parent="Personnages"]
+visible = false
 position = Vector2(1224, 588)
 metadata/_edit_group_ = true
 
@@ -634,6 +638,7 @@ anim_triste = "meuf_sad"
 anim_heureux = "meuf_happy"
 
 [node name="MechantBill" type="Node2D" parent="Personnages"]
+visible = false
 position = Vector2(1629, 752)
 metadata/_edit_group_ = true
 
@@ -657,6 +662,7 @@ anim_triste = "kid_2_sad"
 anim_heureux = "kid_2_happy"
 
 [node name="BillLExplorateur" type="Node2D" parent="Personnages"]
+visible = false
 position = Vector2(1045, 590)
 metadata/_edit_group_ = true
 

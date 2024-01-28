@@ -63,6 +63,10 @@ func load_resource() :
 	#Set sprite
 	self.itemTexture.texture = iteminfo.icon
 	self.id = iteminfo.id
+	print(self.id)
+	print(iteminfo.positionShape)
+	collider["shape"] = iteminfo.collisionShape
+	collider["position"] = iteminfo.positionShape
 	
 	if isDestroyable:
 		destroyed_parts.append(iteminfo.icon_destroyed_1)

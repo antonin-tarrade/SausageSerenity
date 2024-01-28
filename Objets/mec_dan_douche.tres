@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dpu5ahxnhmcrb"]
+
+[ext_resource type="Script" path="res://ObjectData.gd" id="1_3qog1"]
+[ext_resource type="Texture2D" uid="uid://bnjnkis0qwspn" path="res://Dessins/mec.png" id="1_41gpu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8onma"]
+radius = 3.0
+height = 11.0
+
+[resource]
+script = ExtResource("1_3qog1")
+id = "mec_dans_douche"
+icon = ExtResource("1_41gpu")
+isTakable = true
+isPushable = false
+isDestroyable = false
+collisionShape = SubResource("CapsuleShape2D_8onma")
+positionShape = Vector2(0, 0)

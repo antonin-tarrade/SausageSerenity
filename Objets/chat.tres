@@ -3,7 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://b0c5l52vjltjs" path="res://TilesObjets/tile011.png" id="1_vc0eu"]
 [ext_resource type="Script" path="res://ObjectData.gd" id="1_xnyki"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wv0r"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yp5gg"]
+radius = 8.0
+height = 18.0
 
 [resource]
 script = ExtResource("1_xnyki")
@@ -12,5 +14,5 @@ icon = ExtResource("1_vc0eu")
 isTakable = true
 isPushable = false
 isDestroyable = false
-collisionShape = SubResource("RectangleShape2D_7wv0r")
+collisionShape = SubResource("CapsuleShape2D_yp5gg")
 positionShape = Vector2(0, 0)

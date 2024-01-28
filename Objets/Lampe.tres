@@ -13,3 +13,4 @@ isTakable = true
 isPushable = true
 isDestroyable = true
 collisionShape = SubResource("CircleShape2D_q1rdd")
+positionShape = Vector2(0, 0)

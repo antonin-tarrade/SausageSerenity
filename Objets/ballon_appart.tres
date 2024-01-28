@@ -1,7 +1,10 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://drlmury0jdbwc"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://drlmury0jdbwc"]
 
 [ext_resource type="Script" path="res://ObjectData.gd" id="1_ctvpp"]
 [ext_resource type="Texture2D" uid="uid://dgvrxukvr04d8" path="res://TilesObjets/tile001.png" id="1_qvjao"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ira6b"]
+radius = 4.0
 
 [resource]
 script = ExtResource("1_ctvpp")
@@ -10,3 +13,5 @@ icon = ExtResource("1_qvjao")
 isTakable = true
 isPushable = true
 isDestroyable = false
+collisionShape = SubResource("CircleShape2D_ira6b")
+positionShape = Vector2(0, 4)

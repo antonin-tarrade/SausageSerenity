@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://brsj6mnt6yui7"]
 
 [ext_resource type="Shader" path="res://Shaders/shader_script.gdshader" id="1_0ihyi"]
-[ext_resource type="Texture2D" uid="uid://2s8klcwv4j5t" path="res://Sprites/firstVersionBg.png" id="1_abnxk"]
+[ext_resource type="Texture2D" uid="uid://b7r3l2lbkfrpk" path="res://Sprites/ThirdBg.png" id="2_xargi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x3oqo"]
 shader = ExtResource("1_0ihyi")
@@ -62,7 +62,7 @@ texture_filter = 3
 material = SubResource("ShaderMaterial_x3oqo")
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_abnxk")
+texture = ExtResource("2_xargi")
 
 [node name="Branche" type="StaticBody2D" parent="."]
 position = Vector2(85, 820)

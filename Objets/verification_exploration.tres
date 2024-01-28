@@ -1,7 +1,10 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cwupaq6jhwmbg"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cwupaq6jhwmbg"]
 
 [ext_resource type="Texture2D" uid="uid://pqq7twfnjv0a" path="res://Dessins/transat.png" id="1_042yv"]
 [ext_resource type="Script" path="res://ObjectData.gd" id="1_e34i0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocqlv"]
+size = Vector2(89, 37)
 
 [resource]
 script = ExtResource("1_e34i0")
@@ -10,4 +13,5 @@ icon = ExtResource("1_042yv")
 isTakable = false
 isPushable = false
 isDestroyable = false
-positionShape = Vector2(0, 0)
+collisionShape = SubResource("RectangleShape2D_ocqlv")
+positionShape = Vector2(-0.5, 3.5)

@@ -4,7 +4,8 @@
 [ext_resource type="Resource" uid="uid://bpikq63w51jpy" path="res://Objets/Lampe.tres" id="2_nqudc"]
 [ext_resource type="Texture2D" uid="uid://b04ah1lbkvhin" path="res://icon.svg" id="3_v3qkq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tvwpe"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0aw3"]
+size = Vector2(30, 20)
 
 [node name="Objet" type="RigidBody2D"]
 collision_layer = 2
@@ -12,9 +13,10 @@ script = ExtResource("1_j54xp")
 iteminfo = ExtResource("2_nqudc")
 
 [node name="CollisionObjet" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_tvwpe")
+shape = SubResource("RectangleShape2D_c0aw3")
 
 [node name="ObjetTexture" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("3_v3qkq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

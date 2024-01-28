@@ -21,6 +21,7 @@ extends CharacterBody2D
 # 3 top-left
 @onready var normal_polygon: PackedVector2Array = c_polygon.polygon
 @onready var normal_position: Vector2 = c_polygon.position
+@onready var walldetect = $WallDetect/ColWall
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -33,13 +34,14 @@ var old_e: float = 0.0
 var x: int = 0
 var old_s: float = 0.0
 var y: int = 0
+var HaveWallTouched = false
 
 func _ready():
 	a_tree.set("parameters/conditions/idle", is_on_floor() and (velocity.x == 0))
 	a_tree.set("parameters/conditions/extending", Input.is_action_pressed("extend"))
 
 func _physics_process(delta):
-	
+
 	# Add the gravity.
 	if not is_on_floor() and ed == -1:
 		velocity.y += gravity * delta
@@ -109,18 +111,22 @@ func extension() -> bool:
 		extending_direction.RIGHT:
 			c_polygon.polygon[1].x += mov
 			c_polygon.polygon[2].x += mov
+			move_detector(c_polygon.polygon[1], c_polygon.polygon[2])
 			camera.position.x += mov
 		extending_direction.LEFT:
 			c_polygon.polygon[0].x -= mov
 			c_polygon.polygon[3].x -= mov
+			move_detector(c_polygon.polygon[0], c_polygon.polygon[3])
 			camera.position.x -= mov
 		extending_direction.DOWN:
 			print("not yet implemented")
 		extending_direction.UP:
 			c_polygon.polygon[2].y -= mov
 			c_polygon.polygon[3].y -= mov
+			move_detector(c_polygon.polygon[2], c_polygon.polygon[3])
 			camera.position.y -= mov
-	if length(c_polygon.polygon) >= MAX_EXTENSION or height(c_polygon.polygon) >= MAX_EXTENSION:
+	if length(c_polygon.polygon) >= MAX_EXTENSION or height(c_polygon.polygon) >= MAX_EXTENSION or HaveWallTouched :
+		HaveWallTouched = false
 		return true
 		
 	else:
@@ -200,3 +206,12 @@ func math_extension(z: float) -> float:
 	
 func math_shrinkage(z: float) -> float:
 	return exp(beta*z)
+
+func move_detector(point1,point2):
+	var milieu = (to_global(point1) + to_global(point2))/2
+	walldetect.global_position = milieu
+
+
+func _on_wall_detect_body_entered(body):
+	if body != self :
+		HaveWallTouched=true

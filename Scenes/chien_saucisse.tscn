@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cimdeld5rdie4"]
+[gd_scene load_steps=28 format=3 uid="uid://cimdeld5rdie4"]
 
 [ext_resource type="Texture2D" uid="uid://ba48p76o6oywq" path="res://Sprites/chien_saucisse.png" id="1_be7xu"]
 [ext_resource type="Script" path="res://Scenes/chien_saucisse.gd" id="1_f1xf0"]
@@ -93,6 +93,9 @@ size = Vector2(17.75, 29)
 [sub_resource type="CircleShape2D" id="CircleShape2D_n7i5e"]
 radius = 115.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tn4it"]
+size = Vector2(32.5, 24)
+
 [node name="ChienSaucisse" type="CharacterBody2D"]
 script = ExtResource("1_f1xf0")
 
@@ -130,21 +133,38 @@ wait_time = 3.0
 one_shot = true
 
 [node name="ZoneDeFrappe" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionFrappe" type="CollisionShape2D" parent="ZoneDeFrappe"]
+visible = false
 position = Vector2(11, -7.5)
 shape = SubResource("RectangleShape2D_vlba5")
 
 [node name="PositionFrappe" type="Marker2D" parent="."]
+visible = false
 position = Vector2(11, -7)
 
 [node name="Barking" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionBark" type="CollisionShape2D" parent="Barking"]
 shape = SubResource("CircleShape2D_n7i5e")
 
+[node name="WallDetect" type="Area2D" parent="."]
+position = Vector2(117, -15)
+collision_layer = 0
+collision_mask = 3
+
+[node name="ColWall" type="CollisionShape2D" parent="WallDetect"]
+position = Vector2(-116.25, 7)
+shape = SubResource("RectangleShape2D_tn4it")
+
+[node name="Fesse" type="Node2D" parent="."]
+position = Vector2(10, -7)
+
 [connection signal="timeout" from="Chargement" to="." method="frapperFin"]
+[connection signal="body_entered" from="WallDetect" to="." method="_on_wall_detect_body_entered"]

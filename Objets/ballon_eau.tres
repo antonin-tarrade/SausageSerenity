@@ -10,3 +10,4 @@ icon = ExtResource("1_egheq")
 isTakable = true
 isPushable = false
 isDestroyable = false
+positionShape = Vector2(0, 0)

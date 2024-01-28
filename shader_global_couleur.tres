@@ -1,0 +1,127 @@
+[gd_resource type="VisualShader" load_steps=12 format=3 uid="uid://bjyhow5wfc0fl"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_k34hk"]
+expanded_output_ports = [0]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeIf" id="VisualShaderNodeIf_y4om8"]
+default_input_values = [0, 0.0, 1, 0.0, 2, 0.0, 3, Vector3(0, 0, 0), 4, Vector3(0, 0, 0), 5, Vector3(0, 0, 0)]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_gd4m3"]
+default_input_values = [0, 0.5, 1, 0.0, 2, 0.0]
+expanded_output_ports = [0]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_8cg7d"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_fde54"]
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_ixaqt"]
+parameter_name = "tristesse"
+default_value_enabled = true
+default_value = true
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ponv0"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_8o546"]
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_wfh40"]
+default_input_values = [0, false, 1, Vector3(1, 1, 1), 2, Vector3(0, 0, 0)]
+op_type = 4
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_fxxti"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeColorOp" id="VisualShaderNodeColorOp_c7x6u"]
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+
+
+
+void fragment() {
+// Input:10
+	vec2 n_out10p0 = UV;
+	float n_out10p1 = n_out10p0.r;
+
+
+// VectorCompose:12
+	float n_in12p0 = 0.50000;
+	float n_in12p1 = 0.00000;
+	vec2 n_out12p0 = vec2(n_in12p0, n_in12p1);
+	float n_out12p1 = n_out12p0.r;
+
+
+// Input:13
+	vec4 n_out13p0 = COLOR;
+
+
+	vec3 n_out14p0;
+// ColorFunc:14
+	{
+		vec3 c = vec3(n_out13p0.xyz);
+		float max1 = max(c.r, c.g);
+		float max2 = max(max1, c.b);
+		n_out14p0 = vec3(max2, max2, max2);
+	}
+
+
+	vec3 n_out11p0;
+// If:11
+	float n_in11p2 = 0.00000;
+	if(abs(n_out10p1 - n_out12p1) < n_in11p2)
+	{
+		n_out11p0 = vec3(n_out13p0.xyz);
+	}
+	else if(n_out10p1 < n_out12p1)
+	{
+		n_out11p0 = n_out14p0;
+	}
+	else
+	{
+		n_out11p0 = vec3(n_out13p0.xyz);
+	}
+
+
+// ColorOp:8
+	vec3 n_in8p1 = vec3(0.00000, 0.00000, 0.00000);
+	vec3 n_out8p0 = vec3(1.0) - (vec3(1.0) - n_out11p0) * (vec3(1.0) - n_in8p1);
+
+
+// Output:0
+	COLOR.rgb = n_out8p0;
+
+
+}
+"
+graph_offset = Vector2(-286.864, -89.3719)
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(1040, 80)
+nodes/fragment/3/node = SubResource("VisualShaderNodeBooleanParameter_ixaqt")
+nodes/fragment/3/position = Vector2(320, 360)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_ponv0")
+nodes/fragment/4/position = Vector2(40, 560)
+nodes/fragment/5/node = SubResource("VisualShaderNodeColorFunc_8o546")
+nodes/fragment/5/position = Vector2(360, 560)
+nodes/fragment/6/node = SubResource("VisualShaderNodeSwitch_wfh40")
+nodes/fragment/6/position = Vector2(620, 500)
+nodes/fragment/7/node = SubResource("VisualShaderNodeInput_fxxti")
+nodes/fragment/7/position = Vector2(180, 660)
+nodes/fragment/8/node = SubResource("VisualShaderNodeColorOp_c7x6u")
+nodes/fragment/8/position = Vector2(800, 60)
+nodes/fragment/10/node = SubResource("VisualShaderNodeInput_k34hk")
+nodes/fragment/10/position = Vector2(-160, -40)
+nodes/fragment/11/node = SubResource("VisualShaderNodeIf_y4om8")
+nodes/fragment/11/position = Vector2(300, 60)
+nodes/fragment/12/node = SubResource("VisualShaderNodeVectorCompose_gd4m3")
+nodes/fragment/12/position = Vector2(-220, 80)
+nodes/fragment/13/node = SubResource("VisualShaderNodeInput_8cg7d")
+nodes/fragment/13/position = Vector2(-320, 280)
+nodes/fragment/14/node = SubResource("VisualShaderNodeColorFunc_fde54")
+nodes/fragment/14/position = Vector2(40, 320)
+nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 5, 0, 6, 1, 7, 0, 6, 2, 8, 0, 0, 0, 3, 0, 6, 0, 13, 0, 14, 0, 14, 0, 11, 5, 11, 0, 8, 0, 12, 1, 11, 1, 10, 1, 11, 0, 13, 0, 11, 4, 13, 0, 11, 3)

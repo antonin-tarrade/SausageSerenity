@@ -1,0 +1,75 @@
+[gd_scene load_steps=23 format=3 uid="uid://cc6hsi2sena51"]
+
+[ext_resource type="PackedScene" uid="uid://dri423lovjsxw" path="res://Scenes/Mission.tscn" id="1_p5na8"]
+[ext_resource type="Texture2D" uid="uid://dawupw145hfme" path="res://TilesObjets/tile008.png" id="2_mr3v8"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_puzzle.gd" id="3_sb05l"]
+[ext_resource type="Texture2D" uid="uid://ciefim0tqgui4" path="res://TilesObjets/tile010.png" id="4_xqghf"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_rose.gd" id="5_yme2m"]
+[ext_resource type="Texture2D" uid="uid://bf3w7yren34t5" path="res://TilesObjets/tile005.png" id="6_v5m5d"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_casser_tout.gd" id="7_06dd3"]
+[ext_resource type="Texture2D" uid="uid://cm7mxn4te6g02" path="res://TilesObjets/tile009.png" id="8_puwhc"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_cle.gd" id="8_r607v"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_appart.gd" id="9_6vh5h"]
+[ext_resource type="Texture2D" uid="uid://jofrn3os448d" path="res://TilesObjets/tile000.png" id="10_nx4pq"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_douche.gd" id="10_o7dxo"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_immeuble.gd" id="11_q65jm"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_eau.gd" id="12_3hkl5"]
+[ext_resource type="Texture2D" uid="uid://ba48p76o6oywq" path="res://Sprites/chien_saucisse.png" id="12_dcx1d"]
+[ext_resource type="Texture2D" uid="uid://ccybloapjpnqa" path="res://TilesObjets/tile002.png" id="13_fb06a"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_baudruche.gd" id="14_4bcrs"]
+[ext_resource type="Texture2D" uid="uid://dgvrxukvr04d8" path="res://TilesObjets/tile001.png" id="14_i4vqt"]
+[ext_resource type="Texture2D" uid="uid://b0c5l52vjltjs" path="res://TilesObjets/tile011.png" id="19_4v01w"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_chat.gd" id="20_fein3"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_romantique.gd" id="21_435na"]
+[ext_resource type="Script" path="res://Scripts/Missions/Mission_explorer.gd" id="22_s4gk5"]
+
+[node name="StockMissions" type="Node2D"]
+
+[node name="MissionPuzzle" parent="." instance=ExtResource("1_p5na8")]
+texture = ExtResource("2_mr3v8")
+script = ExtResource("3_sb05l")
+
+[node name="MissionRose" parent="." instance=ExtResource("1_p5na8")]
+texture = ExtResource("4_xqghf")
+script = ExtResource("5_yme2m")
+
+[node name="MissionCasserTout" parent="." instance=ExtResource("1_p5na8")]
+texture = ExtResource("6_v5m5d")
+script = ExtResource("7_06dd3")
+
+[node name="MissionElleEstOuMaCle" parent="." instance=ExtResource("1_p5na8")]
+texture = ExtResource("8_puwhc")
+script = ExtResource("8_r607v")
+
+[node name="MissionBallonAppart" parent="." instance=ExtResource("1_p5na8")]
+texture = ExtResource("10_nx4pq")
+script = ExtResource("9_6vh5h")
+
+[node name="MissionDouche" parent="." instance=ExtResource("1_p5na8")]
+texture = ExtResource("12_dcx1d")
+script = ExtResource("10_o7dxo")
+
+[node name="MissionBallonImmeuble" parent="." instance=ExtResource("1_p5na8")]
+scale = Vector2(100, 100)
+texture = ExtResource("14_i4vqt")
+script = ExtResource("11_q65jm")
+
+[node name="MissionBallonEau" parent="." instance=ExtResource("1_p5na8")]
+texture = ExtResource("12_dcx1d")
+script = ExtResource("12_3hkl5")
+
+[node name="MissionBaudruche" parent="." instance=ExtResource("1_p5na8")]
+texture = ExtResource("13_fb06a")
+script = ExtResource("14_4bcrs")
+
+[node name="MissionChat" parent="." instance=ExtResource("1_p5na8")]
+texture = ExtResource("19_4v01w")
+script = ExtResource("20_fein3")
+
+[node name="MissionRomantique" parent="." instance=ExtResource("1_p5na8")]
+texture = ExtResource("12_dcx1d")
+script = ExtResource("21_435na")
+
+[node name="MissionExplorer" parent="." instance=ExtResource("1_p5na8")]
+texture = ExtResource("12_dcx1d")
+script = ExtResource("22_s4gk5")

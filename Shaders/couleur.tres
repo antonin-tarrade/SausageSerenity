@@ -1,7 +1,7 @@
 [gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://d2l4kvn6jf350"]
 
 [sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_h5q4o"]
-parameter_name = "isColored"
+parameter_name = "isSad"
 default_value_enabled = true
 default_value = true
 
@@ -21,13 +21,13 @@ input_name = "color"
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
-uniform bool isColored = true;
+uniform bool isSad = true;
 
 
 
 void fragment() {
 // BooleanParameter:3
-	bool n_out3p0 = isColored;
+	bool n_out3p0 = isSad;
 
 
 // Input:4
@@ -71,5 +71,5 @@ nodes/fragment/5/position = Vector2(340, 280)
 nodes/fragment/7/node = SubResource("VisualShaderNodeSwitch_eerxx")
 nodes/fragment/7/position = Vector2(600, 220)
 nodes/fragment/8/node = SubResource("VisualShaderNodeInput_rdpqx")
-nodes/fragment/8/position = Vector2(120, 380)
+nodes/fragment/8/position = Vector2(160, 380)
 nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 3, 0, 7, 0, 5, 0, 7, 1, 8, 0, 7, 2, 7, 0, 0, 0)

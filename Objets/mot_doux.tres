@@ -9,7 +9,7 @@ height = 12.0
 
 [resource]
 script = ExtResource("1_6f0ju")
-id = "mot_doux"
+id = "lettre"
 icon = ExtResource("1_qhjq5")
 isTakable = true
 isPushable = false

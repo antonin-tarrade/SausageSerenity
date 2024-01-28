@@ -10,12 +10,12 @@ class_name Personnage extends Sprite2D
 @onready var current_mission : int = 0
 @onready var static_body : StaticBody2D = $PersonnageBody
 @onready var animation = $AnimationPlayer
+@onready var gm : GameManager = %GameManager
 var zonedetectionobj : Area2D
 var zonedetectionperso : Area2D
 
 # Gestion joie
-@export var nbMissions : int = 11
-var augmentation_joie : float = 1/nbMissions
+#var augmentation_joie : float = 1/nbMissions
 @onready var decors : Node = %Decor/Background
 
 
@@ -53,8 +53,8 @@ func _on_rendu_heureux():
 	etat = ETATS.heureux
 	animation.current_animation = anim_heureux
 	self.material.set_shader_parameter("isSad",false)
-	var taux_joie = decors.material.get_shader_parameter("taux_joie")
-	decors.material.set_shader_parameter("taux_joie",taux_joie + augmentation_joie)
+	#var taux_joie = decors.material.get_shader_parameter("taux_joie")
+	decors.material.set_shader_parameter("taux_joie",gm.get_pourcentage_fini())
 
 func regarder_autour_objets():
 	var listeobj = []

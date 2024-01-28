@@ -14,4 +14,4 @@ isTakable = null
 isPushable = null
 isDestroyable = null
 collisionShape = SubResource("CircleShape2D_imbhr")
-positionShape = null
+positionShape = Vector2(0, 0)

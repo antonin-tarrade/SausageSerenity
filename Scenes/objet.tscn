@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bc5hiney5ut08"]
 
 [ext_resource type="Script" path="res://Scripts/Objet.gd" id="1_j54xp"]
-[ext_resource type="PackedScene" uid="uid://t5ahkmb2xvcg" path="res://Scenes/destroyed_part.tscn" id="2_fxsgn"]
+[ext_resource type="PackedScene" path="res://Scenes/destroyed_part.tscn" id="2_fxsgn"]
 [ext_resource type="Resource" uid="uid://bpikq63w51jpy" path="res://Objets/Lampe.tres" id="2_nqudc"]
 [ext_resource type="Texture2D" uid="uid://b04ah1lbkvhin" path="res://icon.svg" id="3_v3qkq"]
 

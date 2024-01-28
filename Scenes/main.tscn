@@ -1,21 +1,20 @@
-[gd_scene load_steps=53 format=3 uid="uid://dlxltitx45rdy"]
+[gd_scene load_steps=55 format=3 uid="uid://dlxltitx45rdy"]
 
-[ext_resource type="PackedScene" uid="uid://dxxrtp7uesyjd" path="res://Scenes/chien_saucisse.tscn" id="1_lhaoc"]
-[ext_resource type="PackedScene" uid="uid://cfa1c1qjimgtp" path="res://Scenes/Personnage.tscn" id="2_m3qme"]
+[ext_resource type="PackedScene" uid="uid://cimdeld5rdie4" path="res://Scenes/chien_saucisse.tscn" id="1_lhaoc"]
+[ext_resource type="PackedScene" path="res://Shaders/test_shader.tscn" id="2_m3qme"]
 [ext_resource type="Shader" uid="uid://d2l4kvn6jf350" path="res://Shaders/couleur.tres" id="3_t0lvh"]
-[ext_resource type="PackedScene" uid="uid://bc5hiney5ut08" path="res://Scenes/objet.tscn" id="4_40vl5"]
+[ext_resource type="PackedScene" path="res://Scenes/objet.tscn" id="4_40vl5"]
 [ext_resource type="PackedScene" uid="uid://bs53ps2mjmdnk" path="res://Scenes/decor.tscn" id="4_5016y"]
+[ext_resource type="Resource" path="res://Objets/puzzle2.tres" id="5_j4q2r"]
 [ext_resource type="Resource" uid="uid://tyqbbsk3r3tc" path="res://Objets/baudruche.tres" id="5_wlyle"]
 [ext_resource type="Texture2D" uid="uid://jp148nn8fmov" path="res://Dessins/bulle.png" id="6_e24b0"]
 [ext_resource type="Resource" uid="uid://drlmury0jdbwc" path="res://Objets/ballon_appart.tres" id="6_h6724"]
 [ext_resource type="Resource" uid="uid://bhkm24cmtvpwr" path="res://Objets/cle.tres" id="6_ik1yi"]
 [ext_resource type="Resource" uid="uid://rl5sswgdllpj" path="res://Objets/puzzle.tres" id="6_vsdp4"]
-[ext_resource type="PackedScene" uid="uid://dri423lovjsxw" path="res://Scenes/Mission.tscn" id="7_exk0v"]
+[ext_resource type="PackedScene" path="res://Scenes/Mission.tscn" id="7_exk0v"]
 [ext_resource type="Resource" uid="uid://b5hnul0wtfdr1" path="res://Objets/ballon_immeuble.tres" id="7_hsa44"]
-[ext_resource type="Resource" uid="uid://1vwanqlcw73u" path="res://Objets/assiette.tres" id="8_o14q7"]
 [ext_resource type="Texture2D" uid="uid://ccybloapjpnqa" path="res://TilesObjets/tile002.png" id="8_p0yte"]
 [ext_resource type="Resource" uid="uid://boy7742xc2823" path="res://Objets/rose.tres" id="9_1dqtn"]
-[ext_resource type="Resource" uid="uid://cbnyias4tlo23" path="res://Objets/vase.tres" id="9_4a8ds"]
 [ext_resource type="Resource" uid="uid://hh7y7nu80g8m" path="res://Objets/verre.tres" id="9_dbj6m"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_baudruche.gd" id="9_ots5p"]
 [ext_resource type="Resource" uid="uid://c1efnkbamugk7" path="res://Objets/ballon_eau.tres" id="10_llfd6"]
@@ -25,12 +24,12 @@
 [ext_resource type="Texture2D" uid="uid://ciefim0tqgui4" path="res://TilesObjets/tile010.png" id="12_8i2i0"]
 [ext_resource type="Texture2D" uid="uid://ba48p76o6oywq" path="res://Sprites/chien_saucisse.png" id="12_ydduq"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_rose.gd" id="13_3roqm"]
-[ext_resource type="Texture2D" uid="uid://bf3w7yren34t5" path="res://TilesObjets/tile005.png" id="14_ampnh"]
 [ext_resource type="Resource" uid="uid://cwupaq6jhwmbg" path="res://Objets/verification_exploration.tres" id="14_ao8j5"]
 [ext_resource type="Texture2D" uid="uid://cm7mxn4te6g02" path="res://TilesObjets/tile009.png" id="14_oqcgg"]
-[ext_resource type="Script" path="res://Scripts/Missions/Mission_casser_tout.gd" id="15_6ail6"]
+[ext_resource type="Resource" uid="uid://da10lg50pthc2" path="res://Objets/chat.tres" id="15_dp5sx"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_cle.gd" id="16_amrmr"]
 [ext_resource type="Texture2D" uid="uid://jofrn3os448d" path="res://TilesObjets/tile000.png" id="16_eljw5"]
+[ext_resource type="Resource" path="res://Objets/douche.tres" id="16_vkrxl"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_appart.gd" id="17_lvmad"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_douche.gd" id="18_oge4c"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_immeuble.gd" id="19_e3hvw"]
@@ -40,6 +39,8 @@
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_chat.gd" id="23_65kqy"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_romantique.gd" id="32_5vqgd"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_explorer.gd" id="36_uhh5p"]
+[ext_resource type="Texture2D" path="res://TilesObjets/tile012.png" id="42_6aqss"]
+[ext_resource type="Script" path="res://Scripts/Missions/MissionAttendreRomantique.gd" id="42_87tod"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xjdte"]
 resource_local_to_scene = true
@@ -101,6 +102,11 @@ resource_local_to_scene = true
 shader = ExtResource("3_t0lvh")
 shader_parameter/isSad = true
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xv6u"]
+resource_local_to_scene = true
+shader = ExtResource("3_t0lvh")
+shader_parameter/isSad = true
+
 [node name="Main" type="Node2D"]
 
 [node name="Decor" parent="." instance=ExtResource("4_5016y")]
@@ -113,39 +119,31 @@ position = Vector2(111, 794)
 iteminfo = ExtResource("5_wlyle")
 
 [node name="Puzzle1" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1081, 748)
+position = Vector2(1189, 578)
 iteminfo = ExtResource("6_vsdp4")
 
 [node name="Puzzle2" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(896, 754)
-iteminfo = ExtResource("6_vsdp4")
+position = Vector2(1607, 406)
+iteminfo = ExtResource("5_j4q2r")
 
 [node name="Cle" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(478, 894)
+position = Vector2(570, 697)
 iteminfo = ExtResource("6_ik1yi")
 
 [node name="BalleAppart" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1608, 501)
+position = Vector2(1038, 801)
 iteminfo = ExtResource("6_h6724")
 
 [node name="BalleImmeuble" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1530, 313)
+position = Vector2(1072, 417)
 iteminfo = ExtResource("7_hsa44")
 
-[node name="Assiette" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1056, 367)
-iteminfo = ExtResource("8_o14q7")
-
 [node name="Verre" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(208, 874)
+position = Vector2(1486, 584)
 iteminfo = ExtResource("9_dbj6m")
 
-[node name="Vase" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1342, 650)
-iteminfo = ExtResource("9_4a8ds")
-
 [node name="Rose" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(2435, 861)
+position = Vector2(2574, 840)
 iteminfo = ExtResource("9_1dqtn")
 
 [node name="BallonEau" parent="Objets" instance=ExtResource("4_40vl5")]
@@ -153,17 +151,25 @@ position = Vector2(20, 884)
 iteminfo = ExtResource("10_llfd6")
 
 [node name="MotDoux" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1944, 653)
+position = Vector2(1061, 513)
 iteminfo = ExtResource("11_vhbat")
 
 [node name="Exploration" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1581, 309)
+position = Vector2(1198, 424)
 iteminfo = ExtResource("14_ao8j5")
+
+[node name="Chat" parent="Objets" instance=ExtResource("4_40vl5")]
+position = Vector2(1488, 410)
+iteminfo = ExtResource("15_dp5sx")
+
+[node name="Douche" parent="Objets" instance=ExtResource("4_40vl5")]
+position = Vector2(900, 423)
+iteminfo = ExtResource("16_vkrxl")
 
 [node name="Personnages" type="Node2D" parent="."]
 
 [node name="BillBaudruche" type="Node2D" parent="Personnages"]
-position = Vector2(260, 887)
+position = Vector2(143, 890)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BillBaudruche"]
@@ -182,7 +188,7 @@ script = ExtResource("9_ots5p")
 material = SubResource("ShaderMaterial_xjdte")
 
 [node name="BillBoue" type="Node2D" parent="Personnages"]
-position = Vector2(84, 894)
+position = Vector2(858, 888)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BillBoue"]
@@ -202,7 +208,7 @@ material = SubResource("ShaderMaterial_pwm2k")
 isTakable = true
 
 [node name="PorteHumaine" type="Node2D" parent="Personnages"]
-position = Vector2(696, 888)
+position = Vector2(1508, 694)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/PorteHumaine"]
@@ -221,7 +227,7 @@ script = ExtResource("16_amrmr")
 material = SubResource("ShaderMaterial_0p04m")
 
 [node name="MiniBillAppart" type="Node2D" parent="Personnages"]
-position = Vector2(537, 785)
+position = Vector2(1325, 891)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/MiniBillAppart"]
@@ -240,7 +246,7 @@ script = ExtResource("17_lvmad")
 material = SubResource("ShaderMaterial_wac5g")
 
 [node name="MiniBillImmeuble" type="Node2D" parent="Personnages"]
-position = Vector2(1980, 862)
+position = Vector2(937, 887)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/MiniBillImmeuble"]
@@ -260,7 +266,7 @@ script = ExtResource("19_e3hvw")
 material = SubResource("ShaderMaterial_2et1t")
 
 [node name="MereMichelle" type="Node2D" parent="Personnages"]
-position = Vector2(1980, 862)
+position = Vector2(1177, 790)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/MereMichelle"]
@@ -279,7 +285,7 @@ script = ExtResource("23_65kqy")
 material = SubResource("ShaderMaterial_gmgo7")
 
 [node name="BambinoBill" type="Node2D" parent="Personnages"]
-position = Vector2(294, 956)
+position = Vector2(1619, 599)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BambinoBill"]
@@ -290,16 +296,11 @@ texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/BambinoBill/Requete"]
 
-[node name="MissionCasserTout" parent="Personnages/BambinoBill/Requete/Missions" node_paths=PackedStringArray("objets") instance=ExtResource("7_exk0v")]
-texture = ExtResource("14_ampnh")
-script = ExtResource("15_6ail6")
-objets = [NodePath("../../../../../Objets/Verre"), NodePath("../../../../../Objets/Assiette")]
-
 [node name="Personnage" parent="Personnages/BambinoBill" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_klo1e")
 
 [node name="SmartBill" type="Node2D" parent="Personnages"]
-position = Vector2(2154, 758)
+position = Vector2(1065, 695)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/SmartBill"]
@@ -318,7 +319,7 @@ script = ExtResource("11_6eq5y")
 material = SubResource("ShaderMaterial_5ib2d")
 
 [node name="BillRose" type="Node2D" parent="Personnages"]
-position = Vector2(1784, 805)
+position = Vector2(1224, 597)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BillRose"]
@@ -337,7 +338,7 @@ script = ExtResource("13_3roqm")
 material = SubResource("ShaderMaterial_nbbg5")
 
 [node name="RomantiqueBill" type="Node2D" parent="Personnages"]
-position = Vector2(1276, 862)
+position = Vector2(1037, 503)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/RomantiqueBill"]
@@ -356,7 +357,7 @@ script = ExtResource("32_5vqgd")
 material = SubResource("ShaderMaterial_k3qq7")
 
 [node name="MechantBill" type="Node2D" parent="Personnages"]
-position = Vector2(1276, 862)
+position = Vector2(1629, 762)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/MechantBill"]
@@ -376,7 +377,7 @@ ballon = NodePath("../../../../../Objets/BallonEau")
 material = SubResource("ShaderMaterial_abs7k")
 
 [node name="BillLExplorateur" type="Node2D" parent="Personnages"]
-position = Vector2(1276, 862)
+position = Vector2(1045, 597)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BillLExplorateur"]
@@ -393,6 +394,25 @@ script = ExtResource("36_uhh5p")
 
 [node name="Personnage" parent="Personnages/BillLExplorateur" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_j6env")
+
+[node name="AttendRomantiqueBill" type="Node2D" parent="Personnages"]
+position = Vector2(1037, 503)
+metadata/_edit_group_ = true
+
+[node name="Requete" type="Sprite2D" parent="Personnages/AttendRomantiqueBill"]
+visible = false
+position = Vector2(-7, -38)
+scale = Vector2(0.1, 0.076)
+texture = ExtResource("6_e24b0")
+
+[node name="Missions" type="Node2D" parent="Personnages/AttendRomantiqueBill/Requete"]
+
+[node name="MissionAttendreRomantique" parent="Personnages/AttendRomantiqueBill/Requete/Missions" instance=ExtResource("7_exk0v")]
+texture = ExtResource("42_6aqss")
+script = ExtResource("42_87tod")
+
+[node name="Personnage" parent="Personnages/AttendRomantiqueBill" instance=ExtResource("2_m3qme")]
+material = SubResource("ShaderMaterial_3xv6u")
 
 [node name="ChienSaucisse" parent="." instance=ExtResource("1_lhaoc")]
 position = Vector2(160, 896)

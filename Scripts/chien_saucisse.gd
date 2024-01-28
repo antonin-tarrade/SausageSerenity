@@ -48,6 +48,8 @@ var objetGenerique : PackedScene = preload("res://Scenes/objet.tscn")
 var iteminfo : Item = null
 var humaninfo = null
 var objetsnode = null
+@onready var walldetect = $WallDetect/ColWall
+var HaveWallTouched = false
 
 
 
@@ -138,12 +140,14 @@ func extension() -> bool:
 			if !turning_right : turning_right = true
 			c_polygon.polygon[1].x += mov
 			c_polygon.polygon[2].x += mov
+			move_detector(c_polygon.polygon[1], c_polygon.polygon[2])
 			camera.position.x += mov
 		extending_direction.LEFT:
 			extend_animation_side()
 			if turning_right : turning_right = false
 			c_polygon.polygon[0].x -= mov
 			c_polygon.polygon[3].x -= mov
+			move_detector(c_polygon.polygon[0], c_polygon.polygon[3])
 			camera.position.x -= mov
 		extending_direction.DOWN:
 			print("not yet implemented")
@@ -151,8 +155,11 @@ func extension() -> bool:
 			extend_animation_up()
 			c_polygon.polygon[2].y -= mov
 			c_polygon.polygon[3].y -= mov
+			move_detector(c_polygon.polygon[2], c_polygon.polygon[3])
 			camera.position.y -= mov
-	if length(c_polygon.polygon) >= MAX_EXTENSION or height(c_polygon.polygon) >= MAX_EXTENSION:
+	if length(c_polygon.polygon) >= MAX_EXTENSION or height(c_polygon.polygon) >= MAX_EXTENSION or HaveWallTouched :
+		HaveWallTouched = false
+
 		return true
 		
 	else:
@@ -299,5 +306,15 @@ func rotate_dog():
 	# Rotate sprite
 	head.flip_h = turning_right
 	back.flip_h = turning_right
-
 	
+	
+	
+func move_detector(point1,point2):
+	var milieu = (to_global(point1) + to_global(point2))/2
+	walldetect.global_position = milieu
+
+
+func _on_wall_detect_body_entered(body):
+	if body != self :
+		HaveWallTouched=true
+

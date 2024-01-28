@@ -1,6 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://bs53ps2mjmdnk"]
+[gd_scene load_steps=27 format=3 uid="uid://brsj6mnt6yui7"]
 
-[ext_resource type="Texture2D" uid="uid://2s8klcwv4j5t" path="res://Sprites/firstVersionBg.png" id="1_abnxk"]
+[ext_resource type="Shader" path="res://Shaders/shader_script.gdshader" id="1_0ihyi"]
+[ext_resource type="Script" path="res://Scripts/decor.gd" id="1_ajl5u"]
+[ext_resource type="Texture2D" uid="uid://b7r3l2lbkfrpk" path="res://Sprites/ThirdBg.png" id="2_xargi"]
+[ext_resource type="Texture2D" uid="uid://donfpm40d0xn1" path="res://Dessins/douche.png" id="3_etyu3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3oqo"]
+shader = ExtResource("1_0ihyi")
+shader_parameter/taux_joie = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hg1g"]
 size = Vector2(43, 8)
@@ -50,13 +57,56 @@ size = Vector2(21, 3)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4f37"]
 size = Vector2(81, 18)
 
-[node name="Decor" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cidf2"]
+atlas = ExtResource("3_etyu3")
+region = Rect2(0, 0, 100, 100)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0siv8"]
+atlas = ExtResource("3_etyu3")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sm5t"]
+atlas = ExtResource("3_etyu3")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvdyk"]
+atlas = ExtResource("3_etyu3")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n6i47"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cidf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0siv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sm5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvdyk")
+}],
+"loop": true,
+"name": &"douche_coulante",
+"speed": 5.0
+}]
+
+[node name="Decor" type="Node2D"]
+script = ExtResource("1_ajl5u")
+
+[node name="Background" type="TextureRect" parent="."]
 texture_filter = 3
+material = SubResource("ShaderMaterial_x3oqo")
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_abnxk")
+texture = ExtResource("2_xargi")
 
 [node name="Branche" type="StaticBody2D" parent="."]
 position = Vector2(85, 820)
@@ -134,7 +184,6 @@ position = Vector2(1014, 690)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Table2"]
 position = Vector2(17.5, -1)
 shape = SubResource("RectangleShape2D_84l50")
-one_way_collision = true
 
 [node name="Table3" type="StaticBody2D" parent="."]
 position = Vector2(1199, 690)
@@ -142,7 +191,6 @@ position = Vector2(1199, 690)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Table3"]
 position = Vector2(21.5, -1)
 shape = SubResource("RectangleShape2D_bthh8")
-one_way_collision = true
 
 [node name="Table4" type="StaticBody2D" parent="."]
 position = Vector2(1181, 595)
@@ -150,7 +198,6 @@ position = Vector2(1181, 595)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Table4"]
 position = Vector2(10.5, -1.5)
 shape = SubResource("RectangleShape2D_rvjv0")
-one_way_collision = true
 
 [node name="Maison24" type="StaticBody2D" parent="."]
 position = Vector2(1008, 656)
@@ -299,3 +346,9 @@ position = Vector2(2144, 848)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maison4"]
 polygon = PackedVector2Array(0, 0, 6, 0, 6, -26, 186, -26, 186, 64, 192, 64, 192, -32, 0, -32)
+
+[node name="Douche" type="AnimatedSprite2D" parent="."]
+position = Vector2(1042, 574)
+sprite_frames = SubResource("SpriteFrames_n6i47")
+animation = &"douche_coulante"
+frame_progress = 0.163287

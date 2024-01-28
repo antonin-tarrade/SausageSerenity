@@ -1,13 +1,15 @@
 
 class_name Personnage extends Sprite2D
 
+@export var anim_triste: String
+@export var anim_heureux: String
 @export var nom : String = ""
 @export var isTakable : bool = false
 @onready var requete : Sprite2D = $"../Requete"
 @onready var missions : Array[Node] = ($"../Requete/Missions").get_children()
 @onready var current_mission : int = 0
 @onready var static_body : StaticBody2D = $PersonnageBody
-var animtree : AnimationTree
+@onready var animation = $AnimationPlayer
 var zonedetectionobj : Area2D
 var zonedetectionperso : Area2D
 
@@ -27,9 +29,9 @@ var etat : ETATS
 func _ready():
 
 	etat = ETATS.triste
+	animation.current_animation = anim_triste
 	zonedetectionobj = $ZoneDeDetectionObjets
 	zonedetectionperso = $ZoneDeDetectionPersos
-	animtree = $AnimationTree
 	requete.visible = false
 	for mission in missions:
 		mission.visible = false
@@ -48,6 +50,7 @@ func _on_aboiement():
 		
 func _on_rendu_heureux():
 	etat = ETATS.heureux
+	animation.current_animation = anim_heureux
 	self.material.set_shader_parameter("isSad",false)
 	var taux_joie = decors.material.get_shader_parameter("taux_joie")
 	decors.material.set_shader_parameter("taux_joie",taux_joie + augmentation_joie)

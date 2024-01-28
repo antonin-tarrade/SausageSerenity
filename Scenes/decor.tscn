@@ -126,7 +126,7 @@ polygon = PackedVector2Array(0, 0, 288, 0, 288, 96, 337, 96, 337, 168, 384, 168,
 position = Vector2(480, 848)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maison1"]
-polygon = PackedVector2Array(0, 0, 7, 0, 7, -29, 80, -29, 80, -35, 6, -35, 6, -123, 186, -123, 186, -35, 112, -35, 112, -29, 186, -29, 186, 0, 192, 0, 192, -132, 178, -160, 173, -160, 187, -129, 4, -129, 44, -209, 150, -209, 157, -192, 162, -192, 162, -195, 153, -214, 41, -214, 0, -129)
+polygon = PackedVector2Array(0, 0, 7, 0, 7, -29, 66, -29, 65, -35, 6, -35, 6, -123, 186, -123, 186, -35, 121, -35, 121, -29, 186, -29, 186, 0, 192, 0, 192, -132, 178, -160, 173, -160, 187, -129, 4, -129, 44, -209, 150, -209, 157, -192, 162, -192, 162, -195, 153, -214, 41, -214, 0, -129)
 
 [node name="Poteau1" type="StaticBody2D" parent="."]
 position = Vector2(703, 698)
@@ -156,13 +156,13 @@ one_way_collision = true
 position = Vector2(1007, 848)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maison21"]
-polygon = PackedVector2Array(1, 0, 7, 0, 7, -29, 109, -29, 109, -35, 7, -35, 7, -64, 1, -64)
+polygon = PackedVector2Array(1, 0, 7, 0, 7, -29, 93, -29, 93, -35, 7, -35, 7, -64, 1, -64)
 
 [node name="Maison22" type="StaticBody2D" parent="."]
 position = Vector2(1140, 819)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maison22"]
-polygon = PackedVector2Array(0, 0, 102, 0, 102, 29, 108, 29, 108, -35, 102, -35, 102, -6, 0, -6)
+polygon = PackedVector2Array(13, 0, 102, 0, 102, 29, 108, 29, 108, -35, 102, -35, 102, -6, 13, -6)
 
 [node name="Table1" type="StaticBody2D" parent="."]
 position = Vector2(1207, 786)
@@ -313,19 +313,19 @@ one_way_collision = true
 position = Vector2(1424, 848)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maison31"]
-polygon = PackedVector2Array(0, 0, 6, 0, 6, -29, 108, -29, 108, -35, 6, -35, 6, -125, 234, -125, 234, -96, 240, -97, 240, -97, 240, -422, 235, -422, 200, -480, 38, -480, 0, -418, 0, -384, 6, -384, 6, -410, 108, -410, 108, -416, 6, -416, 40, -476, 198, -476, 234, -416, 132, -416, 132, -410, 234, -410, 234, -323, 94, -323, 94, -317, 234, -317, 234, -227, 132, -227, 132, -221, 234, -221, 234, -131, 6, -131, 6, -160, 0, -160)
+polygon = PackedVector2Array(0, 0, 6, 0, 6, -29, 98, -29, 97, -35, 6, -35, 6, -125, 234, -125, 234, -96, 240, -97, 240, -97, 240, -422, 235, -422, 200, -480, 38, -480, 0, -418, 0, -384, 6, -384, 6, -410, 97, -410, 96, -416, 6, -416, 40, -476, 198, -476, 234, -416, 144, -416, 143, -410, 234, -410, 234, -323, 104, -323, 104, -317, 234, -317, 234, -227, 139, -227, 138, -221, 234, -221, 234, -131, 6, -131, 6, -160, 0, -160)
 
 [node name="Maison32" type="StaticBody2D" parent="."]
 position = Vector2(1556, 819)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maison32"]
-polygon = PackedVector2Array(0, 0, 102, 0, 102, 29, 108, 29, 108, -35, 102, -35, 102, -6, 0, -6)
+polygon = PackedVector2Array(14, 0, 102, 0, 102, 29, 108, 29, 108, -35, 102, -35, 102, -6, 14, -6)
 
 [node name="Maison33" type="StaticBody2D" parent="."]
 position = Vector2(1424, 656)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maison33"]
-polygon = PackedVector2Array(0, 0, 6, 0, 6, -29, 80, -29, 80, 0, 87, 0, 87, -29, 108, -29, 108, -35, 6, -35, 6, -125, 70, -125, 70, -131, 6, -131, 6, -160, 0, -160)
+polygon = PackedVector2Array(0, 0, 6, 0, 6, -29, 80, -29, 80, 0, 87, 0, 87, -29, 99, -29, 99, -35, 6, -35, 6, -125, 63, -126, 63, -131, 6, -131, 6, -160, 0, -160)
 
 [node name="Banc2" type="StaticBody2D" parent="."]
 position = Vector2(1759, 898)

@@ -1,7 +1,11 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://boy7742xc2823"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://boy7742xc2823"]
 
 [ext_resource type="Texture2D" uid="uid://ciefim0tqgui4" path="res://TilesObjets/tile010.png" id="1_1qu78"]
 [ext_resource type="Script" path="res://ObjectData.gd" id="1_xjcqg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rnpnm"]
+radius = 5.0
+height = 18.0
 
 [resource]
 script = ExtResource("1_xjcqg")
@@ -10,3 +14,5 @@ icon = ExtResource("1_1qu78")
 isTakable = true
 isPushable = false
 isDestroyable = false
+collisionShape = SubResource("CapsuleShape2D_rnpnm")
+positionShape = Vector2(0, 0)

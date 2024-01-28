@@ -243,7 +243,6 @@ position = Vector2(28, -16)
 texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/BillBoue/Requete"]
-position = Vector2(-35, -22)
 
 [node name="MissionDouche" parent="Personnages/BillBoue/Requete/Missions" instance=ExtResource("7_exk0v")]
 position = Vector2(0, -4)

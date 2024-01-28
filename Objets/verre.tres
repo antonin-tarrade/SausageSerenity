@@ -1,7 +1,10 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://hh7y7nu80g8m"]
+[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://hh7y7nu80g8m"]
 
 [ext_resource type="Script" path="res://ObjectData.gd" id="1_7cp0j"]
 [ext_resource type="Texture2D" uid="uid://cqy6j6h80hyfi" path="res://TilesObjets/tile004.png" id="1_df1dl"]
+[ext_resource type="Texture2D" uid="uid://oyqgrrtsb5w2" path="res://TilesObjets/destroyed/tile000.png" id="2_3e7rj"]
+[ext_resource type="Texture2D" uid="uid://db64c1m20tmr6" path="res://TilesObjets/destroyed/tile003.png" id="3_d0lfc"]
+[ext_resource type="Texture2D" uid="uid://dp7erkbxwm5qa" path="res://TilesObjets/destroyed/tile006.png" id="4_xn3mk"]
 
 [resource]
 script = ExtResource("1_7cp0j")
@@ -10,3 +13,7 @@ icon = ExtResource("1_df1dl")
 isTakable = false
 isPushable = false
 isDestroyable = true
+positionShape = Vector2(0, 0)
+icon_destroyed_1 = ExtResource("2_3e7rj")
+icon_destroyed_2 = ExtResource("3_d0lfc")
+icon_destroyed_3 = ExtResource("4_xn3mk")

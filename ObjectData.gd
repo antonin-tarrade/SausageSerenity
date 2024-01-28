@@ -9,3 +9,8 @@ class_name Item
 
 @export var collisionShape : Shape2D = null
 @export var positionShape = Vector2(0,0)
+
+# only for destroyable objects
+@export var icon_destroyed_1: Texture2D
+@export var icon_destroyed_2: Texture2D
+@export var icon_destroyed_3: Texture2D

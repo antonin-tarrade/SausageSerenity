@@ -166,7 +166,6 @@ func frapper(f : float):
 		if objet is RigidBody2D :
 			var vector : Vector2 = (objet.global_position - PosTete.global_position).normalized()
 			objet.apply_central_impulse((vector + Vector2(0.0, -puissance).normalized()).normalized() * puissance * 1000)
-			objet.detruire()
 
 func frapperFin():
 	frapper(0.0)

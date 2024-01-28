@@ -5,6 +5,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ppta"]
 size = Vector2(14.5, 7)
+[ext_resource type="Texture2D" uid="uid://bgeckidf1uh71" path="res://TilesObjets/destroyed/tile001.png" id="2_fwfhu"]
+[ext_resource type="Texture2D" uid="uid://cp0bv7xlmriu4" path="res://TilesObjets/destroyed/tile004.png" id="3_onhgr"]
+[ext_resource type="Texture2D" uid="uid://qnwp03jei7x7" path="res://TilesObjets/destroyed/tile007.png" id="4_cnf54"]
 
 [resource]
 script = ExtResource("1_8higq")
@@ -15,3 +18,7 @@ isPushable = false
 isDestroyable = true
 collisionShape = SubResource("RectangleShape2D_2ppta")
 positionShape = Vector2(0, 3)
+positionShape = Vector2(0, 0)
+icon_destroyed_1 = ExtResource("2_fwfhu")
+icon_destroyed_2 = ExtResource("3_onhgr")
+icon_destroyed_3 = ExtResource("4_cnf54")

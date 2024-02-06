@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bihxd7i5vb0fp" path="res://Sprites/Invisible.png" id="1_s81sd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_imbhr"]
-radius = 4.0
+radius = 6.0
 
 [resource]
 script = ExtResource("1_crmgp")

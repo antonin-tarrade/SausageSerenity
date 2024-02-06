@@ -371,7 +371,7 @@ position = Vector2(1441, 581)
 iteminfo = ExtResource("9_dbj6m")
 
 [node name="Rose" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1979, 838)
+position = Vector2(1979, 899)
 iteminfo = ExtResource("9_1dqtn")
 
 [node name="BallonEau" parent="Objets" instance=ExtResource("4_40vl5")]
@@ -391,7 +391,7 @@ position = Vector2(1488, 410)
 iteminfo = ExtResource("15_dp5sx")
 
 [node name="Douche" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1035, 500)
+position = Vector2(1049, 593)
 iteminfo = ExtResource("16_vkrxl")
 
 [node name="Assiette1" parent="Objets" instance=ExtResource("4_40vl5")]
@@ -440,7 +440,6 @@ anim_triste = "kid_1_sad"
 anim_heureux = "kid_1_happy"
 
 [node name="BillBoue" type="Node2D" parent="Personnages"]
-visible = false
 position = Vector2(858, 880)
 metadata/_edit_group_ = true
 
@@ -616,6 +615,7 @@ anim_triste = "meuf_sad"
 anim_heureux = "meuf_happy"
 
 [node name="RomantiqueBill" type="Node2D" parent="Personnages"]
+visible = false
 position = Vector2(1037, 494)
 metadata/_edit_group_ = true
 

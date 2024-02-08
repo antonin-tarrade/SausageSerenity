@@ -23,7 +23,7 @@
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_romantique.gd" id="21_435na"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_explorer.gd" id="22_s4gk5"]
 [ext_resource type="Script" path="res://Scripts/Missions/MissionAttendreRomantique.gd" id="23_kkyp2"]
-[ext_resource type="Script" path="res://Scenes/Mission_finale.gd" id="24_xopv8"]
+[ext_resource type="Script" path="res://Scripts/Mission_finale.gd" id="24_xopv8"]
 
 [node name="StockMissions" type="Node2D"]
 

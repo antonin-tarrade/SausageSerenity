@@ -49,7 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://t5mc75vpaaec" path="res://TilesObjets/tile012.png" id="42_6aqss"]
 [ext_resource type="Script" path="res://Scripts/Missions/MissionAttendreRomantique.gd" id="42_87tod"]
 [ext_resource type="Texture2D" uid="uid://bgngufu6v7clp" path="res://Dessins/transat_bulle.png" id="42_hf511"]
-[ext_resource type="Script" path="res://Scenes/Mission_finale.gd" id="48_4wyw3"]
+[ext_resource type="Script" path="res://Scripts/Mission_finale.gd" id="48_4wyw3"]
 [ext_resource type="Texture2D" uid="uid://dolfqksdjb00v" path="res://Sprites/Tuto/tuto_Arrow.png" id="49_vx3jo"]
 [ext_resource type="Script" path="res://Scripts/tuto.gd" id="50_abamy"]
 [ext_resource type="Texture2D" uid="uid://d0bvm7c6q1dr8" path="res://Sprites/Tuto/tuto_extends_right.png" id="51_215hx"]
@@ -57,7 +57,7 @@
 [ext_resource type="Texture2D" uid="uid://drkvol3d0f84a" path="res://Sprites/Tuto/tuto_bark.png" id="53_qoss7"]
 [ext_resource type="Texture2D" uid="uid://mwos5x2bgw2y" path="res://Sprites/Tuto/tuto_hit.png" id="54_a5njy"]
 [ext_resource type="AudioStream" uid="uid://bbcrv8p65do7p" path="res://Musiques/chien_saucisse_lvl3.mp3" id="56_1pco4"]
-[ext_resource type="Script" path="res://Scenes/LayerFin.gd" id="57_jg1he"]
+[ext_resource type="Script" path="res://Scripts/LayerFin.gd" id="57_jg1he"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xjdte"]
 resource_local_to_scene = true
@@ -413,10 +413,6 @@ iteminfo = ExtResource("6_h6724")
 position = Vector2(1072, 417)
 iteminfo = ExtResource("7_hsa44")
 
-[node name="Verre1" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1441, 581)
-iteminfo = ExtResource("9_dbj6m")
-
 [node name="Rose" parent="Objets" instance=ExtResource("4_40vl5")]
 position = Vector2(1979, 899)
 iteminfo = ExtResource("9_1dqtn")
@@ -431,6 +427,7 @@ iteminfo = ExtResource("11_vhbat")
 
 [node name="Exploration" parent="Objets" instance=ExtResource("4_40vl5")]
 position = Vector2(1198, 424)
+mass = 1000.0
 iteminfo = ExtResource("14_ao8j5")
 
 [node name="Chat" parent="Objets" instance=ExtResource("4_40vl5")]
@@ -447,11 +444,15 @@ position = Vector2(1440, 548)
 [node name="Assiette2" parent="Objets" instance=ExtResource("4_40vl5")]
 position = Vector2(1647, 549)
 
+[node name="Verre1" parent="Objets" instance=ExtResource("4_40vl5")]
+position = Vector2(1441, 581)
+iteminfo = ExtResource("9_dbj6m")
+
 [node name="Verre2" parent="Objets" instance=ExtResource("4_40vl5")]
 position = Vector2(1648, 582)
 iteminfo = ExtResource("9_dbj6m")
 
-[node name="Vase1" parent="Objets" instance=ExtResource("4_40vl5")]
+[node name="VaseRose" parent="Objets" instance=ExtResource("4_40vl5")]
 position = Vector2(1480, 791)
 iteminfo = ExtResource("16_tu7k8")
 
@@ -597,7 +598,6 @@ anim_triste = "mamie_sad"
 anim_heureux = "mamie_happy"
 
 [node name="BambinoBill" type="Node2D" parent="Personnages"]
-visible = false
 position = Vector2(1619, 589)
 metadata/_edit_group_ = true
 
@@ -608,10 +608,11 @@ texture = ExtResource("6_e24b0")
 
 [node name="Missions" type="Node2D" parent="Personnages/BambinoBill/Requete"]
 
-[node name="MissionCasserTout" parent="Personnages/BambinoBill/Requete/Missions" instance=ExtResource("7_exk0v")]
+[node name="MissionCasserTout" parent="Personnages/BambinoBill/Requete/Missions" node_paths=PackedStringArray("objets") instance=ExtResource("7_exk0v")]
 scale = Vector2(1, 1)
 texture = ExtResource("32_polil")
 script = ExtResource("33_dkncc")
+objets = [NodePath("../../../../../Objets/Assiette1"), NodePath("../../../../../Objets/Assiette2"), NodePath("../../../../../Objets/Verre2"), NodePath("../../../../../Objets/Verre1"), NodePath("../../../../../Objets/Vase2"), NodePath("../../../../../Objets/Vase3")]
 
 [node name="Personnage" parent="Personnages/BambinoBill" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_klo1e")
@@ -709,7 +710,6 @@ anim_triste = "kid_2_sad"
 anim_heureux = "kid_2_happy"
 
 [node name="BillLExplorateur" type="Node2D" parent="Personnages"]
-visible = false
 position = Vector2(1045, 590)
 metadata/_edit_group_ = true
 
@@ -728,6 +728,7 @@ script = ExtResource("36_uhh5p")
 
 [node name="Personnage" parent="Personnages/BillLExplorateur" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_j6env")
+isTakable = true
 
 [node name="AttendRomantiqueBill" type="Node2D" parent="Personnages"]
 position = Vector2(1642, 494)

@@ -49,6 +49,7 @@ func PickUp() :
 
 func destroy():
 	destroyed.emit()
+	isDestroyed = true
 	for i in range(0, 3):
 		var destroyed_part: RigidBody2D = Packed_destroyed_part.instantiate()
 		destroyed_part.get_node("Sprite").texture = destroyed_parts[i]

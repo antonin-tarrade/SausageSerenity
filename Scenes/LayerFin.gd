@@ -1,10 +1,4 @@
 extends CanvasLayer
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
+	
+func activate_anim():
 	$CenterContainer/Panel/AnimationPlayer.play("effet_texte")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

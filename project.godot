@@ -17,6 +17,10 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/image="res://Menu/Menu.png"
 config/icon="res://Sprites/logo_chien_saucisse.png"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [file_customization]
 
 folder_colors={

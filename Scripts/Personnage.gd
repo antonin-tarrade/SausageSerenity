@@ -18,7 +18,6 @@ var zonedetectionperso : Area2D
 #var augmentation_joie : float = 1/nbMissions
 @onready var decors : Node = %Decor/Background
 
-
 enum ETATS {
 	triste,
 	parle,

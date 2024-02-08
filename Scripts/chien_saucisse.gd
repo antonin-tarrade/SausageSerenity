@@ -62,6 +62,7 @@ var iteminfo : Item = null
 var humaninfo = null
 var objetsnode = null
 @onready var walldetect = $WallDetect/ColWall
+@onready var walldetect_pos = walldetect.position
 var HaveWallTouched = false
 
 @onready var head_position = head.position
@@ -70,18 +71,26 @@ var HaveWallTouched = false
 @onready var body_side_position = body_up.position
 
 @onready var is_extended = false
+@onready var pieds = $Head/PivotObjet/chien_mange
+@onready var pieds_anim = $Head/PivotObjet/chien_mange/AnimationPlayer
+@onready var pieds_pos = pieds.position
 
 
 func _ready():
 	body_side.region_rect = Rect2(0,0,0,32)
 	body_up.region_rect = Rect2(0,0,32,0)
+	pieds.visible = false
+	
 	
 func _physics_process(delta):
 	
 	for tree in all_tree : 
 		tree.set("parameters/conditions/idle", is_on_floor() and (velocity.x == 0) and !is_extended)
 		tree.set("parameters/conditions/is_moving", velocity.x != 0)
-	if is_on_floor() and !is_extended : objetBouche.position = object_side_pos
+	if is_on_floor() and !is_extended : 
+		objetBouche.position = object_side_pos
+		pieds.position = pieds_pos
+		pieds.rotation = 0
 	if not is_on_floor() and ed == -1:
 		velocity.y += gravity * delta
 		
@@ -107,6 +116,7 @@ func _physics_process(delta):
 			x = 0
 			old_e = 0.0
 			play_sound_effect(sound_shrink)
+			walldetect.position = walldetect_pos
 		ed = shrinkage()
 		y += 1
 		for tree in all_tree :
@@ -187,6 +197,8 @@ func extension() -> bool:
 			print("not yet implemented")
 		extending_direction.UP:
 			objetBouche.position = object_up_pos;
+			pieds.position = object_up_pos;
+			pieds.rotation = PI/2
 			for tree in all_tree :
 				tree.set("parameters/conditions/extending_up", true)
 			head.position.y -= mov
@@ -346,23 +358,26 @@ func itemTaken(infoitem) :
 func humanTaken(human) :
 	print("human taken")
 	humaninfo = human
-	objetBouche.texture = icon_pied
+	pieds.visible = true
+	pieds_anim.current_animation = "jambes_pnj_1"
 	
 func Drop() :
 	if iteminfo != null :
 		var item = objetGenerique.instantiate()
 		item.iteminfo = iteminfo
-		item.global_position = objetBouche.global_position
+		item.global_position = objetBouche.global_position + Vector2(0, 10)
 		#get_parent().get_child(3).add_child(item)
 		objetsnode.add_child(item)
 		iteminfo = null
+		objetBouche.texture = null
 		print("drop")
 	if humaninfo != null :
 		humaninfo.global_position = global_position + Vector2(0, -27)
 		humaninfo.visible = true
 		humaninfo = null
-
-	objetBouche.texture = null
+		pieds.set_deferred("visible", false)
+		pieds_anim.stop()
+		
 	play_sound_effect(sound_drop)
 		
 

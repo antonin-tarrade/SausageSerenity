@@ -509,7 +509,7 @@ texture = ExtResource("22_bycox")
 script = ExtResource("18_oge4c")
 
 [node name="PorteHumaine" type="Node2D" parent="Personnages"]
-position = Vector2(1508, 684)
+position = Vector2(1509, 685)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/PorteHumaine"]

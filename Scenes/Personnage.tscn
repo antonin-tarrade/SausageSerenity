@@ -14,8 +14,8 @@ shader_parameter/isSad = true
 radius = 40.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_brrbc"]
-radius = 3.0
-height = 11.0
+radius = 1.0877
+height = 13.1429
 
 [sub_resource type="Animation" id="Animation_40qe4"]
 length = 2.48
@@ -1034,7 +1034,7 @@ material = SubResource("ShaderMaterial_nj0fj")
 texture = ExtResource("2_2futx")
 hframes = 32
 vframes = 16
-frame = 327
+frame = 90
 script = ExtResource("3_veaqq")
 anim_triste = "mec_sad"
 anim_heureux = "mec_happy"

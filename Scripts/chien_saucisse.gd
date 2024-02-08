@@ -7,7 +7,7 @@ var icon_pied = preload("res://Dessins/mec.png")
 @export var SPEED = 200.0
 @export var EXTENSION_SPEED = 4 # px
 @export var SHRINKING_SPEED = 6 # px
-@export var MAX_EXTENSION = 170 # px
+@export var MAX_EXTENSION = 140 # px
 @export var alpha = 0.2
 @export var step = 0.2
 @export var beta = 0.7
@@ -29,11 +29,18 @@ var icon_pied = preload("res://Dessins/mec.png")
 # 2 top-right
 # 3 top-left
 @onready var normal_polygon: PackedVector2Array = c_polygon.polygon
+@onready var up_polygon: PackedVector2Array = PackedVector2Array([Vector2(-6, 4), Vector2(10, 4), Vector2(10, -24), Vector2(-6, -24)])
 @onready var normal_position: Vector2 = c_polygon.position
 @onready var object_up_pos = Vector2(2,-12)
 @onready var object_side_pos = Vector2(-12,-3)
+@onready var dog_sound_effect: AudioStreamPlayer = $DogSoundEffect
 
-
+# sound effects
+var sound_woof: AudioStream = preload("res://SoundEffect/dog_woof.mp3")
+var sound_extend: AudioStream = preload("res://SoundEffect/dog_extend.mp3")
+var sound_shrink: AudioStream = preload("res://SoundEffect/dog_retract.mp3")
+var sound_pickup: AudioStream = preload("res://SoundEffect/dog_pickup_item.mp3")
+var sound_drop: AudioStream = preload("res://SoundEffect/dog_drop_item.mp3")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -47,6 +54,7 @@ var old_e: float = 0.0
 var x: int = 0
 var old_s: float = 0.0
 var y: int = 0
+var change = false
 # Variable Item
 
 var objetGenerique : PackedScene = preload("res://Scenes/objet.tscn")
@@ -83,14 +91,22 @@ func _physics_process(delta):
 			var horizontal: float = Input.get_axis("ui_left", "ui_right")
 			var vertical: float = Input.get_axis("ui_down", "ui_up")
 			ed = get_extending_direction(horizontal, vertical)
+			change = false
+			if ed != -1:
+				play_sound_effect(sound_extend)
 		else:
+			if !change:
+				if ed == extending_direction.UP:
+					c_polygon.polygon = up_polygon
+				change = true
 			max_ex = extension()
 			x += 1
-			
+
 	elif ed != -1:
 		if x != 0:
 			x = 0
 			old_e = 0.0
+			play_sound_effect(sound_shrink)
 		ed = shrinkage()
 		y += 1
 		for tree in all_tree :
@@ -125,10 +141,6 @@ func _physics_process(delta):
 	old_turning_right = turning_right
 	move_and_slide()
 	
-	
-	
-		
-
 
 # get the direction in which the dog extends
 func get_extending_direction(horizontal: float, vertical: float) -> int:
@@ -190,16 +202,12 @@ func extension() -> bool:
 			camera.position.y -= mov
 	if length(c_polygon.polygon) >= MAX_EXTENSION or height(c_polygon.polygon) >= MAX_EXTENSION or HaveWallTouched :
 		HaveWallTouched = false
-
 		return true
 		
 	else:
 		old_e = e
 		return false
-			
-			
-			
-			
+
 
 # shrink the dog in the right direction
 func shrinkage() -> int:
@@ -312,6 +320,7 @@ func math_shrinkage(z: float) -> float:
 
 func PickUpOrOuaf() :
 	var aPickUp : bool = false
+	play_sound_effect(sound_pickup)
 	for objet : PhysicsBody2D in zonePickUp.get_overlapping_bodies() :
 		if objet.has_method("get_isTakable") :
 			print("objet a pickup potentiellement")
@@ -323,6 +332,7 @@ func PickUpOrOuaf() :
 				
 				break
 	if (!aPickUp):
+		play_sound_effect(sound_woof)
 		for perso : PhysicsBody2D in zoneBarking.get_overlapping_bodies() :
 			print(perso)
 			if perso.has_method("se_faire_aboyer"):
@@ -353,6 +363,7 @@ func Drop() :
 		humaninfo = null
 
 	objetBouche.texture = null
+	play_sound_effect(sound_drop)
 		
 
 func rotate_dog():
@@ -377,4 +388,8 @@ func _on_wall_detect_body_entered(body):
 		if body.get_children()[0]["one_way_collision"] == false :
 			
 			HaveWallTouched=true
+			
+func play_sound_effect(sound: AudioStream) -> void:
+	dog_sound_effect.stream = sound
+	dog_sound_effect.play()
 

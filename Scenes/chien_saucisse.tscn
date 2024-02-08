@@ -956,7 +956,7 @@ advance_condition = &"idle"
 states/extend_up_back/node = SubResource("AnimationNodeAnimation_ljmbr")
 states/extend_up_back/position = Vector2(605.8, 99.25)
 states/idle_back/node = SubResource("AnimationNodeAnimation_boa43")
-states/idle_back/position = Vector2(364, 96)
+states/idle_back/position = Vector2(365.075, 97.125)
 states/walk_back/node = SubResource("AnimationNodeAnimation_5hh0b")
 states/walk_back/position = Vector2(366.15, 208.663)
 transitions = ["Start", "idle_back", SubResource("AnimationNodeStateMachineTransition_aqvu7"), "idle_back", "walk_back", SubResource("AnimationNodeStateMachineTransition_07mla"), "walk_back", "idle_back", SubResource("AnimationNodeStateMachineTransition_my3hf"), "idle_back", "extend_up_back", SubResource("AnimationNodeStateMachineTransition_7i2e1"), "walk_back", "extend_up_back", SubResource("AnimationNodeStateMachineTransition_mu56f"), "extend_up_back", "idle_back", SubResource("AnimationNodeStateMachineTransition_3u3hb")]
@@ -1018,7 +1018,7 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath(".:frame")
 tracks/4/interp = 1
-tracks/4/loop_wrap = false
+tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
@@ -1990,7 +1990,7 @@ states/extend_side_front/position = Vector2(766.005, 26.8634)
 states/extend_up_bouche_front/node = SubResource("AnimationNodeAnimation_cmt78")
 states/extend_up_bouche_front/position = Vector2(749.924, 381.885)
 states/extend_up_front/node = SubResource("AnimationNodeAnimation_njxtw")
-states/extend_up_front/position = Vector2(729.27, 507.2)
+states/extend_up_front/position = Vector2(729.27, 506.35)
 states/idle_bouche_front/node = SubResource("AnimationNodeAnimation_rwxjc")
 states/idle_bouche_front/position = Vector2(340.26, 117.682)
 states/idle_front/node = SubResource("AnimationNodeAnimation_v7mm7")
@@ -2000,7 +2000,7 @@ states/walk_bouche_front/position = Vector2(339.531, 400.385)
 states/walk_front/node = SubResource("AnimationNodeAnimation_nb06k")
 states/walk_front/position = Vector2(-186, 505.5)
 transitions = ["Start", "idle_front", SubResource("AnimationNodeStateMachineTransition_x51y6"), "idle_front", "walk_front", SubResource("AnimationNodeStateMachineTransition_tobg6"), "walk_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_xlfh6"), "idle_front", "extend_side_front", SubResource("AnimationNodeStateMachineTransition_1h6qh"), "walk_front", "extend_side_front", SubResource("AnimationNodeStateMachineTransition_a3wjo"), "extend_side_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_amrvu"), "walk_front", "extend_up_front", SubResource("AnimationNodeStateMachineTransition_wbj0j"), "idle_front", "extend_up_front", SubResource("AnimationNodeStateMachineTransition_2574i"), "extend_up_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_3m6b2"), "idle_front", "idle_bouche_front", SubResource("AnimationNodeStateMachineTransition_h0wfx"), "idle_bouche_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_6n4al"), "walk_bouche_front", "walk_front", SubResource("AnimationNodeStateMachineTransition_f4ayu"), "walk_front", "walk_bouche_front", SubResource("AnimationNodeStateMachineTransition_1jr0t"), "idle_bouche_front", "walk_bouche_front", SubResource("AnimationNodeStateMachineTransition_4ndat"), "walk_bouche_front", "idle_bouche_front", SubResource("AnimationNodeStateMachineTransition_c4kku"), "walk_bouche_front", "extend_up_bouche_front", SubResource("AnimationNodeStateMachineTransition_v82wi"), "extend_up_bouche_front", "idle_bouche_front", SubResource("AnimationNodeStateMachineTransition_jredf"), "idle_bouche_front", "extend_up_bouche_front", SubResource("AnimationNodeStateMachineTransition_am4oa"), "idle_bouche_front", "extend_side_bouche_front", SubResource("AnimationNodeStateMachineTransition_3fwr7"), "extend_side_bouche_front", "idle_bouche_front", SubResource("AnimationNodeStateMachineTransition_r7bfv")]
-graph_offset = Vector2(-480.902, -63.7118)
+graph_offset = Vector2(-360.771, -84.9838)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlba5"]
 size = Vector2(17.75, 29)
@@ -2019,7 +2019,7 @@ z_index = 1
 script = ExtResource("1_f1xf0")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-16, 4, 16, 4, 16, -10, -16, -10)
+polygon = PackedVector2Array(-13, 4, 14, 4, 14, -10, -13, -10)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -40)
@@ -2057,7 +2057,6 @@ wait_time = 3.0
 one_shot = true
 
 [node name="ZoneDeFrappe" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -2069,7 +2068,6 @@ shape = SubResource("RectangleShape2D_vlba5")
 position = Vector2(11, -7)
 
 [node name="Barking" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 4
 
@@ -2122,7 +2120,7 @@ position = Vector2(0, -12)
 texture = ExtResource("3_lnj7f")
 hframes = 16
 vframes = 8
-frame = 37
+frame = 38
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -2147,7 +2145,7 @@ position = Vector2(0, -12)
 texture = ExtResource("3_lnj7f")
 hframes = 16
 vframes = 8
-frame = 3
+frame = 5
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -2182,7 +2180,6 @@ shape = SubResource("CircleShape2D_jexj4")
 [node name="WallDetect" type="Area2D" parent="."]
 position = Vector2(117, -15)
 collision_layer = 0
-collision_mask = 3
 
 [node name="ColWall" type="CollisionShape2D" parent="WallDetect"]
 position = Vector2(-117, 12.5)

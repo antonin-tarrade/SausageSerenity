@@ -5,7 +5,7 @@ extends RigidBody2D
 
 @export var Packed_destroyed_part: PackedScene
 @export var iteminfo:Item
-@export var max_v: float = 500.0
+@export var max_v: float = 300.0
 @onready var itemTexture = get_node("ObjetTexture")
 @onready var collider = get_node("CollisionObjet")
 var isTaken = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://dlxltitx45rdy"]
+[gd_scene load_steps=96 format=3 uid="uid://dlxltitx45rdy"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_kq4bb"]
 [ext_resource type="PackedScene" uid="uid://cimdeld5rdie4" path="res://Scenes/chien_saucisse.tscn" id="1_lhaoc"]
@@ -55,6 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://degjskedlkrh6" path="res://Sprites/Tuto/tuto_extends_up.png" id="52_5ovla"]
 [ext_resource type="Texture2D" uid="uid://drkvol3d0f84a" path="res://Sprites/Tuto/tuto_bark.png" id="53_qoss7"]
 [ext_resource type="Texture2D" uid="uid://mwos5x2bgw2y" path="res://Sprites/Tuto/tuto_hit.png" id="54_a5njy"]
+[ext_resource type="AudioStream" uid="uid://bbcrv8p65do7p" path="res://Musiques/chien_saucisse_lvl3.mp3" id="56_1pco4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xjdte"]
 resource_local_to_scene = true
@@ -762,11 +763,14 @@ script = ExtResource("50_abamy")
 position = Vector2(252, 911)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Bravo vous avez gagné"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("56_1pco4")
+autoplay = true
 
 [connection signal="lettrerecu" from="Personnages/AttendRomantiqueBill/Requete/Missions/MissionAttendreRomantique" to="Personnages/RomantiqueBill/Requete/Missions/MissionRomantique" method="_on_mission_attendre_romantique_lettrerecu"]

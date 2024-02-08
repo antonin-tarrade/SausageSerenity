@@ -6,6 +6,10 @@ var nbMissionsFinies : float = 0.0
 func _ready():
 	%LayerFin.visible = false
 
+func _process(_delta):
+	if Input.is_action_pressed("quitter"):
+		get_tree().quit(0)
+
 func _on_mission_fini():
 	nbMissionsFinies += 1.0
 
@@ -14,3 +18,4 @@ func get_pourcentage_fini() -> float :
 
 func fin_ultime():
 	%LayerFin.visible = true
+	%LayerFin.activate_anim()

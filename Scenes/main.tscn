@@ -369,11 +369,11 @@ _data = {
 "effet_texte": SubResource("Animation_fuvxc")
 }
 
-[sub_resource type="Gradient" id="Gradient_p5y5s"]
+[sub_resource type="Gradient" id="Gradient_nq53h"]
 colors = PackedColorArray(0.729412, 0.909804, 0, 0.380392, 0.980392, 0.0823529, 0.054902, 0.72549)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xc8b3"]
-gradient = SubResource("Gradient_p5y5s")
+gradient = SubResource("Gradient_nq53h")
 fill = 1
 fill_from = Vector2(0.1, 0.9)
 
@@ -640,7 +640,6 @@ script = ExtResource("11_6eq5y")
 material = SubResource("ShaderMaterial_5ib2d")
 
 [node name="BillRose" type="Node2D" parent="Personnages"]
-visible = false
 position = Vector2(1224, 588)
 metadata/_edit_group_ = true
 
@@ -663,7 +662,6 @@ anim_triste = "meuf_sad"
 anim_heureux = "meuf_happy"
 
 [node name="RomantiqueBill" type="Node2D" parent="Personnages"]
-visible = false
 position = Vector2(1037, 494)
 metadata/_edit_group_ = true
 

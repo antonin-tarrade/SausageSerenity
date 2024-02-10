@@ -2001,7 +2001,7 @@ states/walk_bouche_front/position = Vector2(339.531, 400.385)
 states/walk_front/node = SubResource("AnimationNodeAnimation_nb06k")
 states/walk_front/position = Vector2(-186, 505.5)
 transitions = ["Start", "idle_front", SubResource("AnimationNodeStateMachineTransition_x51y6"), "idle_front", "walk_front", SubResource("AnimationNodeStateMachineTransition_tobg6"), "walk_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_xlfh6"), "idle_front", "extend_side_front", SubResource("AnimationNodeStateMachineTransition_1h6qh"), "walk_front", "extend_side_front", SubResource("AnimationNodeStateMachineTransition_a3wjo"), "extend_side_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_amrvu"), "walk_front", "extend_up_front", SubResource("AnimationNodeStateMachineTransition_wbj0j"), "idle_front", "extend_up_front", SubResource("AnimationNodeStateMachineTransition_2574i"), "extend_up_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_3m6b2"), "idle_front", "idle_bouche_front", SubResource("AnimationNodeStateMachineTransition_h0wfx"), "idle_bouche_front", "idle_front", SubResource("AnimationNodeStateMachineTransition_6n4al"), "walk_bouche_front", "walk_front", SubResource("AnimationNodeStateMachineTransition_f4ayu"), "walk_front", "walk_bouche_front", SubResource("AnimationNodeStateMachineTransition_1jr0t"), "idle_bouche_front", "walk_bouche_front", SubResource("AnimationNodeStateMachineTransition_4ndat"), "walk_bouche_front", "idle_bouche_front", SubResource("AnimationNodeStateMachineTransition_c4kku"), "walk_bouche_front", "extend_up_bouche_front", SubResource("AnimationNodeStateMachineTransition_v82wi"), "extend_up_bouche_front", "idle_bouche_front", SubResource("AnimationNodeStateMachineTransition_jredf"), "idle_bouche_front", "extend_up_bouche_front", SubResource("AnimationNodeStateMachineTransition_am4oa"), "idle_bouche_front", "extend_side_bouche_front", SubResource("AnimationNodeStateMachineTransition_3fwr7"), "extend_side_bouche_front", "idle_bouche_front", SubResource("AnimationNodeStateMachineTransition_r7bfv")]
-graph_offset = Vector2(16.229, -0.984009)
+graph_offset = Vector2(-455.55, -48.0947)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlba5"]
 size = Vector2(17.75, 29)
@@ -2450,7 +2450,7 @@ position = Vector2(0, -12)
 texture = ExtResource("3_lnj7f")
 hframes = 16
 vframes = 8
-frame = 32
+frame = 50
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -2475,7 +2475,7 @@ position = Vector2(0, -12)
 texture = ExtResource("3_lnj7f")
 hframes = 16
 vframes = 8
-frame = 17
+frame = 20
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

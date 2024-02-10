@@ -19,3 +19,4 @@ func get_pourcentage_fini() -> float :
 func fin_ultime():
 	%LayerFin.visible = true
 	%LayerFin.activate_anim()
+	%ChienSaucisse.aller_position_fin()

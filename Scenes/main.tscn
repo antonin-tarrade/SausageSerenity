@@ -806,6 +806,7 @@ sprite_frames = SubResource("SpriteFrames_5tus1")
 script = ExtResource("50_abamy")
 
 [node name="ChienSaucisse" parent="." instance=ExtResource("1_lhaoc")]
+unique_name_in_owner = true
 position = Vector2(252, 911)
 
 [node name="LayerFin" type="CanvasLayer" parent="."]
@@ -864,5 +865,8 @@ vertical_alignment = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("56_1pco4")
 autoplay = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(2272, 904)
 
 [connection signal="lettrerecu" from="Personnages/AttendRomantiqueBill/Requete/Missions/MissionAttendreRomantique" to="Personnages/RomantiqueBill/Requete/Missions/MissionRomantique" method="_on_mission_attendre_romantique_lettrerecu"]

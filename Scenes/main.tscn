@@ -377,21 +377,6 @@ gradient = SubResource("Gradient_nq53h")
 fill = 1
 fill_from = Vector2(0.1, 0.9)
 
-[sub_resource type="Animation" id="Animation_c2bvb"]
-resource_name = "entree"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationEntreeScenes/CanvasLayer/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_ubajn"]
 length = 0.001
 tracks/0/type = "value"
@@ -407,6 +392,21 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_c2bvb"]
+resource_name = "entree"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationEntreeScenes/CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bnq8p"]
 _data = {
 "RESET": SubResource("Animation_ubajn"),
@@ -418,10 +418,11 @@ _data = {
 [node name="GameManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_kq4bb")
-nbMissions = 2.0
+nbMissions = 12.0
 
 [node name="Decor" parent="." instance=ExtResource("4_5016y")]
 unique_name_in_owner = true
+position = Vector2(-1, 0)
 
 [node name="Objets" type="Node2D" parent="." groups=["objets"]]
 
@@ -462,7 +463,7 @@ position = Vector2(1061, 513)
 iteminfo = ExtResource("11_vhbat")
 
 [node name="Exploration" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1198, 420)
+position = Vector2(1198, 410)
 mass = 1000.0
 freeze = true
 iteminfo = ExtResource("14_ao8j5")

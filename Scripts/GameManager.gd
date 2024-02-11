@@ -1,6 +1,6 @@
 class_name GameManager extends Node2D
 
-@export var nbMissions : float = 11.0
+@export var nbMissions : float = 13.0
 var nbMissionsFinies : float = 0.0
 var avancement: int = 0
 @onready var audio_player = $"../AudioStreamPlayer"
@@ -27,8 +27,9 @@ func _process(_delta):
 func _on_mission_fini():
 	nbMissionsFinies += 1.0
 	var pourcent = get_pourcentage_fini()
-	if pourcent > avancement*0.25:
+	if pourcent >= (avancement+1)*0.25:
 		avancement += 1
+		print("avancement : " + str(avancement))
 		play_music(avancement)
 
 func get_pourcentage_fini() -> float :

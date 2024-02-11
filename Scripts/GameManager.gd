@@ -17,7 +17,7 @@ func _ready():
 	
 func _process(_delta):
 	if Input.is_action_pressed("quitter"):
-		get_tree().quit(0)
+		get_tree().change_scene_to_file("res://Menu/main.tscn")
 
 func _on_mission_fini():
 	nbMissionsFinies += 1.0
@@ -32,6 +32,7 @@ func get_pourcentage_fini() -> float :
 func fin_ultime():
 	%LayerFin.visible = true
 	%LayerFin.activate_anim()
+	%ChienSaucisse.aller_position_fin()
 	
 func play_music(advancement: int) -> void:
 	match advancement:

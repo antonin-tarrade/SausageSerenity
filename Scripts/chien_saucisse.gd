@@ -75,6 +75,10 @@ var HaveWallTouched = false
 @onready var pieds_anim = $Head/PivotObjet/chien_mange/AnimationPlayer
 @onready var pieds_pos = pieds.position
 
+# Fin du chien
+@export var fin = false
+var position_objectif_fin : Vector2 = Vector2(2277,908)
+var arrive_a_destination : bool = false
 
 func _ready():
 	body_side.region_rect = Rect2(0,0,0,32)
@@ -94,7 +98,7 @@ func _physics_process(delta):
 	if not is_on_floor() and ed == -1:
 		velocity.y += gravity * delta
 		
-	if Input.is_action_pressed("extend") and not is_on_ceiling() and not is_on_wall() and !max_ex and is_on_floor():
+	if Input.is_action_pressed("extend") and not is_on_ceiling() and not is_on_wall() and !max_ex and is_on_floor() and not fin:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if ed == -1:
 			var horizontal: float = Input.get_axis("ui_left", "ui_right")
@@ -149,6 +153,14 @@ func _physics_process(delta):
 	if turning_right != old_turning_right:
 		rotate_dog()
 	old_turning_right = turning_right
+	if fin :
+		var direction = global_position.direction_to(position_objectif_fin)
+		var ecart : Vector2 = position - position_objectif_fin
+		if ecart.dot(ecart) > 2 :
+			velocity = direction * SPEED/5
+		else :
+			velocity = Vector2(0,0)
+			arrive_a_destination = true
 	move_and_slide()
 	
 
@@ -407,4 +419,7 @@ func _on_wall_detect_body_entered(body):
 func play_sound_effect(sound: AudioStream) -> void:
 	dog_sound_effect.stream = sound
 	dog_sound_effect.play()
+	
+func aller_position_fin():
+	fin = true
 

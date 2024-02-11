@@ -9,11 +9,16 @@ extends Control
 @onready var Resolution_ob = get_node("%Resolution_Optionbutton")
 @onready var OptionContainer = get_node("%OptionContainer")
 @onready var MainContainer = get_node("%MainContainer")
+@onready var CreditContainer = get_node("%CreditContainer")
+@onready var StartButton = get_node("MainContainer/Start_button")
+@onready var ReturnCreditButton = get_node("CreditContainer/Return_button")
+@onready var ReturnOptionButton = get_node("OptionContainer/Container/Return_button")
+
 
 # Config file
 # Move it into a singleton 
 var SettingsFile = ConfigFile.new()
-#--
+#--wiki
 var Vsync : int = 0
 # I'm a Vector3 instead of 3 var float
 # - x : General , y : Music , z : SFX
@@ -72,21 +77,23 @@ func _save_settings() -> void:
 func _ready():
 	_load_settings()
 	Resolution_ob.select(_check_resolution(DisplayServer.screen_get_size()))
-
+	StartButton.grab_focus()
 
 
 
 
 
 func _on_start_button_pressed():
-
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
 
 func _on_option_button_pressed():
 	OptionContainer.visible = true
 	MainContainer.visible = false
+	ReturnOptionButton.grab_focus()
 
-
+func _on_credit_button_pressed():
+	CreditContainer.visible = true
+	ReturnCreditButton.grab_focus()
 
 func _on_exit_button_pressed():
 	get_tree().quit()
@@ -129,6 +136,8 @@ func _on_sfx_h_scroll_bar_value_changed(value):
 func _on_return_button_pressed():
 	MainContainer.visible = true
 	OptionContainer.visible = false
+	CreditContainer.visible = false
+	StartButton.grab_focus()
 
 
 func _on_apply_button_pressed():
@@ -141,3 +150,4 @@ func _on_apply_button_pressed():
 func _on_vsync_option_button_item_selected(index):
 	# check the documentation about Vsync : https://docs.godotengine.org/en/stable/classes/class_displayserver.html#enum-displayserver-vsyncmode
 	Vsync = index
+

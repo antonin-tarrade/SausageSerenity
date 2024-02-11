@@ -426,8 +426,9 @@ position = Vector2(1061, 513)
 iteminfo = ExtResource("11_vhbat")
 
 [node name="Exploration" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1198, 424)
+position = Vector2(1198, 420)
 mass = 1000.0
+freeze = true
 iteminfo = ExtResource("14_ao8j5")
 
 [node name="Chat" parent="Objets" instance=ExtResource("4_40vl5")]
@@ -863,6 +864,5 @@ vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("56_1pco4")
-autoplay = true
 
 [connection signal="lettrerecu" from="Personnages/AttendRomantiqueBill/Requete/Missions/MissionAttendreRomantique" to="Personnages/RomantiqueBill/Requete/Missions/MissionRomantique" method="_on_mission_attendre_romantique_lettrerecu"]

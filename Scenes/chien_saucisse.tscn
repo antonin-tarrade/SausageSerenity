@@ -2354,6 +2354,10 @@ polygon = PackedVector2Array(-13, 4, 14, 4, 14, -10, -13, -10)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -40)
 zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+limit_right = 2506
+limit_bottom = 1099
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../Back")

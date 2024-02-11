@@ -9,15 +9,20 @@ var avancement: int = 0
 @onready var musique_2 = load("res://Musiques/chien_saucisse_lvl2.mp3")
 @onready var musique_3 = load("res://Musiques/chien_saucisse_lvl3.mp3")
 
+# Effet visuel
+@onready var anim_fade : AnimationPlayer = $"../AnimationEntreeScenes" # anim entree/sortie jeu
+
 func _ready():
 	%LayerFin.visible = false
 	audio_player.stream = musique_0
 	audio_player.play() 
+	anim_fade.play("entree")
+	
 	
 	
 func _process(_delta):
 	if Input.is_action_pressed("quitter"):
-		get_tree().change_scene_to_file("res://Menu/main.tscn")
+		quitter()
 
 func _on_mission_fini():
 	nbMissionsFinies += 1.0
@@ -43,3 +48,9 @@ func play_music(advancement: int) -> void:
 		3:
 			audio_player.stream = musique_3
 	audio_player.play()
+
+func quitter():
+	get_tree().paused = true
+	anim_fade.play_backwards("entree")
+	await anim_fade.animation_finished
+	get_tree().change_scene_to_file("res://Menu/main.tscn")

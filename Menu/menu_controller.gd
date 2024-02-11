@@ -75,6 +75,7 @@ func _save_settings() -> void:
 
 
 func _ready():
+	get_tree().paused = false
 	_load_settings()
 	Resolution_ob.select(_check_resolution(DisplayServer.screen_get_size()))
 	StartButton.grab_focus()
@@ -106,13 +107,13 @@ func _on_resolution_optionbutton_item_selected(index):
 
 
 
-func _on_window_mode_optionbutton_item_selected(index):
+func _on_window_mode_optionbutton_item_selected(_index):
 	pass # Replace with function body.
 
 
 
 
-func _on_preset_h_slider_value_changed(value):
+func _on_preset_h_slider_value_changed(_value):
 	# start here https://docs.godotengine.org/en/stable/tutorials/3d/mesh_lod.html
 	pass # Replace with function body.
 

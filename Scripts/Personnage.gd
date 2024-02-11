@@ -65,10 +65,10 @@ func regarder_autour_objets():
 			listeobj.append(obj)
 	return listeobj
 
-func regarder_objet_present(nom:String) -> bool :
+func regarder_objet_present(nom_obj:String) -> bool :
 	var objets_autour = regarder_autour_objets()
 	for obj in objets_autour :
-		if (obj.get_id() == nom):
+		if (obj.get_id() == nom_obj):
 			return true
 	return false
 	

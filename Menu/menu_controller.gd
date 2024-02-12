@@ -33,6 +33,7 @@ func _check_resolution( resolution : Vector2i):
 	for i in Resolution_ob.get_item_count() :
 		if _get_resolution(i) == resolution :
 			return i
+	return 1
 
 func _first_time() -> void:
 	DisplayServer.window_set_size(DisplayServer.screen_get_size())

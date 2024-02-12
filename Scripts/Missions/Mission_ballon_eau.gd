@@ -3,10 +3,10 @@ extends Sprite2D
 @export var ballon : Objet = null
 var touche : bool = false
 
-func init(personnage : Personnage) :
+func init(_personnage : Personnage) :
 	ballon.connect("destroyed",_on_destroyed)
 
-func verifier(personnage : Personnage) -> bool :
+func verifier(_personnage : Personnage) -> bool :
 	print("ballon eau")
 	return touche
 

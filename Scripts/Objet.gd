@@ -36,7 +36,7 @@ func _ready():
 func get_id() -> String :
 	return id
 
-func get_isTakable() -> bool :
+func get_isTakable() :
 	return isTakable
 
 func PickUp() :

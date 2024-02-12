@@ -75,6 +75,12 @@ var HaveWallTouched = false
 @onready var pieds_anim = $Head/PivotObjet/chien_mange/AnimationPlayer
 @onready var pieds_pos = pieds.position
 
+@onready var default_color = modulate
+var rougeur_init = 1
+var rougeur = 1
+var rougeur_max = 1.7
+var delta_rougeur = 0.01
+
 # Fin du chien
 @export var fin = false
 var position_objectif_fin : Vector2 = Vector2(2277,908)
@@ -129,13 +135,18 @@ func _physics_process(delta):
 				
 		
 	elif Input.is_action_just_released("charger") and not timer.is_stopped():
-		var f : float = timer.time_left	
+		var f : float = timer.time_left
 		timer.stop()
 		frapper(f)
-
+		init_couleur_chien()
+		mettre_penchage()
 	elif Input.is_action_pressed("charger") :
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
+		# chien Rougis quand attaque
+		if (rougeur < rougeur_max):
+			rougeur += delta_rougeur 
+		modulate = Color(rougeur,1,1)
 	else :
 		
 		if y != 0:
@@ -153,6 +164,9 @@ func _physics_process(delta):
 	if turning_right != old_turning_right:
 		rotate_dog()
 	old_turning_right = turning_right
+	if (!Input.is_action_pressed("charger")):
+		init_couleur_chien()
+	
 	if fin :
 		var direction = global_position.direction_to(position_objectif_fin)
 		var ecart : Vector2 = position - position_objectif_fin
@@ -423,3 +437,20 @@ func play_sound_effect(sound: AudioStream) -> void:
 func aller_position_fin():
 	fin = true
 
+func init_couleur_chien():
+	rougeur = rougeur_init
+	modulate = default_color
+
+func mettre_penchage():
+	if turning_right :
+		niveau_penchage(1)
+	else : 
+		niveau_penchage(-1)
+	await get_tree().create_timer(0.5).timeout
+	niveau_penchage(0)
+	
+
+func niveau_penchage(value):
+	$Head.material.set_shader_parameter("pourcentage",value)
+	$Back.material.set_shader_parameter("pourcentage",value)
+	$BodySide.material.set_shader_parameter("pourcentage",value)

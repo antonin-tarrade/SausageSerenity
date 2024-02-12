@@ -1,10 +1,15 @@
-[gd_scene load_steps=85 format=3 uid="uid://cimdeld5rdie4"]
+[gd_scene load_steps=90 format=3 uid="uid://cimdeld5rdie4"]
 
 [ext_resource type="Script" path="res://Scripts/chien_saucisse.gd" id="1_f1xf0"]
+[ext_resource type="Shader" path="res://Scenes/chien_saucisse_attaque.gdshader" id="1_oay4v"]
 [ext_resource type="Texture2D" uid="uid://dkdbv43yoe7fk" path="res://Sprites/chien_milieu_side.png" id="3_4iqnj"]
 [ext_resource type="Texture2D" uid="uid://yj5qrvshcdmx" path="res://Sprites/chien saucisse.png" id="3_lnj7f"]
 [ext_resource type="Texture2D" uid="uid://bbrt1jfobspcd" path="res://Sprites/chien_milieu_up.png" id="4_owg4h"]
 [ext_resource type="Texture2D" uid="uid://c3ig3er3ix77v" path="res://Sprites/pnj_mange.png" id="5_lfg2o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6owqq"]
+shader = ExtResource("1_oay4v")
+shader_parameter/pourcentage = 1.0
 
 [sub_resource type="Animation" id="Animation_ir2np"]
 length = 0.05
@@ -2009,6 +2014,18 @@ size = Vector2(17.75, 29)
 [sub_resource type="CircleShape2D" id="CircleShape2D_n7i5e"]
 radius = 115.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_flklc"]
+shader = ExtResource("1_oay4v")
+shader_parameter/pourcentage = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sqley"]
+shader = ExtResource("1_oay4v")
+shader_parameter/pourcentage = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vqers"]
+shader = ExtResource("1_oay4v")
+shader_parameter/pourcentage = 0.0
+
 [sub_resource type="Animation" id="Animation_5m8r6"]
 length = 0.68
 loop_mode = 1
@@ -2346,6 +2363,8 @@ size = Vector2(26, 11)
 
 [node name="ChienSaucisse" type="CharacterBody2D"]
 z_index = 1
+material = SubResource("ShaderMaterial_6owqq")
+use_parent_material = true
 script = ExtResource("1_f1xf0")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -2411,6 +2430,7 @@ shape = SubResource("CircleShape2D_n7i5e")
 [node name="BodySide" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 2
+material = SubResource("ShaderMaterial_flklc")
 position = Vector2(0, -12)
 texture = ExtResource("3_4iqnj")
 region_enabled = true
@@ -2450,6 +2470,7 @@ metadata/_aseprite_wizard_config_ = {
 
 [node name="Back" type="Sprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_sqley")
 position = Vector2(0, -12)
 texture = ExtResource("3_lnj7f")
 hframes = 16
@@ -2475,6 +2496,7 @@ libraries = {
 
 [node name="Head" type="Sprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_vqers")
 position = Vector2(0, -12)
 texture = ExtResource("3_lnj7f")
 hframes = 16

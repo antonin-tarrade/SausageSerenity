@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Item" load_steps=8 format=3 uid="uid://6o0g0edkg7vt"]
+
+[ext_resource type="Texture2D" uid="uid://g4172i1ogqyx" path="res://TilesObjets/vase_fleur.png" id="1_4r4pm"]
+[ext_resource type="Script" path="res://ObjectData.gd" id="1_xfabk"]
+[ext_resource type="Texture2D" uid="uid://ffetsmt55vgg" path="res://TilesObjets/destroyed/tile002.png" id="2_o8hxl"]
+[ext_resource type="Texture2D" uid="uid://cxpd6sd5k2i0s" path="res://TilesObjets/destroyed/tile005.png" id="3_d7dl6"]
+[ext_resource type="Texture2D" uid="uid://8nw67b5gsnqp" path="res://TilesObjets/destroyed/tile008.png" id="4_oygg3"]
+[ext_resource type="Resource" uid="uid://boy7742xc2823" path="res://Objets/rose.tres" id="5_1eihp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg4ly"]
+size = Vector2(16, 22)
+
+[resource]
+script = ExtResource("1_xfabk")
+id = "vase_fleur"
+icon = ExtResource("1_4r4pm")
+isTakable = false
+isPushable = false
+isDestroyable = true
+collisionShape = SubResource("RectangleShape2D_gg4ly")
+positionShape = Vector2(0, 0)
+icon_destroyed_1 = ExtResource("2_o8hxl")
+icon_destroyed_2 = ExtResource("3_d7dl6")
+icon_destroyed_3 = ExtResource("4_oygg3")
+does_spawn_object = true
+object = ExtResource("5_1eihp")

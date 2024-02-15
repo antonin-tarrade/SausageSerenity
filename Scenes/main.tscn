@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://dri423lovjsxw" path="res://Scenes/Mission.tscn" id="7_exk0v"]
 [ext_resource type="Resource" uid="uid://b5hnul0wtfdr1" path="res://Objets/ballon_immeuble.tres" id="7_hsa44"]
 [ext_resource type="Texture2D" uid="uid://ccybloapjpnqa" path="res://TilesObjets/tile002.png" id="8_p0yte"]
-[ext_resource type="Resource" uid="uid://boy7742xc2823" path="res://Objets/rose.tres" id="9_1dqtn"]
 [ext_resource type="Resource" uid="uid://hh7y7nu80g8m" path="res://Objets/verre.tres" id="9_dbj6m"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_baudruche.gd" id="9_ots5p"]
 [ext_resource type="Resource" uid="uid://c1efnkbamugk7" path="res://Objets/ballon_eau.tres" id="10_llfd6"]
@@ -32,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://jofrn3os448d" path="res://TilesObjets/tile000.png" id="16_eljw5"]
 [ext_resource type="Resource" uid="uid://cg0bf4y3cw058" path="res://Objets/vase.tres" id="16_tu7k8"]
 [ext_resource type="Resource" uid="uid://bc204q5dfonii" path="res://Objets/douche.tres" id="16_vkrxl"]
+[ext_resource type="Resource" uid="uid://6o0g0edkg7vt" path="res://Objets/vase_fleur.tres" id="17_hy55f"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_appart.gd" id="17_lvmad"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_douche.gd" id="18_oge4c"]
 [ext_resource type="Script" path="res://Scripts/Missions/Mission_ballon_immeuble.gd" id="19_e3hvw"]
@@ -422,7 +422,6 @@ nbMissions = 12.0
 
 [node name="Decor" parent="." instance=ExtResource("4_5016y")]
 unique_name_in_owner = true
-position = Vector2(-1, 0)
 
 [node name="Objets" type="Node2D" parent="." groups=["objets"]]
 
@@ -449,14 +448,6 @@ iteminfo = ExtResource("6_h6724")
 [node name="BalleImmeuble" parent="Objets" instance=ExtResource("4_40vl5")]
 position = Vector2(1072, 417)
 iteminfo = ExtResource("7_hsa44")
-
-[node name="Rose" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(1979, 899)
-iteminfo = ExtResource("9_1dqtn")
-
-[node name="BallonEau" parent="Objets" instance=ExtResource("4_40vl5")]
-position = Vector2(20, 884)
-iteminfo = ExtResource("10_llfd6")
 
 [node name="MotDoux" parent="Objets" instance=ExtResource("4_40vl5")]
 position = Vector2(1061, 513)
@@ -492,7 +483,7 @@ iteminfo = ExtResource("9_dbj6m")
 
 [node name="VaseRose" parent="Objets" instance=ExtResource("4_40vl5")]
 position = Vector2(1480, 791)
-iteminfo = ExtResource("16_tu7k8")
+iteminfo = ExtResource("17_hy55f")
 
 [node name="Vase2" parent="Objets" instance=ExtResource("4_40vl5")]
 position = Vector2(1486, 599)
@@ -501,6 +492,10 @@ iteminfo = ExtResource("16_tu7k8")
 [node name="Vase3" parent="Objets" instance=ExtResource("4_40vl5")]
 position = Vector2(1595, 600)
 iteminfo = ExtResource("16_tu7k8")
+
+[node name="Ballon_Eau" parent="Objets" instance=ExtResource("4_40vl5")]
+position = Vector2(1582, 773)
+iteminfo = ExtResource("10_llfd6")
 
 [node name="Personnages" type="Node2D" parent="."]
 
@@ -526,7 +521,7 @@ anim_triste = "kid_1_sad"
 anim_heureux = "kid_1_happy"
 
 [node name="BillBoue" type="Node2D" parent="Personnages"]
-position = Vector2(858, 880)
+position = Vector2(633, 780)
 metadata/_edit_group_ = true
 
 [node name="Personnage" parent="Personnages/BillBoue" instance=ExtResource("2_m3qme")]
@@ -678,7 +673,7 @@ script = ExtResource("11_6eq5y")
 material = SubResource("ShaderMaterial_5ib2d")
 
 [node name="BillRose" type="Node2D" parent="Personnages"]
-position = Vector2(1224, 588)
+position = Vector2(1593, 492)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/BillRose"]
@@ -722,7 +717,6 @@ anim_triste = "meuf_sad"
 anim_heureux = "meuf_happy"
 
 [node name="MechantBill" type="Node2D" parent="Personnages"]
-visible = false
 position = Vector2(1629, 752)
 metadata/_edit_group_ = true
 
@@ -738,7 +732,7 @@ position = Vector2(0, -4)
 scale = Vector2(1, 1)
 texture = ExtResource("12_ydduq")
 script = ExtResource("20_q6trk")
-ballon = NodePath("../../../../../Objets/BallonEau")
+ballon = NodePath("../../../../../Objets/Ballon_Eau")
 
 [node name="Personnage" parent="Personnages/MechantBill" instance=ExtResource("2_m3qme")]
 material = SubResource("ShaderMaterial_abs7k")
@@ -767,7 +761,7 @@ material = SubResource("ShaderMaterial_j6env")
 isTakable = true
 
 [node name="AttendRomantiqueBill" type="Node2D" parent="Personnages"]
-position = Vector2(1642, 494)
+position = Vector2(1612, 880)
 metadata/_edit_group_ = true
 
 [node name="Requete" type="Sprite2D" parent="Personnages/AttendRomantiqueBill"]
@@ -914,6 +908,7 @@ libraries = {
 follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="AnimationEntreeScenes/CanvasLayer"]
+visible = false
 top_level = true
 anchors_preset = 8
 anchor_left = 0.5

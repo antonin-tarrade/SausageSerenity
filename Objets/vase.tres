@@ -22,3 +22,4 @@ positionShape = Vector2(0, 2)
 icon_destroyed_1 = ExtResource("2_tkv7w")
 icon_destroyed_2 = ExtResource("3_dt5wk")
 icon_destroyed_3 = ExtResource("4_jd4b7")
+does_spawn_object = false

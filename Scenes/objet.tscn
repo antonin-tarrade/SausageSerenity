@@ -17,3 +17,4 @@ iteminfo = ExtResource("2_nqudc")
 shape = SubResource("RectangleShape2D_c0aw3")
 
 [node name="ObjetTexture" type="Sprite2D" parent="."]
+texture_filter = 3

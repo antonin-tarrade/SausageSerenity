@@ -126,7 +126,6 @@ func _physics_process(delta):
 			x = 0
 			old_e = 0.0
 			play_sound_effect(sound_shrink)
-			walldetect.position = walldetect_pos
 		ed = shrinkage()
 		y += 1
 		for tree in all_tree :
@@ -289,7 +288,7 @@ func shrinkage() -> int:
 			position.y -= mov
 			v = true
 	old_s = s
-	if v and height(c_polygon.polygon) <= height(normal_polygon):
+	if (v and height(c_polygon.polygon) <= height(normal_polygon)) or (!v and length(c_polygon.polygon) <= length(normal_polygon)):
 		c_polygon.polygon = normal_polygon
 		c_polygon.position = normal_position
 		head.position = head_position
@@ -299,17 +298,7 @@ func shrinkage() -> int:
 		is_extended = false
 		max_ex = false
 		camera.position = Vector2(0,-40)
-		return -1
-	elif !v and length(c_polygon.polygon) <= length(normal_polygon):
-		c_polygon.polygon = normal_polygon
-		c_polygon.position = normal_position
-		head.position = head_position
-		back.position = back_position
-		body_side.region_rect = Rect2(0,0,0,32)
-		body_up.region_rect = Rect2(0,0,32,0)
-		is_extended = false
-		max_ex = false
-		camera.position = Vector2(0,-40)
+		walldetect.position = walldetect_pos
 		return -1
 	else:
 		return ed

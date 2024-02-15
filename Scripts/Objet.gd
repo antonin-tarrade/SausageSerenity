@@ -18,6 +18,9 @@ var isDestroyable = false
 
 var destroyed_parts = []
 
+var does_spawn_object = false
+var object: Item = null
+
 signal destroyed
 
 var id : String = ""
@@ -54,7 +57,16 @@ func destroy():
 		var destroyed_part: RigidBody2D = Packed_destroyed_part.instantiate()
 		destroyed_part.get_node("Sprite").texture = destroyed_parts[i]
 		get_parent().add_child(destroyed_part)
-		destroyed_part.position = position + Vector2(5*i, 5*i) 
+		destroyed_part.position = position + Vector2(5*i, 5*i)
+	
+	if does_spawn_object:
+		var objet_scene: PackedScene = load("res://Scenes/objet.tscn")
+		var objet_instance: Objet = objet_scene.instantiate()
+		add_sibling(objet_instance)
+		objet_instance.iteminfo = iteminfo.object
+		objet_instance.load_resource()
+		objet_instance.global_position = self.global_position
+	
 	self.queue_free()
 
 func load_resource() :
@@ -68,6 +80,8 @@ func load_resource() :
 	print(iteminfo.positionShape)
 	collider["shape"] = iteminfo.collisionShape
 	collider["position"] = iteminfo.positionShape
+	self.does_spawn_object = iteminfo.does_spawn_object
+	self.object = iteminfo.object
 	
 	if isDestroyable:
 		destroyed_parts.append(iteminfo.icon_destroyed_1)

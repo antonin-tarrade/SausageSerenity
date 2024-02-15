@@ -16,3 +16,4 @@ isPushable = false
 isDestroyable = false
 collisionShape = SubResource("CapsuleShape2D_e3g6o")
 positionShape = Vector2(0, 2)
+does_spawn_object = false

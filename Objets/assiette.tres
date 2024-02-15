@@ -7,7 +7,7 @@
 script = ExtResource("1_vnj14")
 id = "tout_casser"
 icon = ExtResource("1_a81r7")
-isTakable = false
+isTakable = null
 isPushable = true
 isDestroyable = true
-positionShape = Vector2(0, 0)
+positionShape = null
